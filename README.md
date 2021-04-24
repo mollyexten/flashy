@@ -67,13 +67,7 @@ Frontend
 
 [Mobile Prototype](https://xd.adobe.com/view/6295745f-886e-42e0-8273-81997bc2a666-37c6/)
 
-<img src="https://i.imgur.com/hVlGVju.png" alt="signup" width="200"/> <img src="https://i.imgur.com/YeSvuhz.png" alt="home" width="200"/> <img src="https://i.imgur.com/jhyscKA.png" alt="deck overview" width="200"/>
-
-<img src="https://i.imgur.com/LvvsSz5.png" alt="word front" width="200"/> <img src="https://i.imgur.com/oolqUOt.png" alt="word back" width="200"/> <img src="https://i.imgur.com/ljSCYFO.png?1" alt="edit deck" width="200"/>
-
-<img src="https://i.imgur.com/ZpqB1YP.png?1" alt="create deck" width="200"/> <img src="https://i.imgur.com/Ys5ZPFN.png?1" alt="create/edit bottom" width="200">
-
-<img src="https://i.imgur.com/KY3pYKr.png?1" alt="hamburger" width="200"/> <img src="https://i.imgur.com/UDCEAt6.png?1" alt="signin" width="200"/>
+<img src="https://i.imgur.com/hVlGVju.png" alt="signup" width="200"/> <img src="https://i.imgur.com/YeSvuhz.png" alt="home" width="200"/> <img src="https://i.imgur.com/jhyscKA.png" alt="deck overview" width="200"/> <img src="https://i.imgur.com/LvvsSz5.png" alt="word front" width="200"/> <img src="https://i.imgur.com/oolqUOt.png" alt="word back" width="200"/> <img src="https://i.imgur.com/ljSCYFO.png?1" alt="edit deck" width="200"/> <img src="https://i.imgur.com/ZpqB1YP.png?1" alt="create deck" width="200"/> <img src="https://i.imgur.com/Ys5ZPFN.png?1" alt="create/edit bottom" width="200"> <img src="https://i.imgur.com/KY3pYKr.png?1" alt="hamburger" width="200"/> <img src="https://i.imgur.com/UDCEAt6.png?1" alt="signin" width="200"/>
 
 - Resource Show
 
