@@ -142,7 +142,8 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- Add a toggle to details column to hide information in review screen
+- Enable users to make decks public and search/share/save other users' decks
 
 ***
 
