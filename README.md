@@ -52,8 +52,6 @@ Frontend
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
 | React Router DOM | Enables linking and routing to different components |
