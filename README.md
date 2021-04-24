@@ -20,7 +20,7 @@ A flashcard app for English language learners
 
 ## Overview
 
-**flashy** is a mobile-first flashcard app. It is built with React in the frontend and Rails in the backend. After signing up, users can create and modify their own flashcards, which are organized into decks. Flashcards can be used for increasing their vocabulary or remembering terms and concepts in a specific subject.
+**flashy** is a mobile-first flashcard app. It is built with React in the frontend and Rails in the backend. After signing up, users can create and modify their own flashcards, which are organized into decks. **flashy** can be used for increasing vocabulary or remembering terms and concepts in a specific subject.
 
 
 <br>
@@ -64,8 +64,6 @@ Frontend
 ### Client (Front End)
 
 #### Wireframes
-
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
 [Mobile Prototype](https://xd.adobe.com/view/6295745f-886e-42e0-8273-81997bc2a666-37c6/)
 
