@@ -71,7 +71,7 @@ Frontend
 
 ![Dummy Link](url)
 
-- Resource Index
+<img src="https://imgur.com/jhyscKA" width="200">
 
 ![Dummy Link](url)
 
