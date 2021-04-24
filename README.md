@@ -1,5 +1,5 @@
 # flashy
-A flashcard app for English language learners
+A flashcard app
 
 - [Overview](#overview)
 - [MVP](#mvp)
