@@ -71,7 +71,7 @@ Frontend
 
 ![Dummy Link](url)
 
-<img src="https://imgur.com/jhyscKA" width="200">
+<img src="https://imgur.com/jhyscKA" alt="home screen" width="200"/>
 
 ![Dummy Link](url)
 
