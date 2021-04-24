@@ -122,8 +122,9 @@ src
 
 ## Post-MVP
 
-- Add a toggle to details column to hide information in review screen
 - Enable users to make decks public and search/share/save other users' decks
+- Create a index card "flip effect" when switching from term to detail in the word view
+- Include a textbox for pasting articles that will scan and produce a list of article words that are in the Academic Word List (AWL) and create a deck from these words
 
 ***
 
