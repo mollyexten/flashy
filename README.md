@@ -46,7 +46,7 @@ Frontend
 - Consume data from Ruby on Rails backend and render data in React components
 - Enable full CRUD on the frontend for decks and words within those decks
 - Use CSS Flexbox and/or Grid
-- Implement media queries for smartphone, tablet, and desktop
+- Implement media queries for mobile and desktop
 
 <br>
 
@@ -69,9 +69,9 @@ Frontend
 
 #### Mobile
 <img src="https://i.imgur.com/GhFK64i.png" alt="signup" width="200"/> <img src="https://i.imgur.com/QbYl7kD.png" alt="signin" width="200"/>
- <img src="https://i.imgur.com/Z469cH9.png" alt="home" width="200"/> <img src="https://i.imgur.com/YsLL1LD.png" alt="deck" width="200"/> <img src="https://i.imgur.com/UdeZfci.png" alt="word front" width="200"/> <img src="https://i.imgur.com/Jhq4mre.png" alt="word back" width="200"/> <img src="https://i.imgur.com/dJRpfyy.png?1" alt="manage" width="200"/> <img src="https://i.imgur.com/Ew2k4hg.png?1" alt="hamburger" width="200"/> <img src="https://i.imgur.com/KoTgcL0.png?1" alt="create deck" width="200"/> <img src="https://i.imgur.com/sPjGA60.png?1" alt="create/manage bottom" width="200">
+ <img src="https://i.imgur.com/Z469cH9.png" alt="home" width="200"/> <img src="https://i.imgur.com/YsLL1LD.png" alt="deck" width="200"/> <img src="https://i.imgur.com/UdeZfci.png" alt="word front" width="200"/> <img src="https://i.imgur.com/Jhq4mre.png" alt="word back" width="200"/> <img src="https://i.imgur.com/dJRpfyy.png?1" alt="manage" width="200"/> <img src="https://i.imgur.com/Ew2k4hg.png?1" alt="hamburger" width="200"/> <img src="https://i.imgur.com/KoTgcL0.png?1" alt="create" width="200"/> <img src="https://i.imgur.com/sPjGA60.png?1" alt="create/manage bottom" width="200">
 #### Desktop
-
+<img src="https://i.imgur.com/IuSUQTv.png" alt="signup" width="200"/> <img src="https://i.imgur.com/VjdeYCQ.png" alt="signin" width="200"/> <img src="https://i.imgur.com/RkESP1L.png" alt="home" width="200"/> <img src="https://i.imgur.com/pUDbRmW.png" alt="deck" width="200"/> <img src="https://i.imgur.com/0kqZDYZ.png" alt="word front" width="200"/> <img src="https://i.imgur.com/RXinrxZ.png" alt="word back" width="200"/> <img src="https://i.imgur.com/GFA2uYB.png" alt="manage" width="200"/> <img src="https://i.imgur.com/Oort2w2.png" alt="create" width="200"/>
 
 #### Component Tree
 
