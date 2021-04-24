@@ -35,13 +35,13 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 ### Goals
 
-####Backend
+Backend
 - Build a Ruby on Rails server with RESTful JSON endpoints
 - Build a database with three tables: users, decks, words
 * user to decks is one to many, decks to words is many to many
 * full CRUD controller methods for the words and decks tables
 
-####Frontend
+Frontend
 - React app with at least 8 separate rendered components
 - Consume data from Ruby on Rails backend and render data in React components
 - Enable full CRUD on the frontend for decks and words within those decks
