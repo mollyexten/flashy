@@ -67,9 +67,7 @@ Frontend
 
 [Mobile Prototype](https://xd.adobe.com/view/6295745f-886e-42e0-8273-81997bc2a666-37c6/)
 
-![Dummy Link](url)
-
-- Desktop Hero
+![Signin - unfilled](https://i.imgur.com/WkTAlBm.png)
 
 ![Dummy Link](url)
 
