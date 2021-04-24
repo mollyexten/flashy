@@ -115,7 +115,7 @@ src
 
 #### ERD Model
 
-[Flashy ERD](https://i.imgur.com/omXw7cz.png)
+![Flashy ERD](https://i.imgur.com/omXw7cz.png)
 <br>
 
 ***
