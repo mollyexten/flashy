@@ -67,9 +67,7 @@ Frontend
 
 [Mobile Prototype](https://xd.adobe.com/view/6295745f-886e-42e0-8273-81997bc2a666-37c6/)
 
-![Signin - unfilled](https://i.imgur.com/WkTAlBm.png | width=100)![Signin - filled](https://i.imgur.com/hVlGVju.png)
-
-![Dummy Link](url)
+<img src="https://i.imgur.com/hVlGVju.png" alt="sign in" width="200"/>
 
 <img src="https://i.imgur.com/jhyscKA.png" alt="home screen" width="200"/>
 
