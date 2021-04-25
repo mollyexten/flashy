@@ -70,31 +70,24 @@ Frontend
 #### Mobile
 <img src="https://i.imgur.com/GhFK64i.png" alt="signup" width="200"/> <img src="https://i.imgur.com/QbYl7kD.png" alt="signin" width="200"/>  
 User home will display decks. Deck detail screens are the launching point for full CRUD on decks and entries.  
-<img src="https://i.imgur.com/Z469cH9.png" alt="home" width="200"/><img src="https://i.imgur.com/gcXgDob.png" alt="deck" width="200"/>
-Some screens showing how post, update, and delete will work.
-</br>
-<img src="https://i.imgur.com/ipIPjen.png" alt="edit entry" width="200"/><img src="https://i.imgur.com/rx9OUUe.png" alt="create deck" width="200"/><img src="https://i.imgur.com/oM3kwqI.png" alt="create entry" width="200"/>
-Users will be able to review the term and details for each entry in the deck and navigate to different screens via the hamburger.
-</br>
-<img src="https://i.imgur.com/UdeZfci.png" alt="word front" width="200"/> <img src="https://i.imgur.com/Jhq4mre.png" alt="word back" width="200"/> <img src="https://i.imgur.com/QRNEkPt.png" alt="hamburger" width="200"/>
-In an earlier plan, editing the deck and its entries occurred in one screen. Not sure how this could be implemented, I decided against it. However, I still want to include this idea in case it is possible as a post-MVP.
-</br>
-<img src="https://i.imgur.com/YsLL1LD.png" alt="deck" width="200"/> <img src="https://i.imgur.com/dJRpfyy.png?1" alt="manage" width="200"/> <img src="https://i.imgur.com/KoTgcL0.png?1" alt="create" width="200"/> <img src="https://i.imgur.com/sPjGA60.png?1" alt="create/manage bottom" width="200">
+<img src="https://i.imgur.com/Z469cH9.png" alt="home" width="200"/><img src="https://i.imgur.com/gcXgDob.png" alt="deck" width="200"/>  
+Some screens showing how post, update, and delete will work.  
+<img src="https://i.imgur.com/ipIPjen.png" alt="edit entry" width="200"/><img src="https://i.imgur.com/rx9OUUe.png" alt="create deck" width="200"/><img src="https://i.imgur.com/oM3kwqI.png" alt="create entry" width="200"/>  
+Users will be able to review the term and details for each entry in the deck and navigate to different screens via the hamburger.  
+<img src="https://i.imgur.com/UdeZfci.png" alt="word front" width="200"/> <img src="https://i.imgur.com/Jhq4mre.png" alt="word back" width="200"/> <img src="https://i.imgur.com/QRNEkPt.png" alt="hamburger" width="200"/>  
+In an earlier plan, editing the deck and its entries occurred in one screen. Not sure how this could be implemented, I decided against it. However, I still want to include this idea in case it is possible as a post-MVP.  
+<img src="https://i.imgur.com/YsLL1LD.png" alt="deck" width="200"/> <img src="https://i.imgur.com/dJRpfyy.png?1" alt="manage" width="200"/> <img src="https://i.imgur.com/KoTgcL0.png?1" alt="create" width="200"/> <img src="https://i.imgur.com/sPjGA60.png?1" alt="create/manage bottom" width="200">  
 
 #### Desktop
-<img src="https://i.imgur.com/IuSUQTv.png" alt="signup" width="400"/> <img src="https://i.imgur.com/VjdeYCQ.png" alt="signin" width="400"/> 
-The same home and deck view on desktop:
-</br>
-<img src="https://i.imgur.com/RkESP1L.png" alt="home" width="400"/> <img src="https://i.imgur.com/SXxHhYS.png" alt="deck" width="400"/>
-Desktop CRUD:
-</br>
-<img src="https://i.imgur.com/4dUuom0.png" alt="edit entry" width="400"/> <img src="https://i.imgur.com/oXKhypH.png" alt="create deck" width="400"/> <img src="https://i.imgur.com/hcV8vp1.png" alt="create entry" width="400"/>
-Reviewing entries:
-</br>
-<img src="https://i.imgur.com/0kqZDYZ.png" alt="word front" width="400"/> <img src="https://i.imgur.com/RXinrxZ.png" alt="word back" width="400"/> 
-Desktop version of my "earlier plan" that I hope might be possible at some point:
-</br>
-<img src="https://i.imgur.com/pUDbRmW.png" alt="deck" width="400"/> <img src="https://i.imgur.com/GFA2uYB.png" alt="manage" width="400"/> <img src="https://i.imgur.com/Oort2w2.png" alt="create" width="400"/>
+<img src="https://i.imgur.com/IuSUQTv.png" alt="signup" width="400"/> <img src="https://i.imgur.com/VjdeYCQ.png" alt="signin" width="400"/>  
+The same home and deck view on desktop:  
+<img src="https://i.imgur.com/RkESP1L.png" alt="home" width="400"/> <img src="https://i.imgur.com/SXxHhYS.png" alt="deck" width="400"/>  
+Desktop CRUD:  
+<img src="https://i.imgur.com/4dUuom0.png" alt="edit entry" width="400"/> <img src="https://i.imgur.com/oXKhypH.png" alt="create deck" width="400"/> <img src="https://i.imgur.com/hcV8vp1.png" alt="create entry" width="400"/>  
+Reviewing entries:  
+<img src="https://i.imgur.com/0kqZDYZ.png" alt="word front" width="400"/> <img src="https://i.imgur.com/RXinrxZ.png" alt="word back" width="400"/>  
+Desktop version of my "earlier plan" that I hope might be possible at some point:  
+<img src="https://i.imgur.com/pUDbRmW.png" alt="deck" width="400"/> <img src="https://i.imgur.com/GFA2uYB.png" alt="manage" width="400"/> <img src="https://i.imgur.com/Oort2w2.png" alt="create" width="400"/>  
 
 #### Component Tree
 
