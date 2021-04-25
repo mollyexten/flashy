@@ -70,7 +70,12 @@ Frontend
 #### Mobile
 <img src="https://i.imgur.com/GhFK64i.png" alt="signup" width="200"/> <img src="https://i.imgur.com/QbYl7kD.png" alt="signin" width="200"/>
 
+</br>
+
 User home will display decks. Deck detail screens are the launching point for full CRUD on decks and entries.
+
+</br>
+
  <img src="https://i.imgur.com/Z469cH9.png" alt="home" width="200"/> <img src="https://i.imgur.com/gcXgDob.png" alt="deck" width="200"/>
  
  Some screens showing how post, update, and delete will work.
