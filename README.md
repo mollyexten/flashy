@@ -75,9 +75,7 @@ Frontend
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
-
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+![Flashy Component Tree](https://i.imgur.com/tbhj69e.png)
 
 #### Component Architecture
 
@@ -115,7 +113,7 @@ src
 
 #### ERD Model
 
-![Flashy ERD](https://i.imgur.com/omXw7cz.png)
+![Flashy ERD](https://i.imgur.com/IeGFjGE.jpg)
 <br>
 
 ***
