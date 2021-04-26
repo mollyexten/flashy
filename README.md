@@ -111,8 +111,6 @@ Desktop version of my "earlier plan" that I hope might be possible at some point
 
 #### Component Tree
 
-QUESTION:Since entry is a nested table within deck, should they be in the same component container in React? The first component hierarchy shows one container component with both deck and entry states stored within it. The second version shows them separated. Could you tell me whether one of these is more likely to work better?
-
 ![Flashy Component Tree 1](https://i.imgur.com/ZhzO2WO.png)
 
 #### Component Architecture
