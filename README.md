@@ -36,9 +36,9 @@ The **flashy** MVP is a well-organized "React on Rails" RESTful web app. Backend
 Backend
 - Build a Ruby on Rails server with RESTful JSON endpoints
 - Build a database with three tables: users, decks, entries
-* The user to decks association will be one to many
-* The decks to words association will be many to many
-* full CRUD controller methods for the entries and decks tables
+- The user to decks association will be one to many
+- The decks to words association will be many to many
+- full CRUD controller methods for the entries and decks tables
 
 Frontend
 - React app with one container component, 7 screen components, 2 "component components" and 2 shared components
