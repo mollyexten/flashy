@@ -62,6 +62,7 @@ Frontend
 |    PostgreSQL    | Imported as 'pg' in Rails, sets postgresql as the database for Active Record |
 |    rack-cors     | Handles cross-origin resource sharing, makes cross-origin AJAX possible |
 |      bcrypt      | Password hashing function for authentication |
+|        jwt       | Token-based authentication for tracking logged in users on frontend |
 
 <br>
 
