@@ -154,9 +154,9 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Backend tables      |     H    |     1 hr       |   20 min       |    TBD      |
-| Controllers & Models|     H    |     1 hr       |    40 min        |    TBD      |
-| Seed data           |     H    |     1.5 hrs       |               |    TBD      |
+| Backend tables      |     H    |     1 hr       |   .5 hrs min       |    TBD      |
+| Controllers & Models|     H    |     1 hr       |    1.5 hrs min        |    TBD      |
+| Seed data        |     H    |     1 hr       |   1.5 hrs     |    TBD      |
 | API calls           |     H    |     2 hrs      |               |    TBD      |
 | App.js routing      |     H    |     1 hr       |               |    TBD      |
 | Containers setup    |     H    |     1 hr       |               |    TBD      |
