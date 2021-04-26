@@ -20,16 +20,14 @@ A flashcard app
 
 ## Overview
 
-**flashy** is a mobile-first flashcard app. It is built with React in the frontend and Rails in the backend. After signing up, users can create and modify their own flashcards, which are organized into decks. **flashy** can be used for increasing vocabulary or remembering terms and concepts in a specific subject.
+**flashy** is a mobile-first flashcard app. After signing up, users can create and modify their own flashcards, which are organized into decks. **flashy** can be used for increasing vocabulary or remembering terms and concepts in a specific subject.
 
 
 <br>
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+The **flashy** MVP is a well-organized "React on Rails" RESTful web app. Backend endpoints will follow a uniform pattern, and frontend API calls will follow the common naming conventions. **flashy** will include a container component to reduce the number of API calls. The user interface will facilitate full CRUD on the deck and entry tables and present a uniform, responsive style.
 
 <br>
 
@@ -37,15 +35,17 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 Backend
 - Build a Ruby on Rails server with RESTful JSON endpoints
-- Build a database with three tables: users, decks, words
-* user to decks is one to many, decks to words is many to many
-* full CRUD controller methods for the words and decks tables
+- Build a database with three tables: users, decks, entries
+* The user to decks association will be one to many
+* The decks to words association will be many to many
+* full CRUD controller methods for the entries and decks tables
 
 Frontend
-- React app with at least 8 separate rendered components
-- Consume data from Ruby on Rails backend and render data in React components
-- Enable full CRUD on the frontend for decks and words within those decks
-- Use CSS Flexbox and/or Grid
+- React app with one container component, 7 screen components, 2 "component components" and 2 shared components
+- Set up axios calls for full CRUD on decks and entries tables
+- **CAN I GET FEEDBACK ON THE BELOW? SHOULD THERE BE ONLY ONE CONTAINER COMPONENT FOR TWO TABLES WITH A ONE TO MANY RELATIONSHIP?**
+- Hold deck and entry information in state variables within the container component
+- Use both CSS Flexbox and/or Grid
 - Implement media queries for mobile and desktop
 
 <br>
@@ -91,40 +91,83 @@ Desktop version of my "earlier plan" that I hope might be possible at some point
 
 #### Component Tree
 
+#### QUESTION:Since entry is a nested table within deck, should they be in the same component container in React?
+
 ![Flashy Component Tree](https://i.imgur.com/tbhj69e.png)
 
 #### Component Architecture
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
+#### I HAVE ONLY ONE CONTAINER ASSUMING THAT A NESTED TABLE MEANS YOU CAN'T SEPARATE DECK AND ENTRY INTO TWO SEPARATE CONTAINERS...
 
 ``` structure
 
 src
 |__ assets/
       |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
+      |__ icons
 |__ components/
-      |__ Header.jsx
+     |__ Deck
+     |__ Entry
+     |__ shared/
+         |__ Layout
+         |__ Nav
+|__ containers
+    |__ Flashcards
+|__ screens/
+    |__ DeckDetail
+    |__ DeckForm
+    |__ Decks
+    |__ EntryDetail
+    |__ EntryForm
+    |__ SignIn
+    |__ SignUp
 |__ services/
+    |__ apiConfig
+    |__ decks
+    |__ entries
+    |__ users
+|__ App.css
+|__ App.js
+|__ package.json
 
 ```
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
-
-<br>
-
+| Backend tables      |     H    |     1 hr       |               |    TBD      |
+| Controllers & Models|     H    |     1 hr       |               |    TBD      |
+| Seed data           |     H    |     1 hr       |               |    TBD      |
+| API calls           |     H    |     2 hrs      |               |    TBD      |
+| App.js routing      |     H    |     1 hr       |               |    TBD      |
+| Containers setup    |     H    |     1 hr       |               |    TBD      |
+| Screens setup       |     H    |     1 hr       |               |    TBD      |
+| Components, Layout  |     H    |     1 hr       |               |    TBD      |
+| Layout              |     H    |     1 hr       |               |    TBD      |
+| Nav - w/o auth      |     H    |     2 hrs      |               |    TBD      |
+| SignUp              |     H    |     2 hrs      |               |    TBD      |
+| SignIn              |     H    |     2 hrs      |               |    TBD      |
+| SignOut             |     H    |     2 hrs      |               |    TBD      |
+| Nav - w/ auth       |     H    |     1 hr       |               |    TBD      |
+| Decks               |     H    |     1 hr       |               |    TBD      |
+| Deck                |     H    |     1 hr       |               |    TBD      |
+| DeckDetail          |     H    |     2 hrs      |               |    TBD      |
+| Entry               |     H    |     1 hr       |               |    TBD      |
+| EntryDetail         |     H    |     2 hrs      |               |    TBD      |
+| DeckForm            |     H    |     2 hrs      |               |    TBD      |
+| EntryForm           |     H    |     2 hrs      |               |    TBD      |
+| Global styles (CSS) |     M    |     2 hrs      |               |    TBD      |
+| Grid (forms)        |     M    |     2 hrs      |               |    TBD      |
+| Flex (decks/entries)|     M    |     2 hrs      |               |    TBD      |
+| Media queries       |     M    |     2 hrs      |               |    TBD      |
+| Flip effect         |     L    |     2 hrs      |               |    TBD      |
+| Deck sharing        |     L    |     2 hrs      |               |    TBD      |
+| AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
+| Linting             |     L    |     2 hrs      |               |    TBD      |
+| TOTAL               |          |    46 hrs      |               |     TBD     |
+  
+  
 ### Server (Back End)
 
 #### ERD Model
@@ -136,9 +179,9 @@ src
 
 ## Post-MVP
 
-- Enable users to make decks public and search/share/save other users' decks
-- Create a index card "flip effect" when switching from term to detail in the word view
-- Include a textbox for pasting articles that will scan and produce a list of article words that are in the Academic Word List (AWL) and create a deck from these words
+- Deck sharing - Enable users to make decks public and search/share/save other users' decks
+- Flip effect - Animate entry detail screen so that the card "flips" between the term and its details
+- AWL Deck Generator - Include a textbox for pasting articles that will scan and produce a list of article words that are in the Academic Word List (AWL) and create a deck from these words
 
 ***
 
