@@ -27,7 +27,7 @@ A flashcard app
 
 ## MVP
 
-The **flashy** MVP is a well-organized "React on Rails" RESTful web app. Backend endpoints will follow a uniform pattern, and frontend API calls will follow the common naming conventions. **flashy** will include a container component to reduce the number of API calls. The user interface will facilitate full CRUD on the deck and entry tables and present a uniform, responsive style.
+The **flashy** MVP is a well-organized "React on Rails" RESTful web app. Backend endpoints and frontend API calls will follow standard naming conventions. **flashy** will include a container component to reduce the number of API calls. The user interface will facilitate full CRUD on the deck and entry tables and present a uniform, responsive style.
 
 <br>
 
