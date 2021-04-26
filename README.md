@@ -61,6 +61,7 @@ Frontend
 |  Ruby on Rails   | Backend frameword written in Ruby |
 |    PostgreSQL    | Imported as 'pg' in Rails, sets postgresql as the database for Active Record |
 |    rack-cors     | Handles cross-origin resource sharing, makes cross-origin AJAX possible |
+|      bcrypt      | Password hashing function for authentication |
 
 <br>
 
