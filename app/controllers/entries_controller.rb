@@ -28,6 +28,10 @@ class EntriesController < ApplicationController
     end
   end
 
+  def destroy
+    @entry.destroy
+  end
+
   private
   
   def set_deck
