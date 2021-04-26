@@ -37,14 +37,16 @@ Backend
 - Build a Ruby on Rails server with RESTful JSON endpoints
 - Build a database with three tables: users, decks, entries
 - The user to decks association will be one to many
-- The decks to words association will be many to many
-- full CRUD controller methods for the entries and decks tables
+- The decks to entries association will be one to many
+- Index, show, and create controller methods for the decks table
+- Full CRUD controller methods for the entries table
 
 Frontend
-- React app with one container component, 7 screen components, 2 "component components" and 2 shared components
-- Set up axios calls for full CRUD on decks and entries tables
+- React app with one container component, seven screen components, two "component components" and two shared components
+- Set up axios calls for get and post on decks table
+- Set up axios calls for full CRUD on the entries table
 - Hold deck and entry information in state variables within the container component
-- Use both CSS Flexbox and/or Grid
+- Use both CSS Flexbox and Grid
 - Implement media queries for mobile and desktop
 
 <br>
@@ -53,9 +55,11 @@ Frontend
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
+| Create React App | Sets up the tools needed for a React App   |
 | React Router DOM | Enables linking and routing to different components |
 |      Axios       | Sends asynchronous HTTP requests to RESTful endpoints to perform CRUD on database |
-|    PostgreSQl    | Imported as 'pg' in Rails, sets postgresql as the database for Active Record |
+|  Ruby on Rails   | Backend frameword written in Ruby |
+|    PostgreSQL    | Imported as 'pg' in Rails, sets postgresql as the database for Active Record |
 |    rack-cors     | Handles cross-origin resource sharing, makes cross-origin AJAX possible |
 
 <br>
@@ -109,8 +113,7 @@ Desktop version of my "earlier plan" that I hope might be possible at some point
 
 QUESTION:Since entry is a nested table within deck, should they be in the same component container in React? The first component hierarchy shows one container component with both deck and entry states stored within it. The second version shows them separated. Could you tell me whether one of these is more likely to work better?
 
-![Flashy Component Tree 1](https://i.imgur.com/tbhj69e.png)
-![Flashy Component Tree 2](https://i.imgur.com/ITDodXc.png)
+![Flashy Component Tree 1](https://i.imgur.com/ZhzO2WO.png)
 
 #### Component Architecture
 
@@ -194,6 +197,8 @@ src
 
 ## Post-MVP
 
+- Full CRUD for the decks table
+- Tablet media queries
 - Deck sharing - Enable users to make decks public and search/share/save other users' decks
 - Flip effect - Animate entry detail screen so that the card "flips" between the term and its details
 - AWL Deck Generator - Include a textbox for pasting articles that will scan and produce a list of article words that are in the Academic Word List (AWL) and create a deck from these words
