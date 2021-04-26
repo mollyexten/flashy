@@ -18,7 +18,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      # Include token in response whenever a user registers, but don't send password_digest
+      @token = encode({id: @user.id})
+      render json: {
+        user: @user.attributes.except("password_digest"),
+        token: @token
+        }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
