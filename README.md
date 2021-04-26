@@ -42,7 +42,7 @@ Backend
 
 Frontend
 - React app with one container component, 7 screen components, 2 "component components" and 2 shared components
-- Set up axios calls for full CRUD on decks and entries tables **SHOULD THERE BE ONLY ONE CONTAINER COMPONENT FOR TWO TABLES WITH A ONE TO MANY RELATIONSHIP?**
+- Set up axios calls for full CRUD on decks and entries tables
 - Hold deck and entry information in state variables within the container component
 - Use both CSS Flexbox and/or Grid
 - Implement media queries for mobile and desktop
@@ -107,7 +107,7 @@ Desktop version of my "earlier plan" that I hope might be possible at some point
 
 #### Component Tree
 
-#### QUESTION:Since entry is a nested table within deck, should they be in the same component container in React?
+QUESTION:Since entry is a nested table within deck, should they be in the same component container in React?
 
 ![Flashy Component Tree](https://i.imgur.com/tbhj69e.png)
 
