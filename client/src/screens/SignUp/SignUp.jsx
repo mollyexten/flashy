@@ -1,26 +1,27 @@
 import "./SignUp.css";
-import Layout from "../../components/shared/Layout/Layout"
+import Layout from "../../components/shared/Layout/Layout";
 import { useState } from "react";
 // import { signUp, signIn } from "../../services/users";
 // import { useHistory } from "react-router-dom";
 
 export default function SignUp(props) {
   // const history = useHistory()
-  
+  const { user } = props
+
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: "",
     passwordConfirmation: "",
     isError: false,
-    errorMsg: ""
-  })
+    errorMsg: "",
+  });
 
-  const handleChange = (event) => (
+  const handleChange = (event) =>
     setForm({
       ...form,
       [event.target.name]: event.target.value,
-    }))
+    });
 
   // const onSignUp = (event) => {
   //   event.preventDefault();
@@ -60,11 +61,12 @@ export default function SignUp(props) {
 
   const { email, username, password, passwordConfirmation } = form;
   return (
-    <Layout>
+    <Layout user={user}>
+      <p>SIGN UP</p>
       <div className="signup-form">
         <h3 className="signup-header">sign up</h3>
         <form className="signup-form" /*onSubmit={onSignUp}*/>
-        <input
+          <input
             required
             type="text"
             className="signup-username"
@@ -104,5 +106,5 @@ export default function SignUp(props) {
         </form>
       </div>
     </Layout>
-  )
+  );
 }

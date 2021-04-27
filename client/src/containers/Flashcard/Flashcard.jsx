@@ -6,27 +6,28 @@ import EntryDetail from "../../screens/EntryDetail/EntryDetail"
 import DeckForm from "../../screens/DeckForm/DeckForm"
 import EntryForm from "../../screens/EntryForm/EntryForm"
 
-export default function Flashcard() {
+export default function Flashcard(props) {
+  const { user } = props
   return (
     <>
       <Switch>
       <Route path="/flashcards/create-entry">
-          <EntryForm />
+          <EntryForm user={user}/>
         </Route>
         <Route exact path="/flashcards/:deck_id/entries">
-          <DeckDetail />
+          <DeckDetail user={user}/>
         </Route>
         <Route path="/flashcards/entries/:entry_id">
-          <EntryDetail />
+          <EntryDetail user={user}/>
         </Route>
         <Route path="/flashcards/create-deck">
-          <DeckForm />
+          <DeckForm user={user}/>
         </Route>
         <Route path="/flashcards/edit-entry">
-          <EntryForm />
+          <EntryForm user={user}/>
         </Route>
         <Route exact path="/flashcards">
-          <Decks />
+          <Decks user={user}/>
         </Route>
       </Switch>
     </>

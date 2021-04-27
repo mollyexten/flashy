@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function SignIn(props) {
+  const { user } = props
   const history = useHistory()
 
   const [form, setForm] = useState({
@@ -58,7 +59,8 @@ export default function SignIn(props) {
   const { username, password } = form
 
   return (
-    <Layout>
+    <Layout user={user}>
+      <p>SIGN IN</p>
       <div className="signin-form">
             <h3 className="signin-header">sign in</h3>
             <form className="signin-container" /*onSubmit={onSignIn}*/>
