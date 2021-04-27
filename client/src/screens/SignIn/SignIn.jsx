@@ -1,7 +1,10 @@
 import "./SignIn.css";
+import Layout from "../../components/shared/Layout/Layout"
 
 export default function SignIn(props) {
   return (
-    <div>SIGN IN</div>
+    <Layout>
+      SIGN IN
+    </Layout>
   )
 }

@@ -1,14 +1,9 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-// import Decks from "./screens/Decks/Decks"
 import SignUp from "./screens/SignUp/SignUp"
 import SignIn from "./screens/SignIn/SignIn"
 import SignOut from "./screens/SignOut/SignOut"
-// import DeckDetail from "./screens/DeckDetail/DeckDetail"
-// import EntryDetail from "./screens/EntryDetail/EntryDetail"
-// import DeckForm from "./screens/DeckForm/DeckForm"
-// import EntryForm from "./screens/EntryForm/EntryForm"
 import Flashcard from "./containers/Flashcard/Flashcard"
 
 function App() {

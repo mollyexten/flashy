@@ -1,5 +1,9 @@
+import Layout from "../../components/shared/Layout/Layout"
+
 export default function SignOut(props) {
   return (
-    <div>SIGN OUT</div>
+    <Layout>
+      SIGN OUT
+    </Layout>
   )
 }

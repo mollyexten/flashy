@@ -1,11 +1,13 @@
 import "./Layout.css"
-import Nav from "../Nav/Nav"
+import Navbar from "../Navbar/Navbar"
 
 const Layout = (props) => (
   <div className='layout'>
-    <Nav />
+    <Navbar />
     <div className="layout-children">
       {props.children}
     </div>
   </div>
 )
+
+export default Layout

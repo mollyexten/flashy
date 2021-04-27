@@ -1,7 +1,10 @@
 import "./Decks.css";
+import Layout from "../../components/shared/Layout/Layout"
 
 export default function Decks(props) {
   return (
-    <div>DECKS</div>
+    <Layout>
+      DECKS
+    </Layout>
   )
 }

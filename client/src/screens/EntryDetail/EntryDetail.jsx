@@ -1,7 +1,10 @@
 import "./EntryDetail.css";
+import Layout from "../../components/shared/Layout/Layout"
 
 export default function EntryDetail(props) {
   return (
-    <div>ENTRY DETAIL</div>
+    <Layout>
+      ENTRY DETAIL
+    </Layout>
   )
 }
