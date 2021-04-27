@@ -1,14 +1,15 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import Decks from "./screens/Decks/Decks"
+// import Decks from "./screens/Decks/Decks"
 import SignUp from "./screens/SignUp/SignUp"
 import SignIn from "./screens/SignIn/SignIn"
 import SignOut from "./screens/SignOut/SignOut"
-import DeckDetail from "./screens/DeckDetail/DeckDetail"
-import EntryDetail from "./screens/EntryDetail/EntryDetail"
-import DeckForm from "./screens/DeckForm/DeckForm"
-import EntryForm from "./screens/EntryForm/EntryForm"
+// import DeckDetail from "./screens/DeckDetail/DeckDetail"
+// import EntryDetail from "./screens/EntryDetail/EntryDetail"
+// import DeckForm from "./screens/DeckForm/DeckForm"
+// import EntryForm from "./screens/EntryForm/EntryForm"
+import Flashcard from "./containers/Flashcard/Flashcard"
 
 function App() {
   const [user, setUser] = useState(null)
@@ -31,33 +32,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/">
-          <Decks />
-        </Route>
-        <Route path="/sign-up">
-          <SignUp />
-        </Route>
-        <Route path="/sign-in">
-          <SignIn />
-        </Route>
-        <Route path="/sign-out">
-          <SignOut />
-        </Route>
-        <Route path="/:deck_id/entries">
-          <DeckDetail />
-        </Route>
-        <Route path="/entries/:entry_id">
-          <EntryDetail />
-        </Route>
-        <Route path="/create-deck">
-          <DeckForm />
-        </Route>
-        <Route path="/create-entry">
-          <EntryForm />
-        </Route>
-        <Route path="/edit-entry">
-          <EntryForm />
-        </Route>
+        <Route path="/flashcards" component={Flashcard} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/sign-in" component={SignIn} />
+        <Route path="/sign-out" component={SignOut} />
       </Switch>
     </div>
   );
