@@ -154,14 +154,14 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Backend tables      |     H    |     1 hr       |   .5 hrs min       |    TBD      |
-| Controllers & Models|     H    |     1 hr       |    1.5 hrs min        |    TBD      |
-| Seed data        |     H    |     1 hr       |   1.5 hrs     |    TBD      |
+| Backend tables      |     H    |     1 hr       |    .5 hrs     |    TBD      |
+| Controllers & Models|     H    |     1 hr       |   1.5 hrs     |    TBD      |
+| Seed data           |     H    |     1 hr       |   1.5 hrs     |    TBD      |
 | API calls           |     H    |     2 hrs      |               |    TBD      |
-| App.js routing      |     H    |     1 hr       |               |    TBD      |
+| App.js routing      |     H    |     1 hr       |   1.5 hrs     |    TBD      |
 | Containers setup    |     H    |     1 hr       |               |    TBD      |
 | Screens setup       |     H    |     1 hr       |               |    TBD      |
-| Components, Layout  |     H    |     1 hr       |               |    TBD      |
+| Components, Layout  |     H    |     1 hr       |    .5 hrs     |    TBD      |
 | Layout              |     H    |     1 hr       |               |    TBD      |
 | Nav - w/o auth      |     H    |     2 hrs      |               |    TBD      |
 | SignUp              |     H    |     2 hrs      |               |    TBD      |
