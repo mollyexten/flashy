@@ -1,33 +1,45 @@
-// import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Decks from "../../screens/Decks/Decks"
 import DeckDetail from "../../screens/DeckDetail/DeckDetail"
 import EntryDetail from "../../screens/EntryDetail/EntryDetail"
 import DeckForm from "../../screens/DeckForm/DeckForm"
 import EntryForm from "../../screens/EntryForm/EntryForm"
+import { createDeck, readAllDecks, readOneDeck} from "../../services/decks"
 
 export default function Flashcard(props) {
-  const { user } = props
+  const [decks, setDecks] = useState([])
+  const history = useHistory();
+  const { currentUser } = props;
+
+  useEffect(() => {
+    const fetchDecks = async () => {
+      const decks = await readAllDecks();
+      setDecks(decks)
+    }
+    fetchDecks();
+  }, [])
+
   return (
     <>
       <Switch>
       <Route path="/flashcards/create-entry">
-          <EntryForm user={user}/>
+          <EntryForm currentUser={currentUser} decks={decks}/>
         </Route>
         <Route exact path="/flashcards/:deck_id/entries">
-          <DeckDetail user={user}/>
+          <DeckDetail currentUser={currentUser} decks={decks}/>
         </Route>
         <Route path="/flashcards/entries/:entry_id">
-          <EntryDetail user={user}/>
+          <EntryDetail currentUser={currentUser} decks={decks}/>
         </Route>
         <Route path="/flashcards/create-deck">
-          <DeckForm user={user}/>
+          <DeckForm currentUser={currentUser} decks={decks}/>
         </Route>
         <Route path="/flashcards/edit-entry">
-          <EntryForm user={user}/>
+          <EntryForm currentUser={currentUser} decks={decks}/>
         </Route>
         <Route exact path="/flashcards">
-          <Decks user={user}/>
+          <Decks currentUser={currentUser} decks={decks}/>
         </Route>
       </Switch>
     </>

@@ -1,10 +1,12 @@
 import "./Decks.css";
-import Layout from "../../components/shared/Layout/Layout"
+import { useHistory } from "react-router-dom";
 
 export default function Decks(props) {
+  const { decks, currentUser } = props;
+  const history = useHistory();
   return (
-    <Layout>
+    <>
       DECKS
-    </Layout>
+    </>
   )
 }

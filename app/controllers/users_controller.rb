@@ -22,7 +22,9 @@ class UsersController < ApplicationController
       # Include token in response whenever a user registers, but don't send password_digest
       @token = encode({id: @user.id})
       render json: {
+        # User details will be stored in state
         user: @user.attributes.except("password_digest"),
+        # Token will be stored in local storage
         token: @token
         }, status: :created
     else

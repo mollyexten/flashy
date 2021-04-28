@@ -1,5 +1,4 @@
 import "./EntryDetail.css";
-import Layout from "../../components/shared/Layout/Layout"
 import { useHistory } from "react-router";
 
 export default function EntryDetail(props) {
@@ -8,7 +7,7 @@ export default function EntryDetail(props) {
     history.push("/flashcards/:deck_id/entries")
   }
   return (
-    <Layout>
+    <>
       <p>ENTRY DETAIL</p>
       <p className="term">
         TERM
@@ -19,6 +18,6 @@ export default function EntryDetail(props) {
       <button onClick={redirect}>
         BACK TO DECK
       </button>
-    </Layout>
+    </>
   )
 }

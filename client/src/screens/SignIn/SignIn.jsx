@@ -1,90 +1,50 @@
 import "./SignIn.css";
-import Layout from "../../components/shared/Layout/Layout"
-import { useState } from "react"
-// import { signIn } from '../../services/users'
-import { useHistory } from 'react-router-dom';
+import { useState } from "react";
 
+export default function SignIn({handleLogin}) {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = formData;
 
-export default function SignIn(props) {
-  const { user } = props
-  const history = useHistory()
-
-  const [form, setForm] = useState({
-    username: '',
-    password: '',
-    isError: false,
-    errorMsg: ''
-  })
-
-  const handleChange = event => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value
-    })
-  }
-  
-  // const onSignIn = event => {
-  //   event.preventDefault()
-  //   const { setUser } = props
-
-  //   signIn(form)
-  //           .then(user => {
-  //               setUser(user)
-  //           })
-  //           .then(() => history.push('/'))
-  //           .catch(error => {
-  //               console.error(error)
-  //               setForm({
-  //                   isError: true,
-  //                   errorMsg: 'Invalid Credentials',
-  //                   username: '',
-  //                   password: ''
-  //               })
-  //           })
-  // }
-
-  // const renderError = () => {
-  //   const toggleForm = form.isError ? 'danger' : ''
-  //   if (form.isError) {
-  //     return (
-  //       <button type="submit" className={toggleForm}>
-  //         {form.errorMsg}
-  //       </button>
-  //     )
-  //   } else {
-  //     return <button type="submit" className="signin-submit">sign in</button>
-  //   }
-  // }
-
-  const { username, password } = form
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
-    <Layout user={user}>
+    <>
       <p>SIGN IN</p>
-      <div className="signin-form">
-            <h3 className="signin-header">sign in</h3>
-            <form className="signin-container" /*onSubmit={onSignIn}*/>
-                <input
-            required
-            type="text"
-            className="signin-username"
-                    name="username"
-                    value={username}
-                    placeholder="username"
-                    onChange={handleChange}
-                />
-                <input
-                    required
-                    name="password"
-                    value={password}
-            type="password"
-            className="signin-password"
-                    placeholder="password"
-                    onChange={handleChange}
-                />
-                {/* {renderError()} */}
-            </form>
-        </div>
-    </Layout>
-  )
+      <form className="signin-container" onSubmit={(e) => {
+        e.preventDefault();
+        handleLogin(formData);
+      }}>
+        <input
+          required
+          type="text"
+          className="signin-username"
+          name="username"
+          value={username}
+          placeholder="username"
+          onChange={handleChange}
+        />
+        <input
+          required
+          name="password"
+          value={password}
+          type="password"
+          className="signin-password"
+          placeholder="password"
+          onChange={handleChange}
+        />
+          <button type="submit" className="signin-submit">
+          sign in
+        </button>
+        </form>
+    </>
+  );
 }

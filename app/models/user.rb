@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # Takes value of password, hashes it for us, and stores it as password_digest
   has_secure_password
   has_many :decks, dependent: :destroy
   

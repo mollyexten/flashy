@@ -1,5 +1,4 @@
 import "./DeckForm.css";
-import Layout from "../../components/shared/Layout/Layout"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
 
@@ -14,7 +13,7 @@ export default function DeckForm(props) {
     history.push("/flashcards/create-entry")
   }
   return (
-    <Layout>
+    <>
       <p>DECK FORM</p>
       <form onSubmit={handleSubmit} className="deck-form-container">
         <input
@@ -27,6 +26,6 @@ export default function DeckForm(props) {
           + ADD CARD
         </button>
       </form>
-    </Layout>
+      </>
   )
 }

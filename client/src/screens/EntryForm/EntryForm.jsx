@@ -1,5 +1,4 @@
 import "./EntryForm.css";
-import Layout from "../../components/shared/Layout/Layout";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -28,7 +27,7 @@ export default function EntryForm(props) {
   };
 
   return (
-    <Layout>
+    <>
       <p>ENTRY FORM</p>
       <form onSubmit={handleSubmit} className="entry-form-container">
         <input
@@ -52,6 +51,6 @@ export default function EntryForm(props) {
           SAVE DECK/SAVE CARD
         </button>
       </form>
-    </Layout>
+    </>
   );
 }

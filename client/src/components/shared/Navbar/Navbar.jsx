@@ -1,11 +1,14 @@
-import "./Navbar.css"
-import { Link } from "react-router-dom"
+import "./Navbar.css";
+import AuthOptions from "./NavAuth/AuthOptions";
+import UnAuthOptions from "./NavAuth/UnAuthOptions";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function Navbar(props) {
   const [windowDimension, setWindowDimension] = useState(null);
   const [hamburger, setHamburger] = useState(false);
   const [visible, setVisible] = useState(false);
+  const { handleLogout, currentUser } = props
 
   // Set windowDimension to figure out which layout to render
   useEffect(() => {
@@ -50,30 +53,22 @@ export default function Navbar(props) {
             className="hamburger-links"
             style={{ display: hamburger && visible ? "flex" : "none" }}
           >
-            <div className="no-auth-nav">
-              <Link to="/sign-in">sign in</Link>
-              <Link to="/sign-up">sign up</Link>
-            </div>
-            <div className="auth-nav">
-              <Link to="/flashcards">home</Link>
-              <Link to="/flashcards/create-deck">create deck</Link>
-              <Link to="/sign-out">sign out</Link>
-            </div>
+            {props.currentUser ? (
+              <AuthOptions currentUser={currentUser} handleLogout={handleLogout} />
+            ) : (
+              <UnAuthOptions />
+            )}
           </div>
-          </div>
-      ): (
-          <div className="desktop-nav">
-            <div className="no-auth-nav">
-              <Link to="/sign-in">sign in</Link>
-              <Link to="/sign-up">sign up</Link>
-            </div>
-            <div className="auth-nav">
-              <Link to="/flashcards">home</Link>
-              <Link to="/flashcards/create-deck">create deck</Link>
-              <Link to="/sign-out">sign out</Link>
-            </div>
+        </div>
+      ) : (
+        <div className="desktop-nav">
+          {props.currentUser ? (
+            <AuthOptions currentUser={currentUser} handleLogout={handleLogout} />
+          ) : (
+            <UnAuthOptions />
+          )}
         </div>
       )}
     </nav>
-  )
+  );
 }
