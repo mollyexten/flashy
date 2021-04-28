@@ -63,11 +63,6 @@ function App() {
           <Route path="/sign-in">
             <SignIn setCurrentUser={setCurrentUser} handleLogin={handleLogin} />
           </Route>
-          {/* <Route
-            path="/sign-out"
-            component={SignOut}
-            handleLogout={handleLogout}
-          /> */}
         </Switch>
       </Layout>
     </div>
