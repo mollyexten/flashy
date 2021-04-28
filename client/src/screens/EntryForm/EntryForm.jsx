@@ -48,7 +48,7 @@ export default function EntryForm(props) {
           + ADD CARD
         </button>
         <button type="submit" className="save-deck" value="save">
-          SAVE DECK/SAVE CARD
+          SAVE
         </button>
       </form>
     </>

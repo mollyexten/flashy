@@ -19,17 +19,16 @@ function App() {
   useEffect(() => {
     const handleVerify = async () => {
       const user = await verifyUser();
-      user ? setCurrentUser(user) : setCurrentUser(null)
-      // setCurrentUser(user);
+      setCurrentUser(user);
     };
     handleVerify()
     console.log(`Current user is ${currentUser}`);
   }, []);
 
   const handleLogin = async (formData) => {
-    const currentUser = await loginUser(formData);
-    setCurrentUser(currentUser);
-    history.push("/flashcards");
+    const user = await loginUser(formData);
+    setCurrentUser(user);
+    history.push("/");
   };
 
   const handleRegister = async (formData) => {
@@ -53,17 +52,16 @@ function App() {
       >
         <Switch>
           <Route
-            path="/flashcards"
-            component={Flashcard}
-            currentUser={currentUser}
-          />
-          <Route
             path="/sign-up"
             render={() => <SignUp handleRegister={handleRegister} />}
           />
           <Route path="/sign-in">
             <SignIn setCurrentUser={setCurrentUser} handleLogin={handleLogin} />
           </Route>
+          <Route
+            path="/"
+            render={() => <Flashcard currentUser={currentUser} />}
+          />
         </Switch>
       </Layout>
     </div>

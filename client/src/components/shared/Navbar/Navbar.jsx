@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import AuthOptions from "./NavAuth/AuthOptions";
 import UnAuthOptions from "./NavAuth/UnAuthOptions";
+import Hamburger from "../../Hamburger/Hamburger";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -25,8 +26,7 @@ export default function Navbar(props) {
   }, []);
 
   // Control whether hamburger links are visible through handleClick
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     setVisible(!visible);
     setHamburger(!hamburger);
   };
@@ -35,20 +35,10 @@ export default function Navbar(props) {
   const isMobile = windowDimension <= 640;
   return (
     <nav>
-      <h1>flashy</h1>
+      <h1 className="nav-header">flashy</h1>
       {isMobile ? (
         <div className="mobile-nav">
-          <svg
-            viewBox="0 0 200 160"
-            width="40"
-            height="40"
-            className="hamburger"
-            onClick={handleClick}
-          >
-            <rect width="200" ry="20" height="30"></rect>
-            <rect y="50" ry="20" width="200" height="30"></rect>
-            <rect y="100" ry="20" width="200" height="30"></rect>
-          </svg>
+          <Hamburger className="hamburger" handleClick={handleClick}/>
           <div
             className="hamburger-links"
             style={{ display: hamburger && visible ? "flex" : "none" }}

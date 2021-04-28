@@ -1,13 +1,8 @@
 class DecksController < ApplicationController
   before_action :authorize_request
   # before_action :set_user, only: [:index, :create]
-
-  # def index
-  #   @decks = Deck.where(user_id: @user)
-  #   render json: @decks
-  # end
   def index
-    @decks = Deck.all
+    @decks = @current_user.decks
     render json: @decks
   end
   
@@ -18,6 +13,7 @@ class DecksController < ApplicationController
   
   def create
     @deck = Deck.new(deck_params)
+    @deck.user = @current_user
     if @deck.save
       render json: @deck, status: :created
     else

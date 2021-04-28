@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   #   resources :entries, only: [:index, :create]
   # end
   # resources :entries, only: [:show, :update, :destroy]
-  resources :users
+  resources :users do
+    resources :entries, only: [:index]
+  end
   resources :decks, only: [:index, :show, :create] do
-    resources :entries, only: [:index, :create]
+    resources :entries, only: [:create]
   end
   resources :entries, only: [:show, :update, :destroy]
 

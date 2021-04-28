@@ -9,8 +9,3 @@ export const readAllDecks = async () => {
   const resp = await api.get(`/decks`)
   return resp.data
 }
-
-export const readOneDeck = async (id) => {
-  const resp = await api.get(`/decks/${id}`)
-  return resp.data
-}

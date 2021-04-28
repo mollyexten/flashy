@@ -155,10 +155,10 @@ src
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Backend tables      |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| Controllers & Models|     H    |     1 hr       |   1.5 hrs     |    TBD      |
+| Controllers & Models|     H    |     1 hr       |   2.5 hrs     |    TBD      |
 | Seed data           |     H    |     1 hr       |   1.5 hrs     |    TBD      |
-| API calls           |     H    |     2 hrs      |   1.5 hrs     |    TBD      |
-| App.js routing      |     H    |     1 hr       |   1.5 hrs     |    TBD      |
+| API calls           |     H    |     2 hrs      |   2.5 hrs     |    TBD      |
+| App.js routing      |     H    |     1 hr       |    2 hrs     |    TBD      |
 | Containers setup    |     H    |     1 hr       |    1 hr       |    TBD      |
 | Screens setup       |     H    |     1 hr       |    1 hr       |    TBD      |
 | Components, Layout  |     H    |     1 hr       |    .5 hrs     |    TBD      |
@@ -167,15 +167,15 @@ src
 | SignUp              |     H    |     2 hrs      |     2 hrs     |    TBD      |
 | SignIn              |     H    |     2 hrs      |     1 hr      |    TBD      |
 | SignOut             |     H    |     2 hrs      |    .5 hrs     |    TBD      |
-| Nav - w/ auth       |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| Decks               |     H    |     1 hr       |               |    TBD      |
-| Deck                |     H    |     1 hr       |               |    TBD      |
+| Nav - w/ auth       |     H    |     1 hr       |     2 hrs     |    TBD      |
+| Decks               |     H    |     1 hr       |     1 hr      |    TBD      |
+| Deck                |     H    |     1 hr       |    .5 hrs     |    TBD      |
 | DeckDetail          |     H    |     2 hrs      |               |    TBD      |
 | Entry               |     H    |     1 hr       |               |    TBD      |
 | EntryDetail         |     H    |     2 hrs      |               |    TBD      |
 | DeckForm            |     H    |     2 hrs      |               |    TBD      |
 | EntryForm           |     H    |     2 hrs      |               |    TBD      |
-| Global styles (CSS) |     M    |     2 hrs      |               |    TBD      |
+| Global styles (CSS) |     M    |     2 hrs      |    1.5 hrs    |    TBD      |
 | Grid (forms)        |     M    |     2 hrs      |               |    TBD      |
 | Flex (decks/entries)|     M    |     2 hrs      |               |    TBD      |
 | Media queries       |     M    |     2 hrs      |               |    TBD      |
@@ -183,7 +183,7 @@ src
 | Deck sharing        |     L    |     2 hrs      |               |    TBD      |
 | AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
 | Linting             |     L    |     2 hrs      |               |    TBD      |
-| TOTAL               |          |    46 hrs      |    13 hrs     |     TBD     |
+| TOTAL               |          |    46 hrs      |    21 hrs     |     TBD     |
   
   
 ### Server (Back End)

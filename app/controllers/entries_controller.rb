@@ -1,10 +1,13 @@
 class EntriesController < ApplicationController
-  before_action :set_deck, only: [:index, :create]
+  before_action :set_deck, only: [:create]
   before_action :set_entry, only: [:show, :update, :destroy]
- 
+  before_action :authorize_request
+
   def index
-    @entries = Entry.where(deck_id: @deck)
-    render json: @entries, include: :deck, status: :ok
+    # @decks = Deck.where(user_id: @current_user.id)
+    # @entries = Entry.where('deck_id IN (?)': @decks)
+    @user = User.find(params[:user_id])
+    render json: @entries, status: :ok
   end
 
   def show
@@ -13,6 +16,7 @@ class EntriesController < ApplicationController
   
   def create
     @entry = Entry.new(entry_params)
+    @entry.deck = @deck
     if @entry.save
       render json: @entry, status: :created
     else

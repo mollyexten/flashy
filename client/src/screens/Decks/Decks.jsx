@@ -1,13 +1,20 @@
 import "./Decks.css";
-import { useHistory } from "react-router-dom";
+import Deck from "../../components/Deck/Deck";
 
 export default function Decks(props) {
-  const { decks, currentUser } = props;
-  const history = useHistory();
-  console.log(decks);
+  const { currentUser, decks } = props;
+  const decksJSX = decks.map((deck, index) => (
+    <Deck
+      id={deck.id}
+      title={deck.title}
+      username={currentUser.username}
+      key={index}
+    />
+  ));
   return (
-    <>
-      DECKS
-    </>
-  )
+    <div>
+      {decks.length > 0 && decksJSX}
+      <div>ADD DECK</div>
+    </div>
+  ) 
 }

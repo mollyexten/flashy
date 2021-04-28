@@ -1,3 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre&family=Rokkitt&display=swap');
+
+:root {
+  --flashy-blue: #22223B;
+  --flashy-red: #FF4000;
+  --flashy-yellow: #FAFF81;
+  --flashy-teal: #437C90;
+  --flashy-light-blue: #F5F5FA;
+}
+
+body {
+  background-color: var(--flashy-light-blue);
+}
+
 .App {
   text-align: center;
+  font-family: 'Miriam Libre', sans-serif;
+  font-size: 18px;
+  color: var(--flashy-blue);
 }
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+button {
+  color: white;
+  background-color: var(--flashy-teal);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+/* font-family: 'Rokkitt', serif; */
