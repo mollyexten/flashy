@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
     begin
       # Decode helper method pulls user info from the token
       @decoded = decode(header)
-      # Set isntance variable current_user using user_id from token data
+      # Set instance variable current_user using user_id from token data
       @current_user = User.find(@decoded[:id])
     # If the user can't be found or the token isn't valid, we raise an unauthorized error
     rescue ActiveRecord::RecordNotFound => e

@@ -6,7 +6,7 @@ export const createDeck = async (data) => {
 }
 
 export const readAllDecks = async () => {
-  const resp = await api.get("/decks")
+  const resp = await api.get(`/decks`)
   return resp.data
 }
 

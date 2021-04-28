@@ -11,6 +11,7 @@ export default function Flashcard(props) {
   const [decks, setDecks] = useState([])
   const history = useHistory();
   const { currentUser } = props;
+  console.log(currentUser)
 
   useEffect(() => {
     const fetchDecks = async () => {

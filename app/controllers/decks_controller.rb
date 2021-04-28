@@ -1,8 +1,13 @@
 class DecksController < ApplicationController
-  before_action :set_user, only: [:index, :create]
+  before_action :authorize_request
+  # before_action :set_user, only: [:index, :create]
 
+  # def index
+  #   @decks = Deck.where(user_id: @user)
+  #   render json: @decks
+  # end
   def index
-    @decks = Deck.where(user_id: @user)
+    @decks = Deck.all
     render json: @decks
   end
   
@@ -22,9 +27,9 @@ class DecksController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
+  # def set_user
+  #   @user = User.find(params[:user_id])
+  # end
 
   def deck_params
     params.require(:deck).permit(:title, :user_id)

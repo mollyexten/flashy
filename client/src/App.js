@@ -9,7 +9,6 @@ import {
 } from "./services/auth";
 import SignUp from "./screens/SignUp/SignUp";
 import SignIn from "./screens/SignIn/SignIn";
-import SignOut from "./screens/SignOut/SignOut";
 import Flashcard from "./containers/Flashcard/Flashcard";
 import Layout from "./components/shared/Layout/Layout";
 
@@ -19,10 +18,12 @@ function App() {
 
   useEffect(() => {
     const handleVerify = async () => {
-      const currentUser = await verifyUser();
-      setCurrentUser(currentUser);
+      const user = await verifyUser();
+      user ? setCurrentUser(user) : setCurrentUser(null)
+      // setCurrentUser(user);
     };
-    handleVerify();
+    handleVerify()
+    console.log(`Current user is ${currentUser}`);
   }, []);
 
   const handleLogin = async (formData) => {

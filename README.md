@@ -157,9 +157,9 @@ src
 | Backend tables      |     H    |     1 hr       |    .5 hrs     |    TBD      |
 | Controllers & Models|     H    |     1 hr       |   1.5 hrs     |    TBD      |
 | Seed data           |     H    |     1 hr       |   1.5 hrs     |    TBD      |
-| API calls           |     H    |     2 hrs      |    1 hr       |    TBD      |
+| API calls           |     H    |     2 hrs      |   1.5 hrs     |    TBD      |
 | App.js routing      |     H    |     1 hr       |   1.5 hrs     |    TBD      |
-| Containers setup    |     H    |     1 hr       |               |    TBD      |
+| Containers setup    |     H    |     1 hr       |    1 hr       |    TBD      |
 | Screens setup       |     H    |     1 hr       |    1 hr       |    TBD      |
 | Components, Layout  |     H    |     1 hr       |    .5 hrs     |    TBD      |
 | Layout              |     H    |     1 hr       |               |    TBD      |
