@@ -9,7 +9,7 @@ export default function Navbar(props) {
   const [windowDimension, setWindowDimension] = useState(null);
   const [hamburger, setHamburger] = useState(false);
   const [visible, setVisible] = useState(false);
-  const { handleLogout, currentUser } = props
+  const { handleLogout, currentUser } = props;
 
   // Set windowDimension to figure out which layout to render
   useEffect(() => {
@@ -35,15 +35,22 @@ export default function Navbar(props) {
   const isMobile = windowDimension <= 640;
   return (
     <nav>
-      <h1 className="nav-header">flashy</h1>
       {isMobile ? (
         <div className="mobile-nav">
-          <Hamburger className="hamburger-image" handleClick={handleClick}/>
+          <h1 className="nav-header">flashy</h1>
+          <Hamburger className="hamburger-image" handleClick={handleClick} />
           <div
+            className="hamburger-dropdown"
             style={{ display: hamburger && visible ? "flex" : "none" }}
           >
+            <p onClick={handleClick} className="hamburger-close">
+              ✕
+            </p>
             {props.currentUser ? (
-              <AuthOptions currentUser={currentUser} handleLogout={handleLogout} />
+              <AuthOptions
+                currentUser={currentUser}
+                handleLogout={handleLogout}
+              />
             ) : (
               <UnAuthOptions />
             )}
@@ -51,11 +58,17 @@ export default function Navbar(props) {
         </div>
       ) : (
         <div className="desktop-nav">
-          {props.currentUser ? (
-            <AuthOptions currentUser={currentUser} handleLogout={handleLogout} />
-          ) : (
-            <UnAuthOptions />
-          )}
+          <h1 className="nav-header">flashy</h1>
+          <div className="desktop-console">
+            {props.currentUser ? (
+              <AuthOptions
+                currentUser={currentUser}
+                handleLogout={handleLogout}
+              />
+            ) : (
+              <UnAuthOptions />
+            )}
+          </div>
         </div>
       )}
     </nav>

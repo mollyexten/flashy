@@ -1,6 +1,6 @@
 export default function Hamburger(props) {
   return (
-    <svg viewBox="-100 -80 100 450" width="80" height="60" onClick={props.handleClick}>
+    <svg viewBox="0 -50 100 400" width="60" height="70" onClick={props.handleClick} className="hamburger-image">
     <circle
       cx="50"
             cy="50"
