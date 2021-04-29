@@ -91,7 +91,6 @@ export default function Flashcard(props) {
         <Route path="/create-deck">
           <DeckForm
             currentUser={currentUser}
-            setUserDecks={setUserDecks}
             createDeck={createDeck}
           />
         </Route>

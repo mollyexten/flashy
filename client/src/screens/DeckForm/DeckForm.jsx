@@ -3,12 +3,12 @@ import { useState } from "react"
 import { useHistory } from "react-router-dom"
 
 export default function DeckForm(props) {
-  const { currentUser, createDeck, setUserDecks } = props
+  const { currentUser, createDeck } = props
   const [formData, setFormData] = useState({
     title: "",
     user_id: currentUser.id
   })
-  const { title, user_id } = formData
+  const { title } = formData
   const history = useHistory()
   
   const handleChange = (e) => {
