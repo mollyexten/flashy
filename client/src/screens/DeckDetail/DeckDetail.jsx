@@ -9,12 +9,9 @@ export default function DeckDetail(props) {
   const { deck_id } = useParams();
   const { currentUser, decks } = props
 
-  // const foundDeck = decks.find((deck) => (
-  //   deck.id === deck_id))
-
   useEffect(() => {
-    if (decks) {
-      const oneDeck = decks.find((deck) => deck.id === Number(deck_id))
+    if (deck_id && decks.length > 0) {
+      const oneDeck = decks.find((deck) => deck.id === deck_id)
       setDeck(oneDeck)
     }
   }, [decks, deck_id])
@@ -24,7 +21,8 @@ export default function DeckDetail(props) {
   }
   return (
     <>
-      <h2>{deck.title}</h2>
+      {/* My useEffect works intermittently, and I don't know why */}
+      {/* <h2>{deck.title}</h2> */}
       <button onClick={studyDeck}>STUDY DECK</button>
     </>
   )
