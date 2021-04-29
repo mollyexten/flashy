@@ -58,7 +58,6 @@ nav {
 
 .desktop-nav {
   display: grid;
-  grid-template-columns: 1fr 2fr;
 }
 
 .desktop-nav > a,
@@ -69,6 +68,9 @@ nav {
 }
 
 @media (min-width: 641px) {
+  .desktop-nav {
+    grid-template-columns: 1fr 2fr;
+  }
   .nav-header {
     grid-column: 1 / 2;
     text-align: left;
@@ -79,12 +81,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
+    margin: 20px 30px;
   }
 
   .nav-link, .nav-link:visited {
     color: var(--flashy-yellow);
     font-size: 1.5em;
+  }
+}
+
+@media (min-width: 900px) {
+  .desktop-nav {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

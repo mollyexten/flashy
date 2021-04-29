@@ -1,0 +1,8 @@
+.study-button {
+  background-color: var(--flashy-teal);
+  color: white;
+  border-radius: 8px;
+  width: 250px;
+  height: 100px;
+  font-size: 1.5em;
+}

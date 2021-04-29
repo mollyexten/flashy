@@ -47,7 +47,7 @@ export default function DeckDetail(props) {
   return (
     <>
       <h2>{deck?.title}</h2>
-      <button onClick={studyDeck}>STUDY DECK</button>
+      <button onClick={studyDeck} className="study-button">STUDY DECK</button>
       <div className="card-div">
         {deckEntries.length > 0 && entriesJSX}
         <div className="card"><Link to="/create-entry" className="add-link">+ ADD CARD</Link></div>

@@ -12,3 +12,11 @@
   color: white;
   text-decoration: none;
 }
+
+.deck-div:active {
+  background-color: var(--flashy-yellow);
+}
+
+.deck-div>a:active {
+  color: var(--flashy-blue);
+}

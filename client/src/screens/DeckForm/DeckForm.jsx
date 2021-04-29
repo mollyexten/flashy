@@ -14,15 +14,16 @@ export default function DeckForm(props) {
   }
   return (
     <>
-      <p>DECK FORM</p>
+      <h2>create deck</h2>
       <form onSubmit={handleSubmit} className="deck-form-container">
         <input
           type="text"
           placeholder="deck title"
           value={deckTitle}
           onChange={handleChange}
+          className="title-input"
         />
-        <button type="submit" className="add-card">
+        <button type="submit" className="add-card deck-add-card">
           + ADD CARD
         </button>
       </form>

@@ -22,6 +22,8 @@ body {
 
 .layout {
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -33,12 +35,17 @@ button {
   text-transform: uppercase;
 }
 
+button:active {
+  background-color: var(--flashy-yellow);
+  color: var(--flashy-blue);
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
 }
 
-.card {
+.card, .add-card {
   background-color: white;
   color: var(--flashy-gray);
   display: flex;
