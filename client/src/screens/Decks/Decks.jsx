@@ -15,7 +15,7 @@ export default function Decks(props) {
   return (
     <>
     <h2>{`welcome, ${currentUser.username}`}!</h2>
-    <div className="decks-div">
+    <div className="card-div">
       {decks.length > 0 && decksJSX}
       <div className="card"><Link to="/create-deck" className="add-link">+ ADD DECK</Link></div>
       </div>

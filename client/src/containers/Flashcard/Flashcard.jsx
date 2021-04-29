@@ -9,14 +9,14 @@ import { createDeck, readAllDecks } from "../../services/decks";
 import { readAllEntries } from "../../services/entries"
 
 export default function Flashcard(props) {
-  const [decks, setDecks] = useState([]);
-  const [allEntries, setAllEntries] = useState([])
+  const [userDecks, setUserDecks] = useState([]);
+  const [userEntries, setUserEntries] = useState([])
   const { currentUser } = props;
 
   useEffect(() => {
     const fetchDecks = async () => {
       const decks = await readAllDecks();
-      setDecks(decks);
+      setUserDecks(decks);
     };
     if (currentUser) {
       fetchDecks();
@@ -26,36 +26,33 @@ export default function Flashcard(props) {
   useEffect(() => {
     const fetchEntries = async() => {
       const entries = await readAllEntries();
-      setAllEntries(entries)
-      console.log(entries)
+      setUserEntries(entries)
     }
     if (currentUser) {
       fetchEntries();
     }
   }, [currentUser])
 
-  console.log(allEntries)
-
   return (
     <>
       <Switch>
         <Route path="/create-entry">
-          <EntryForm currentUser={currentUser} decks={decks} />
+          <EntryForm currentUser={currentUser} decks={userDecks} />
         </Route>
         <Route exact path="/:deck_id/entries">
-          <DeckDetail currentUser={currentUser} decks={decks} entries={entries} />
+          <DeckDetail currentUser={currentUser} decks={userDecks} entries={userEntries} />
         </Route>
         <Route path="/entries/:entry_id">
-          <EntryDetail currentUser={currentUser} decks={decks} />
+          <EntryDetail currentUser={currentUser} decks={userDecks} />
         </Route>
         <Route path="/create-deck">
-          <DeckForm currentUser={currentUser} decks={decks} />
+          <DeckForm currentUser={currentUser} decks={userDecks} />
         </Route>
         <Route path="/edit-entry">
-          <EntryForm currentUser={currentUser} decks={decks} />
+          <EntryForm currentUser={currentUser} decks={userDecks} />
         </Route>
         <Route exact path="/">
-          <Decks currentUser={currentUser} decks={decks}/>
+          <Decks currentUser={currentUser} decks={userDecks}/>
         </Route>
       </Switch>
     </>

@@ -35,9 +35,10 @@ button {
 
 a {
   cursor: pointer;
+  text-decoration: none;
 }
 
-.card, .add-card {
+.card {
   background-color: white;
   color: var(--flashy-gray);
   display: flex;
@@ -46,6 +47,10 @@ a {
   font-size: 1.5em;
   font-weight: 800;
   box-shadow: 5px 5px 5px #cecece;
+}
+
+.card>* {
+  color: var(--flashy-blue);
 }
 
 .add-link, .add-link:visited {
@@ -84,3 +89,26 @@ input {
   }
 }
 /* font-family: 'Rokkitt', serif; */
+
+.card-div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.card-div>div {
+  margin: 25px;
+  padding: 25px 0px;
+  width: 250px;
+}
+
+@media (max-width: 530px) {
+  .card-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-div>div {
+    margin: 20px 0px;
+  }
+}

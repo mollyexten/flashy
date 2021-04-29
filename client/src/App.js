@@ -22,7 +22,6 @@ function App() {
       setCurrentUser(user);
     };
     handleVerify()
-    console.log(`Current user is ${currentUser}`);
   }, []);
 
   const handleLogin = async (formData) => {
