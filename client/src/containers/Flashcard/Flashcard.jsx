@@ -5,7 +5,7 @@ import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import EntryDetail from "../../screens/EntryDetail/EntryDetail";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
-import { createDeck, readAllDecks } from "../../services/decks";
+import { postDeck, readAllDecks } from "../../services/decks";
 import { readAllEntries } from "../../services/entries"
 
 export default function Flashcard(props) {
@@ -14,29 +14,38 @@ export default function Flashcard(props) {
   const { currentUser } = props;
 
   useEffect(() => {
-    const fetchDecks = async () => {
-      const decks = await readAllDecks();
-      setUserDecks(decks);
-    };
     if (currentUser) {
       fetchDecks();
     }
   }, [currentUser]);
-
+  
   useEffect(() => {
     if (currentUser) {
       fetchEntries();
     }
   }, [currentUser])
   
-  const fetchEntries = async () => {
-    const entries = await readAllEntries();
-    setUserEntries(entries)
-  }
-
+  const fetchDecks = async () => {
+    const decks = await readAllDecks();
+    setUserDecks(decks);
+  };
+  
   const getOneDeck = (decks, deck_id) => {
     const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
     return oneDeck;
+  }
+
+  const createDeck = async (deckData) => {
+    const newDeck = await postDeck(deckData);
+    setUserDecks(prevState => ([
+      ...prevState,
+      newDeck
+    ]))
+  }
+  
+  const fetchEntries = async () => {
+    const entries = await readAllEntries();
+    setUserEntries(entries)
   }
 
   const getDeckEntries = (entries, deck_id) => {
@@ -47,7 +56,7 @@ export default function Flashcard(props) {
   return (
     <>
       <Switch>
-        <Route path="/create-entry">
+        <Route path="/:deck_id/create-entry">
           <EntryForm
             currentUser={currentUser}
             decks={userDecks}
@@ -74,7 +83,8 @@ export default function Flashcard(props) {
         <Route path="/create-deck">
           <DeckForm
             currentUser={currentUser}
-            decks={userDecks}
+            setUserDecks={setUserDecks}
+            createDeck={createDeck}
           />
         </Route>
         <Route path="/edit-entry">

@@ -1,6 +1,6 @@
 import api from "./apiConfig";
 
-export const createDeck = async (data) => {
+export const postDeck = async (data) => {
   const resp = await api.post("/decks", { deck: data })
   return resp.data
 }

@@ -1,12 +1,16 @@
 import "./EntryForm.css";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 export default function EntryForm(props) {
+  const { deck_id } = useParams();
+  
   const [entry, setEntry] = useState({
     term: "",
     details: "",
+    deck_id: deck_id
   });
+  
   const history = useHistory()
 
   const handleChange = (e) => {

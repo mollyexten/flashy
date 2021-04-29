@@ -37,14 +37,14 @@ export default function DeckDetail(props) {
   const studyDeck = () => {
     history.push(`/${deck_id}/study`);
   };
-  
+
   return (
     <>
       <h2>{deck?.title}</h2>
       <button onClick={studyDeck} className="study-button">STUDY DECK</button>
       <div className="card-div">
         {deckEntries.length > 0 && entriesJSX}
-        <div className="card"><Link to="/create-entry" className="add-link">+ ADD CARD</Link></div>
+        <div className="card"><Link to={`/${deck_id}create-entry`} className="add-link">+ ADD CARD</Link></div>
       </div>
     </>
   );

@@ -3,28 +3,44 @@ import { useState } from "react"
 import { useHistory } from "react-router-dom"
 
 export default function DeckForm(props) {
-  const [deckTitle, setDeckTitle] = useState("")
+  const { currentUser, createDeck, setUserDecks } = props
+  const [formData, setFormData] = useState({
+    title: "",
+    user_id: currentUser.id
+  })
+  const { title, user_id } = formData
   const history = useHistory()
+  
   const handleChange = (e) => {
-    setDeckTitle(e.target.value)
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
   }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push("/create-entry")
-  }
+
   return (
     <>
       <h2>create deck</h2>
-      <form onSubmit={handleSubmit} className="deck-form-container">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          createDeck(formData);
+          history.push("/create-entry")
+        }}
+        className="deck-form-container"
+      >
         <input
+          required
           type="text"
           placeholder="deck title"
-          value={deckTitle}
+          name="title"
+          value={title}
           onChange={handleChange}
           className="title-input"
         />
-        <button type="submit" className="add-card deck-add-card">
-          + ADD CARD
+        <button type="submit" className="deck-submit">
+          CREATE
         </button>
       </form>
       </>
