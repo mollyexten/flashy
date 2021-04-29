@@ -9,26 +9,19 @@ export default function DeckDetail(props) {
   const [deckEntries, setDeckEntries] = useState([])
   const history = useHistory();
   const { deck_id } = useParams();
-  const { currentUser, decks, entries } = props;
+  const {currentUser, decks, entries, getOneDeck, getDeckEntries } = props;
 
   useEffect(() => {
-    const getOneDeck = () => {
-        const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
-        setDeck(oneDeck);
-    };
     if (decks.length) {
-      getOneDeck();
+      const oneDeck = getOneDeck(decks, deck_id);
+      setDeck(oneDeck)
     }
   }, [decks, deck_id]);
 
   useEffect(() => {
-    const getDeckEntries = () => {
-      const deckEntries = entries.filter((entry) => entry.deck_id === Number(deck_id))
-      setDeckEntries(deckEntries)
-    }
     if (entries.length) {
-      console.log(entries)
-      getDeckEntries();
+      const foundEntries = getDeckEntries(entries, deck_id)
+      setDeckEntries(foundEntries)
     }
   }, [entries, deck_id])
 
@@ -42,7 +35,7 @@ export default function DeckDetail(props) {
   ));
 
   const studyDeck = (e) => {
-    history.push("/flashcards/entries/:entry_id");
+    history.push("/entries/:entry_id");
   };
   return (
     <>

@@ -28,7 +28,7 @@ export default function EntryForm(props) {
 
   return (
     <>
-      <p>ENTRY FORM</p>
+      <h2>entry form</h2>
       <form onSubmit={handleSubmit} className="entry-form-container">
         <input
           type="text"

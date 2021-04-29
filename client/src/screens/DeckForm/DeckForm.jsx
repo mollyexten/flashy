@@ -10,7 +10,7 @@ export default function DeckForm(props) {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/flashcards/create-entry")
+    history.push("/create-entry")
   }
   return (
     <>
