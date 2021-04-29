@@ -35,7 +35,8 @@ export default function Flashcard(props) {
   }
 
   const getOneDeck = (decks, deck_id) => {
-    decks.find((deck) => deck.id === Number(deck_id));
+    const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
+    return oneDeck;
   }
 
   const getDeckEntries = (entries, deck_id) => {
@@ -61,10 +62,13 @@ export default function Flashcard(props) {
             getDeckEntries={getDeckEntries}
           />
         </Route>
-        <Route path="/entries/:entry_id">
+        <Route path="/:deck_id/study">
           <EntryDetail
             currentUser={currentUser}
             decks={userDecks}
+            entries={userEntries}
+            getOneDeck={getOneDeck}
+            getDeckEntries={getDeckEntries}
           />
         </Route>
         <Route path="/create-deck">

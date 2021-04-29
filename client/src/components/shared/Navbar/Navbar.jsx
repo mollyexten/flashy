@@ -2,8 +2,8 @@ import "./Navbar.css";
 import AuthOptions from "./NavAuth/AuthOptions";
 import UnAuthOptions from "./NavAuth/UnAuthOptions";
 import Hamburger from "../../Hamburger/Hamburger";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 
 export default function Navbar(props) {
   const [windowDimension, setWindowDimension] = useState(null);
@@ -37,7 +37,9 @@ export default function Navbar(props) {
     <nav>
       {isMobile ? (
         <div className="mobile-nav">
-          <h1 className="nav-header">flashy</h1>
+          <Link to="/">
+            <h1 className="nav-header">flashy</h1>
+          </Link>
           <Hamburger className="hamburger-image" handleClick={handleClick} />
           <div
             className="hamburger-dropdown"
@@ -58,7 +60,9 @@ export default function Navbar(props) {
         </div>
       ) : (
         <div className="desktop-nav">
-          <h1 className="nav-header">flashy</h1>
+          <Link to="/">
+            <h1 className="nav-header">flashy</h1>
+          </Link>
           <div className="desktop-console">
             {props.currentUser ? (
               <AuthOptions

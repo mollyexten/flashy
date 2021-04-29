@@ -1,0 +1,25 @@
+.slideshow-card {
+  display: flex;
+  margin: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 2em;
+}
+
+.flipcard-div {
+  width: 400px;
+  height: 300px;
+  margin: 20px 0px;
+  background-color: white;
+  border: 1px solid var(--flashy-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.term-side {
+  font-size: 2em;
+}

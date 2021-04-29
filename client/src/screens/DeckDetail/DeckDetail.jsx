@@ -34,9 +34,10 @@ export default function DeckDetail(props) {
     />
   ));
 
-  const studyDeck = (e) => {
-    history.push("/entries/:entry_id");
+  const studyDeck = () => {
+    history.push(`/${deck_id}/study`);
   };
+  
   return (
     <>
       <h2>{deck?.title}</h2>

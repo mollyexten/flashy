@@ -6,12 +6,15 @@ nav {
   top: 0;
 }
 
+a>.nav-header {
+  margin: 0 20px;
+  padding: 0;
+}
+
 .nav-header {
   font-family: "Rokkitt", serif;
   color: var(--flashy-red);
-  font-size: 4em;
-  margin: 0;
-  padding: 0;
+  font-size: 5rem;
 }
 
 /* =============== MOBILE NAVBAR STYLES =============== */
@@ -95,5 +98,3 @@ nav {
     grid-template-columns: 1fr 1fr;
   }
 }
-
-
