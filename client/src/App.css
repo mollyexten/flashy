@@ -20,11 +20,11 @@ body {
   color: var(--flashy-blue);
 }
 
-
-
 button {
   color: white;
   background-color: var(--flashy-teal);
+  border: none;
+  border-radius: 5px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -49,12 +49,6 @@ a {
   text-decoration: none;
 }
 
-/* form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-} */
-
 input, textarea, button {
   font-family: inherit;
 }
@@ -68,20 +62,15 @@ input {
   display: grid;
   margin: 0 50px;
   grid-row-gap: 20px;
-}
-
-.signup-form, .signin-form {
   grid-template-columns: 1fr 150px 1fr;
 }
 
 .signup-submit, .signin-submit {
   font-size: 1.5em;
 }
-/* font-family: 'Rokkitt', serif; */
 
-/* @media (min-width: 540px) {
-  .signup-form, .signin-form {
-    grid-template-columns: 145px 150px 145px;
-    margin: 0 auto;
-  }
-} */
+.bottom-link, .bottom-link:visited {
+  color: var(--flashy-gray);
+  font-weight: 800;
+}
+/* font-family: 'Rokkitt', serif; */
