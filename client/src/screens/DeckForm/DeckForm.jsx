@@ -26,7 +26,7 @@ export default function DeckForm(props) {
         onSubmit={(e) => {
           e.preventDefault();
           createDeck(formData);
-          history.push("/create-entry")
+          history.push("/")
         }}
         className="deck-form-container"
       >

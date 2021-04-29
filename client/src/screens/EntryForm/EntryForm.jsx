@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 export default function EntryForm(props) {
   const { deck_id } = useParams();
+  const { currentUser, createEntry } = props
   
   const [entry, setEntry] = useState({
     term: "",

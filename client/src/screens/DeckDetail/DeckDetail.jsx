@@ -44,7 +44,7 @@ export default function DeckDetail(props) {
       <button onClick={studyDeck} className="study-button">STUDY DECK</button>
       <div className="card-div">
         {deckEntries.length > 0 && entriesJSX}
-        <div className="card"><Link to={`/${deck_id}create-entry`} className="add-link">+ ADD CARD</Link></div>
+        <div className="card"><Link to={`/${deck_id}/create-entry`} className="add-link">+ ADD CARD</Link></div>
       </div>
     </>
   );

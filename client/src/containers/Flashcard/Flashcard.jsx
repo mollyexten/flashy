@@ -6,7 +6,7 @@ import EntryDetail from "../../screens/EntryDetail/EntryDetail";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
 import { postDeck, readAllDecks } from "../../services/decks";
-import { readAllEntries } from "../../services/entries"
+import { postEntry, readAllEntries } from "../../services/entries"
 
 export default function Flashcard(props) {
   const [userDecks, setUserDecks] = useState([]);
@@ -53,13 +53,21 @@ export default function Flashcard(props) {
     return deckEntries;
   }
 
+  const createEntry = async (deck_id, entryData) => {
+    const newEntry = await postEntry(deck_id, entryData);
+    setUserEntries(prevState => ([
+      ...prevState,
+      newEntry
+    ]))
+  }
+
   return (
     <>
       <Switch>
         <Route path="/:deck_id/create-entry">
           <EntryForm
             currentUser={currentUser}
-            decks={userDecks}
+            createEntry={createEntry}
           />
         </Route>
         <Route exact path="/:deck_id/entries">
@@ -90,7 +98,6 @@ export default function Flashcard(props) {
         <Route path="/edit-entry">
           <EntryForm
             currentUser={currentUser}
-            decks={userDecks}
           />
         </Route>
         <Route exact path="/">
