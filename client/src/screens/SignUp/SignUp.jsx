@@ -1,5 +1,6 @@
 import "./SignUp.css";
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function SignUp(props) {
   const [formData, setFormData] = useState({
@@ -21,8 +22,9 @@ export default function SignUp(props) {
 
   return (
     <>
-      <p>SIGN UP</p>
-      <form className="signup-form" onSubmit={(e) => {
+      <p>welcome to flashy, a flashcard app!</p>
+      <h2>SIGN UP</h2>
+      <form className="signup-form auth-form" onSubmit={(e) => {
         e.preventDefault();
         handleRegister(formData);
       }}>
@@ -53,8 +55,10 @@ export default function SignUp(props) {
           placeholder="password"
           onChange={handleChange}
         />
-        <button>SIGN UP</button>
+        <button className="signup-submit">SIGN UP</button>
       </form>
+      <p>Already a member?</p>
+      <Link to="/sign-in">SIGN IN</Link>
     </>
   );
 }

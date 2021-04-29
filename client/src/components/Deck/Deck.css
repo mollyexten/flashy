@@ -1,0 +1,14 @@
+.deck-div {
+  background-color: var(--flashy-teal);
+  border-radius: 8px;
+}
+
+.deck-div-title {
+  font-size: 1.25em;
+  font-weight: 800;
+}
+
+.deck-div>a, .deck-div>a:visited {
+  color: white;
+  text-decoration: none;
+}

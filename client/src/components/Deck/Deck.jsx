@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Deck(props) {
   return (
-    <div className="card">
+    <div className="deck-div">
       <Link to={`/${props.id}/entries`}>
-        <p>{props.title}</p>
-        <p>{props.username}</p>
+        <p className="deck-div-title">{props.title}</p>
+        <p className="deck-div-username">{props.username}</p>
       </Link>
     </div>
   );

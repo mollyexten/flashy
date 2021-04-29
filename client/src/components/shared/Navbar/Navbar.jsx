@@ -38,9 +38,8 @@ export default function Navbar(props) {
       <h1 className="nav-header">flashy</h1>
       {isMobile ? (
         <div className="mobile-nav">
-          <Hamburger className="hamburger" handleClick={handleClick}/>
+          <Hamburger className="hamburger-image" handleClick={handleClick}/>
           <div
-            className="hamburger-links"
             style={{ display: hamburger && visible ? "flex" : "none" }}
           >
             {props.currentUser ? (

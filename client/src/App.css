@@ -6,6 +6,7 @@
   --flashy-yellow: #FAFF81;
   --flashy-teal: #437C90;
   --flashy-light-blue: #F5F5FA;
+  --flashy-gray: #686868;
 }
 
 body {
@@ -19,9 +20,7 @@ body {
   color: var(--flashy-blue);
 }
 
-input, textarea, button {
-  font-family: inherit;
-}
+
 
 button {
   color: white;
@@ -34,11 +33,55 @@ a {
   cursor: pointer;
 }
 
-.card {
+.card, .add-card {
   background-color: white;
-  padding: 30px 60px;
-  margin: 30px;
+  color: var(--flashy-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: 800;
+  box-shadow: 5px 5px 5px #cecece;
 }
 
+.add-link, .add-link:visited {
+  color: var(--flashy-gray);
+  text-decoration: none;
+}
 
+/* form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+} */
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+input {
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.auth-form {
+  display: grid;
+  margin: 0 50px;
+  grid-row-gap: 20px;
+}
+
+.signup-form, .signin-form {
+  grid-template-columns: 1fr 150px 1fr;
+}
+
+.signup-submit, .signin-submit {
+  font-size: 1.5em;
+}
 /* font-family: 'Rokkitt', serif; */
+
+/* @media (min-width: 540px) {
+  .signup-form, .signin-form {
+    grid-template-columns: 145px 150px 145px;
+    margin: 0 auto;
+  }
+} */

@@ -1,0 +1,23 @@
+.signup-form {
+  grid-template-rows: 1fr 1fr 1fr 50px;
+}
+
+.signup-username {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+}
+
+.signup-email {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+
+.signup-password {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+}
+
+.signup-submit {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}

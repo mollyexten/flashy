@@ -15,8 +15,17 @@ nav {
   padding: 0;
 }
 
+.hamburger-image {
+  margin: 20px auto;
+}
+
 .hamburger-links {
+  position: fixed;
+  right: 0;
+  z-index: 1;
+  width: 100%;
   background-color: var(--flashy-yellow);
+  color: var(--flashy-blue);
 }
 
 .desktop-nav {
@@ -37,4 +46,10 @@ nav {
 .hamburger-links {
   width: 100%;
   top: 0;
+}
+
+@media (max-width: 640px) {
+  .nav-header {
+    margin: 0 20px;
+  }
 }

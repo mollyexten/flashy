@@ -1,5 +1,6 @@
 import "./SignIn.css";
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function SignIn({handleLogin}) {
   const [formData, setFormData] = useState({
@@ -18,8 +19,9 @@ export default function SignIn({handleLogin}) {
 
   return (
     <>
-      <p>SIGN IN</p>
-      <form className="signin-container" onSubmit={(e) => {
+      <p>welcome to flashy, a flashcard app!</p>
+      <h2>SIGN IN</h2>
+      <form className="signin-form auth-form" onSubmit={(e) => {
         e.preventDefault();
         handleLogin(formData);
       }}>
@@ -44,7 +46,9 @@ export default function SignIn({handleLogin}) {
           <button type="submit" className="signin-submit">
           sign in
         </button>
-        </form>
+      </form>
+      <p>Not a member?</p>
+      <Link to="/sign-up">SIGN UP</Link>
     </>
   );
 }
