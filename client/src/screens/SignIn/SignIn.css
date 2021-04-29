@@ -1,18 +1,30 @@
 .signin-form {
-  grid-template-rows: 1fr 1fr 50px;
+  grid-template-rows: repeat(3, 50px);
+}
+
+.signin-input {
+  grid-column: 1 / 4;
 }
 
 .signin-username {
-  grid-column: 1 / 4;
   grid-row: 1 / 2;
 }
 
 .signin-password {
-  grid-column: 1 / 4;
   grid-row: 2 / 3;
 }
 
 .signin-submit {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
+}
+
+@media (min-width: 460px) {
+  .signin-input {
+    grid-column: 2 / 5;
+  }
+
+  .signin-submit {
+    grid-column: 3 / 4;
+  }
 }

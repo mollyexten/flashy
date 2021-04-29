@@ -178,12 +178,12 @@ src
 | Global styles (CSS) |     M    |     2 hrs      |     2 hrs     |    TBD      |
 | Grid (forms)        |     M    |     2 hrs      |               |    TBD      |
 | Flex (decks/entries)|     M    |     2 hrs      |               |    TBD      |
-| Media queries       |     M    |     2 hrs      |               |    TBD      |
+| Media queries       |     M    |     2 hrs      |     1 hr      |    TBD      |
 | Flip effect         |     L    |     2 hrs      |               |    TBD      |
 | Deck sharing        |     L    |     2 hrs      |               |    TBD      |
 | AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
 | Linting             |     L    |     2 hrs      |               |    TBD      |
-| TOTAL               |          |    46 hrs      |    24 hrs     |     TBD     |
+| TOTAL               |          |    46 hrs      |    25 hrs     |     TBD     |
   
   
 ### Server (Back End)

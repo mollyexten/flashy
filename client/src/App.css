@@ -20,6 +20,10 @@ body {
   color: var(--flashy-blue);
 }
 
+.layout {
+  margin-top: 100px;
+}
+
 button {
   color: white;
   background-color: var(--flashy-teal);
@@ -72,5 +76,11 @@ input {
 .bottom-link, .bottom-link:visited {
   color: var(--flashy-gray);
   font-weight: 800;
+}
+
+@media (min-width: 460px) {
+  .auth-form {
+    grid-template-columns: auto 90px 170px 90px auto;
+  }
 }
 /* font-family: 'Rokkitt', serif; */

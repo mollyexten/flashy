@@ -28,7 +28,7 @@ export default function SignIn({handleLogin}) {
         <input
           required
           type="text"
-          className="signin-username"
+          className="signin-username signin-input"
           name="username"
           value={username}
           placeholder="username"
@@ -39,7 +39,7 @@ export default function SignIn({handleLogin}) {
           name="password"
           value={password}
           type="password"
-          className="signin-password"
+          className="signin-password signin-input"
           placeholder="password"
           onChange={handleChange}
         />

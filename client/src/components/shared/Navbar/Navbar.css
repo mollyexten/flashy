@@ -56,10 +56,6 @@ nav {
 
 /* =============== DESKTOP NAVBAR STYLES =============== */
 
-/* * {
-  border: 2px solid yellow;
-} */
-
 .desktop-nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

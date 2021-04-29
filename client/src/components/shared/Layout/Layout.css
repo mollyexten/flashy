@@ -1,9 +1,0 @@
-.layout {
-  margin-top: 150px;
-}
-
-@media (max-width: 530px) {
-  .layout {
-    margin-top: 100px;
-  }
-}

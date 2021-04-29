@@ -43,7 +43,7 @@ export default function Flashcard(props) {
           <EntryForm currentUser={currentUser} decks={decks} />
         </Route>
         <Route exact path="/:deck_id/entries">
-          <DeckDetail currentUser={currentUser} decks={decks} />
+          <DeckDetail currentUser={currentUser} decks={decks} entries={entries} />
         </Route>
         <Route path="/entries/:entry_id">
           <EntryDetail currentUser={currentUser} decks={decks} />

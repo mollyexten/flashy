@@ -31,7 +31,7 @@ export default function SignUp(props) {
         <input
           required
           type="text"
-          className="signup-username"
+          className="signup-username signup-input"
           name="username"
           value={username}
           placeholder="username"
@@ -40,7 +40,7 @@ export default function SignUp(props) {
         <input
           required
           type="email"
-          className="signup-email"
+          className="signup-email signup-input"
           name="email"
           value={email}
           placeholder="email"
@@ -51,7 +51,7 @@ export default function SignUp(props) {
           name="password"
           value={password}
           type="password"
-          className="signup-password"
+          className="signup-password signup-input"
           placeholder="password"
           onChange={handleChange}
         />
