@@ -12,9 +12,9 @@ export default function Decks(props) {
     />
   ));
   return (
-    <div>
+    <div className="decks-div">
       {decks.length > 0 && decksJSX}
-      <div>ADD DECK</div>
+      <div className="card">ADD DECK</div>
     </div>
   ) 
 }

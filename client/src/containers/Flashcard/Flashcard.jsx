@@ -12,7 +12,6 @@ export default function Flashcard(props) {
   const [decks, setDecks] = useState([]);
   const [allEntries, setAllEntries] = useState([])
   const { currentUser } = props;
-  // const user_id = currentUser.id
 
   useEffect(() => {
     const fetchDecks = async () => {
@@ -25,21 +24,17 @@ export default function Flashcard(props) {
   }, [currentUser]);
 
   useEffect(() => {
-    const fetchEntries = async(user_id) => {
-      const entries = await readAllEntries(user_id);
+    const fetchEntries = async() => {
+      const entries = await readAllEntries();
       setAllEntries(entries)
+      console.log(entries)
     }
     if (currentUser) {
-      fetchEntries(currentUser.id);
-      console.log(allEntries)
+      fetchEntries();
     }
-  }, [decks])
+  }, [currentUser])
 
-  // useEffect(() => {
-  //   if (allEntries) {
-  //     const filterEntries = allEntries
-  //   }
-  // }, allEntries)
+  console.log(allEntries)
 
   return (
     <>

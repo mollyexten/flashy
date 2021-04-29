@@ -5,7 +5,7 @@ export const createEntry = async (data) => {
   return resp.data
 }
 
-export const readAllEntries = async (user_id) => {
-  const resp = await api.get(`/users/${user_id}/entries`)
+export const readAllEntries = async () => {
+  const resp = await api.get(`/entries`)
   return resp.data
 }

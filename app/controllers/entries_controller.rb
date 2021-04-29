@@ -4,9 +4,7 @@ class EntriesController < ApplicationController
   before_action :authorize_request
 
   def index
-    # @decks = Deck.where(user_id: @current_user.id)
-    # @entries = Entry.where('deck_id IN (?)': @decks)
-    @user = User.find(params[:user_id])
+    @entries = @current_user.entries
     render json: @entries, status: :ok
   end
 
