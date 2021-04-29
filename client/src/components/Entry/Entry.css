@@ -1,0 +1,8 @@
+.entry-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-link {
+  font-size: .5em;
+}

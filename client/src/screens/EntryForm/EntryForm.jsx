@@ -1,47 +1,54 @@
 import "./EntryForm.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 export default function EntryForm(props) {
-  const { deck_id } = useParams();
-  const { currentUser, createEntry } = props
-  
+  const history = useHistory();
+  const { deck_id, entry_id } = useParams();
+  const { createEntry, updateEntry, entries } = props;
   const [formData, setFormData] = useState({
     term: "",
     details: "",
-    deck_id: deck_id
+    deck_id: deck_id,
   });
-  const { term, details } = formData
-  const history = useHistory()
+
+  useEffect(() => {
+    const prefillFormData = () => {
+      const oneEntry = entries.find((entry) => {
+        return entry.id === Number(entry_id);
+      });
+      const { term, details, deck_id } = oneEntry;
+      setFormData({ term, details, deck_id });
+    };
+    if (entry_id && entries.length) {
+      prefillFormData();
+    }
+  }, [entry_id, entries]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (e.target.value === "add") {
-      history.push("/flashcards/create-entry")
-    } else {
-      history.push("/flashcards/:deck_id/entries")
-    }
   };
 
   return (
     <>
-      <h2>create entry</h2>
+      <h2>{entry_id ? "edit entry" : "create entry"}</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createEntry(deck_id, formData)
-          if (e.target.value === "add") {
-            history.push(`/${deck_id}/create-entry`)
+          if (!entry_id) {
+            createEntry(deck_id, formData);
+            if (e.target.value === "add") {
+              history.push(`/${deck_id}/create-entry`);
+            } else {
+              history.push(`/${deck_id}/entries`);
+            }
           } else {
-            history.push(`/${deck_id}/entries`)
+            updateEntry(entry_id, formData);
+            history.push(`/${deck_id}/entries`);
           }
         }}
         className="entry-form-container"
@@ -50,22 +57,41 @@ export default function EntryForm(props) {
           type="text"
           placeholder="term"
           name="term"
-          value={term}
+          value={formData.term}
           onChange={handleChange}
+          className="term-input"
         />
         <input
           type="text"
           placeholder="details"
           name="details"
-          value={details}
+          value={formData.details}
           onChange={handleChange}
+          className="details-input"
         />
-        <button type="submit" className="add-card" value="add">
-          + ADD CARD
-        </button>
-        <button type="submit" className="save-deck" value="save">
-          SAVE
-        </button>
+        {entry_id ? (
+          <button type="submit" className="save-entry button-one" value="save">
+            SAVE
+          </button>
+        ) : (
+          <>
+            <button
+              type="submit"
+              className="add-card entry-form-add button-one"
+              value="add"
+            >
+              {" "}
+              + ADD CARD{" "}
+            </button>
+            <button
+              type="submit"
+              className="save-entry button-two"
+              value="save"
+            >
+              SAVE
+            </button>
+          </>
+        )}
       </form>
     </>
   );

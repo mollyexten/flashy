@@ -6,7 +6,7 @@ import EntryDetail from "../../screens/EntryDetail/EntryDetail";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
 import { postDeck, readAllDecks } from "../../services/decks";
-import { postEntry, readAllEntries } from "../../services/entries"
+import { deleteEntry, postEntry, putEntry, readAllEntries } from "../../services/entries"
 
 export default function Flashcard(props) {
   const [userDecks, setUserDecks] = useState([]);
@@ -61,13 +61,30 @@ export default function Flashcard(props) {
     ]))
   }
 
+  const updateEntry = async (id, data) => {
+    const updatedEntry = await putEntry(id, data);
+    setUserEntries(prevState => prevState.map(entry => {
+      return entry.id === Number(id) ? updatedEntry : entry
+    }))
+  }
+
+  const removeEntry = async (id) => {
+    await deleteEntry(id);
+    setUserEntries(prevState => prevState.filter(entry => entry.id !== id));
+  }
+
   return (
     <>
       <Switch>
         <Route path="/:deck_id/create-entry">
           <EntryForm
-            currentUser={currentUser}
             createEntry={createEntry}
+          />
+        </Route>
+        <Route path="/:deck_id/edit-entry/:entry_id">
+          <EntryForm
+            updateEntry={updateEntry}
+            entries={userEntries}
           />
         </Route>
         <Route exact path="/:deck_id/entries">
@@ -77,6 +94,7 @@ export default function Flashcard(props) {
             entries={userEntries}
             getOneDeck={getOneDeck}
             getDeckEntries={getDeckEntries}
+            deleteEntry={deleteEntry}
           />
         </Route>
         <Route path="/:deck_id/study">
@@ -94,11 +112,7 @@ export default function Flashcard(props) {
             createDeck={createDeck}
           />
         </Route>
-        <Route path="/edit-entry">
-          <EntryForm
-            currentUser={currentUser}
-          />
-        </Route>
+
         <Route exact path="/">
           <Decks
             currentUser={currentUser}

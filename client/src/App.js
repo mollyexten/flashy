@@ -12,6 +12,9 @@ import SignIn from "./screens/SignIn/SignIn";
 import Flashcard from "./containers/Flashcard/Flashcard";
 import Layout from "./components/shared/Layout/Layout";
 
+// DON'T FORGET TO ATTRIBUTE FLATICON ICONS!
+// <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
