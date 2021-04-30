@@ -58,7 +58,7 @@ export default function SignUp(props) {
         <button className="signup-submit">SIGN UP</button>
       </form>
       <p>Already a member?</p>
-      <Link to="/sign-in" className="bottom-link">SIGN IN</Link>
+      <Link to="/sign-in" className="gray-link">SIGN IN</Link>
     </>
   );
 }

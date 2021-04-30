@@ -85,6 +85,7 @@ export default function Flashcard(props) {
           <EntryForm
             updateEntry={updateEntry}
             entries={userEntries}
+            removeEntry={removeEntry}
           />
         </Route>
         <Route exact path="/:deck_id/entries">
@@ -94,7 +95,6 @@ export default function Flashcard(props) {
             entries={userEntries}
             getOneDeck={getOneDeck}
             getDeckEntries={getDeckEntries}
-            deleteEntry={deleteEntry}
           />
         </Route>
         <Route path="/:deck_id/study">

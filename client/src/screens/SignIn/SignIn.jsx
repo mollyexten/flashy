@@ -48,7 +48,7 @@ export default function SignIn({handleLogin}) {
         </button>
       </form>
       <p>Not a member?</p>
-      <Link to="/sign-up" className="bottom-link">SIGN UP</Link>
+      <Link to="/sign-up" className="gray-link">SIGN UP</Link>
     </>
   );
 }

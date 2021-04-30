@@ -1,11 +1,11 @@
 import "./EntryForm.css";
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 
 export default function EntryForm(props) {
   const history = useHistory();
   const { deck_id, entry_id } = useParams();
-  const { createEntry, updateEntry, entries } = props;
+  const { createEntry, updateEntry, removeEntry, entries } = props;
   const [formData, setFormData] = useState({
     term: "",
     details: "",
@@ -33,15 +33,35 @@ export default function EntryForm(props) {
     }));
   };
 
+  const handleReset = () => {
+    setFormData({
+      term: "",
+      details: "",
+      deck_id: deck_id,
+    });
+  };
+
+  function handleDelete(entry_id) {
+    const id = Number(entry_id);
+    removeEntry(id);
+    history.push(`/${deck_id}/entries`);
+  }
+
   return (
     <>
+      <Link
+        to={`/${deck_id}/entries`}
+        className="gray-link"
+      >{`<<BACK TO DECK`}</Link>
       <h2>{entry_id ? "edit entry" : "create entry"}</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(e.nativeEvent.submitter.value);
           if (!entry_id) {
             createEntry(deck_id, formData);
-            if (e.target.value === "add") {
+            if (e.nativeEvent.submitter.value === "add") {
+              handleReset();
               history.push(`/${deck_id}/create-entry`);
             } else {
               history.push(`/${deck_id}/entries`);
@@ -54,6 +74,7 @@ export default function EntryForm(props) {
         className="entry-form-container"
       >
         <input
+          required
           type="text"
           placeholder="term"
           name="term"
@@ -61,7 +82,8 @@ export default function EntryForm(props) {
           onChange={handleChange}
           className="term-input"
         />
-        <input
+        <textarea
+          required
           type="text"
           placeholder="details"
           name="details"
@@ -70,9 +92,16 @@ export default function EntryForm(props) {
           className="details-input"
         />
         {entry_id ? (
-          <button type="submit" className="save-entry button-one" value="save">
-            SAVE
-          </button>
+          <>
+            <button type="submit" className="save-entry button-one" value="save">
+              SAVE
+            </button>
+            <button className="entry-delete-button"
+              onClick={handleDelete}
+            >
+              DELETE
+            </button>
+          </>
         ) : (
           <>
             <button
@@ -80,8 +109,7 @@ export default function EntryForm(props) {
               className="add-card entry-form-add button-one"
               value="add"
             >
-              {" "}
-              + ADD CARD{" "}
+              + ADD CARD
             </button>
             <button
               type="submit"
@@ -90,6 +118,7 @@ export default function EntryForm(props) {
             >
               SAVE
             </button>
+              
           </>
         )}
       </form>

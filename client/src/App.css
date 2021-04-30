@@ -86,7 +86,7 @@ input {
   font-size: 1.5em;
 }
 
-.bottom-link, .bottom-link:visited {
+.gray-link, .gray-link:visited {
   color: var(--flashy-gray);
   font-weight: 800;
 }

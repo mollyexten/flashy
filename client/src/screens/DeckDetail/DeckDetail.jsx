@@ -7,24 +7,23 @@ import { useEffect, useState } from "react";
 export default function DeckDetail(props) {
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([])
-  const [toggleFetch, setToggleFetch] = useState(false)
   const history = useHistory();
   const { deck_id } = useParams();
-  const {currentUser, decks, entries, getOneDeck, getDeckEntries, deleteEntry } = props;
+  const {currentUser, decks, entries, getOneDeck, getDeckEntries } = props;
 
   useEffect(() => {
     if (decks.length) {
       const oneDeck = getOneDeck(decks, deck_id);
       setDeck(oneDeck)
     }
-  }, [decks, deck_id, toggleFetch]);
+  }, [decks, deck_id]);
 
   useEffect(() => {
     if (entries.length) {
       const foundEntries = getDeckEntries(entries, deck_id)
       setDeckEntries(foundEntries)
     }
-  }, [entries, deck_id, toggleFetch])
+  }, [entries, deck_id])
 
   const entriesJSX = deckEntries.map((entry, index) => (
     <Entry
@@ -33,8 +32,6 @@ export default function DeckDetail(props) {
       username={currentUser.username}
       key={index}
       deck_id={deck_id}
-      deleteEntry={deleteEntry}
-      setToggleFetch={setToggleFetch}
     />
   ));
 
@@ -45,7 +42,7 @@ export default function DeckDetail(props) {
   return (
     <>
       <h2>{deck?.title}</h2>
-      <button onClick={studyDeck} className="study-button">STUDY DECK</button>
+      {deckEntries.length > 0 && (<button onClick={studyDeck} className="study-button">STUDY DECK</button>)}
       <div className="card-div">
         {deckEntries.length > 0 && entriesJSX}
         <div className="card"><Link to={`/${deck_id}/create-entry`} className="add-link">+ ADD CARD</Link></div>
