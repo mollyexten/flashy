@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect, useLocation } from "react-router-dom";
 import {
   loginUser,
   registerUser,
@@ -15,6 +15,7 @@ import Layout from "./components/shared/Layout/Layout";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     const handleVerify = async () => {
@@ -52,11 +53,15 @@ function App() {
         <Switch>
           <Route
             path="/sign-up"
-            render={() => <SignUp handleRegister={handleRegister} />}
+            render={() => <SignUp
+              handleRegister={handleRegister}
+              currentUser={currentUser}
+            />}
           />
           <Route path="/sign-in">
             <SignIn setCurrentUser={setCurrentUser} handleLogin={handleLogin} />
           </Route>
+          {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
           <Route
             path="/"
             render={() => <Flashcard currentUser={currentUser} />}

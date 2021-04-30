@@ -42,6 +42,7 @@ export default function DeckDetail(props) {
   return (
     <>
       <h2>{deck?.title}</h2>
+      <Link to={`/edit-deck/${deck_id}`} className="edit-link">Edit Deck</Link>
       {deckEntries.length > 0 && (<button onClick={studyDeck} className="study-button">STUDY DECK</button>)}
       <div className="card-div">
         {deckEntries.length > 0 && entriesJSX}

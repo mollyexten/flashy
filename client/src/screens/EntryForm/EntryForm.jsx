@@ -5,7 +5,7 @@ import { useHistory, useParams, Link } from "react-router-dom";
 export default function EntryForm(props) {
   const history = useHistory();
   const { deck_id, entry_id } = useParams();
-  const { createEntry, updateEntry, removeEntry, entries } = props;
+  const {createEntry,updateEntry,removeEntry,entries} = props;
   const [formData, setFormData] = useState({
     term: "",
     details: "",
@@ -21,6 +21,10 @@ export default function EntryForm(props) {
       setFormData({ term, details, deck_id });
     };
     if (entry_id && entries.length) {
+      console.log("The entry_id variable is a:");
+      console.log(typeof entry_id);
+      console.log("Using the parseInt function, entry_id becomes a:");
+      console.log(typeof parseInt(entry_id));
       prefillFormData();
     }
   }, [entry_id, entries]);
@@ -41,9 +45,8 @@ export default function EntryForm(props) {
     });
   };
 
-  function handleDelete(entry_id) {
-    const id = Number(entry_id);
-    removeEntry(id);
+  function handleDelete() {
+    removeEntry(parseInt(entry_id));
     history.push(`/${deck_id}/entries`);
   }
 
@@ -57,7 +60,6 @@ export default function EntryForm(props) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(e.nativeEvent.submitter.value);
           if (!entry_id) {
             createEntry(deck_id, formData);
             if (e.nativeEvent.submitter.value === "add") {
@@ -93,13 +95,12 @@ export default function EntryForm(props) {
         />
         {entry_id ? (
           <>
-            <button type="submit" className="save-entry button-one" value="save">
-              SAVE
-            </button>
-            <button className="entry-delete-button"
-              onClick={handleDelete}
+            <button
+              type="submit"
+              className="save-entry button-one"
+              value="save"
             >
-              DELETE
+              UPDATE
             </button>
           </>
         ) : (
@@ -118,10 +119,14 @@ export default function EntryForm(props) {
             >
               SAVE
             </button>
-              
           </>
         )}
       </form>
+      {entry_id && (
+        <button className="entry-delete-button" onClick={handleDelete}>
+          DELETE
+        </button>
+      )}
     </>
   );
 }

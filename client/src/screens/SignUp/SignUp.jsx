@@ -1,8 +1,9 @@
 import "./SignUp.css";
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLocation, Redirect } from "react-router-dom"
 
 export default function SignUp(props) {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -10,7 +11,7 @@ export default function SignUp(props) {
   });
 
   const { username, email, password } = formData
-  const { handleRegister } = props
+  const { handleRegister, currentUser } = props
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -22,6 +23,7 @@ export default function SignUp(props) {
 
   return (
     <>
+      {currentUser && <Redirect to={ location.state.from}/>}
       <p>welcome to flashy, a flashcard app!</p>
       <h2>SIGN UP</h2>
       <form className="signup-form auth-form" onSubmit={(e) => {
