@@ -38,8 +38,7 @@ export default function Study(props) {
       details={entry.details}
       key={index}
       index={index}
-      nextSlide={nextSlide}
-      prevSlide={prevSlide}
+      current={current}
     />
   ));
 
@@ -50,14 +49,16 @@ export default function Study(props) {
   return (
     <>
       <h2>{deck?.title}</h2>
-      <div className="study-container">
+      <section className="study-container">
+      <button className="left-arrow arrow" onClick={prevSlide}>←</button>
         <div className="flipcard-container">
           {flipCardJSX}
         </div>
+        <button className="right-arrow arrow" onClick={nextSlide}>→</button>
         <button onClick={redirect}>
           BACK TO DECK
         </button>
-      </div>
+      </section>
     </>
   );
 }

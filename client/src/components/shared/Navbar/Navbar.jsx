@@ -36,7 +36,7 @@ export default function Navbar(props) {
   return (
     <nav>
       {isMobile ? (
-        <div className="mobile-nav">
+        <header className="mobile-nav">
           <Link to="/">
             <h1 className="nav-header">flashy</h1>
           </Link>
@@ -57,9 +57,9 @@ export default function Navbar(props) {
               <UnAuthOptions />
             )}
           </div>
-        </div>
+        </header>
       ) : (
-        <div className="desktop-nav">
+        <header className="desktop-nav">
           <Link to="/">
             <h1 className="nav-header">flashy</h1>
           </Link>
@@ -73,7 +73,7 @@ export default function Navbar(props) {
               <UnAuthOptions />
             )}
           </div>
-        </div>
+        </header>
       )}
     </nav>
   );

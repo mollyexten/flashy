@@ -46,7 +46,9 @@ export default function DeckForm(props) {
 
   return (
     <>
-      <h2>{deck_id ? "edit deck" : "create deck"}</h2>
+      <h2>
+        {deck_id ? "edit deck" : "create deck"}
+      </h2>
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!deck_id) {
@@ -66,12 +68,18 @@ export default function DeckForm(props) {
           onChange={handleChange}
           className="title-input"
         />
-        <button type="submit" className="deck-submit">
+        <button
+          type="submit"
+          className="deck-submit"
+        >
           {deck_id ? "UPDATE" : "CREATE"}
         </button>
       </form>
       {deck_id && (
-        <button className="deck-delete-button" onClick={handleDelete}>
+        <button
+          className="deck-delete-button"
+          onClick={handleDelete}
+        >
           DELETE
         </button>
       )}

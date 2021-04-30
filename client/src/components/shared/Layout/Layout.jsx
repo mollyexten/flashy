@@ -7,7 +7,7 @@ export default function Layout(props) {
   return (
     <div className="layout">
       <Navbar currentUser={currentUser} handleLogout={handleLogout} />
-      <div className="layout-children">{props.children}</div>
+      <main className="layout-children">{props.children}</main>
     </div>
   );
 }

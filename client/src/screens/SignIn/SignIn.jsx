@@ -21,7 +21,9 @@ export default function SignIn({handleLogin}) {
     <>
       <p>welcome to flashy, a flashcard app!</p>
       <h2>SIGN IN</h2>
-      <form className="signin-form auth-form" onSubmit={(e) => {
+      <form
+        className="signin-form auth-form"
+        onSubmit={(e) => {
         e.preventDefault();
         handleLogin(formData);
       }}>
@@ -43,7 +45,10 @@ export default function SignIn({handleLogin}) {
           placeholder="password"
           onChange={handleChange}
         />
-          <button type="submit" className="signin-submit">
+        <button
+          type="submit"
+          className="signin-submit"
+        >
           sign in
         </button>
       </form>

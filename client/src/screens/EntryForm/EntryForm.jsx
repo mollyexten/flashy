@@ -5,7 +5,12 @@ import { useHistory, useParams, Link } from "react-router-dom";
 export default function EntryForm(props) {
   const history = useHistory();
   const { deck_id, entry_id } = useParams();
-  const {createEntry,updateEntry,removeEntry,entries} = props;
+  const {
+    createEntry,
+    updateEntry,
+    removeEntry,
+    entries
+  } = props;
   const [formData, setFormData] = useState({
     term: "",
     details: "",

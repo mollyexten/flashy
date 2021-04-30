@@ -3,23 +3,23 @@ import { useState } from "react";
 
 export default function FlipCard(props) {
   const [front, setFront] = useState(true);
-  const { term, details, nextSlide, prevSlide } = props;
+  const { term, details, current, index } = props;
 
   const handleClick = () => {
     setFront(!front);
   };
 
   return (
-    <div className="slideshow-card">
-      <p className="left-arrow arrow" onClick={prevSlide}>←</p>
-      <div className="flipcard-div" onClick={handleClick}>
+    <div
+      className="flipcard-div"
+      onClick={handleClick}
+      style={{ display: current === index ? "flex" : "none"}}
+    >
         {front ? (
-          <div className="term-side">{term}</div>
+          <h3 className="term-side">{term}</h3>
         ) : (
-          <div className="details-side">{details}</div>
+          <p className="details-side">{details}</p>
         )}
       </div>
-      <p className="right-arrow arrow" onClick={nextSlide}>→</p>
-    </div>
   );
 }
