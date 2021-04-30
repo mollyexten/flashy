@@ -45,7 +45,7 @@ export default function DeckForm(props) {
 
   return (
     <>
-      <h2>create deck</h2>
+      <h2>{deck_id ? "edit deck" : "create deck"}</h2>
       <form
         onSubmit={handleSubmit}
         className="deck-form-container"
