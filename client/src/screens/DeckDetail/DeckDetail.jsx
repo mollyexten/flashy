@@ -16,14 +16,14 @@ export default function DeckDetail(props) {
       const oneDeck = getOneDeck(decks, deck_id);
       setDeck(oneDeck)
     }
-  }, [decks, deck_id]);
+  }, [decks, deck_id, getOneDeck]);
 
   useEffect(() => {
     if (entries.length) {
       const foundEntries = getDeckEntries(entries, deck_id)
       setDeckEntries(foundEntries)
     }
-  }, [entries, deck_id])
+  }, [entries, deck_id, getDeckEntries])
 
   const entriesJSX = deckEntries.map((entry, index) => (
     <Entry

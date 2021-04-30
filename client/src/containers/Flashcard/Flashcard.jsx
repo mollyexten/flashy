@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Decks from "../../screens/Decks/Decks";
 import DeckDetail from "../../screens/DeckDetail/DeckDetail";
-import EntryDetail from "../../screens/EntryDetail/EntryDetail";
+// import EntryDetail from "../../screens/EntryDetail/EntryDetail";
+import Study from "../../screens/Study/Study";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
 import { postDeck, readAllDecks } from "../../services/decks";
@@ -98,7 +99,7 @@ export default function Flashcard(props) {
           />
         </Route>
         <Route path="/:deck_id/study">
-          <EntryDetail
+          <Study
             currentUser={currentUser}
             decks={userDecks}
             entries={userEntries}

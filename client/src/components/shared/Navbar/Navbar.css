@@ -17,6 +17,11 @@ a>.nav-header {
   font-size: 5rem;
 }
 
+.sign-out {
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
 /* =============== MOBILE NAVBAR STYLES =============== */
 
 .mobile-nav {
@@ -57,6 +62,12 @@ a>.nav-header {
   cursor: pointer;
 }
 
+.sign-out {
+  background-color: var(--flashy-yellow);
+  color: var(--flashy-blue);
+  font-size: 1em;
+}
+
 /* =============== DESKTOP NAVBAR STYLES =============== */
 
 .desktop-nav {
@@ -88,6 +99,12 @@ a>.nav-header {
   }
 
   .nav-link, .nav-link:visited {
+    color: var(--flashy-yellow);
+    font-size: 1.5em;
+  }
+
+  .sign-out {
+    background-color: var(--flashy-blue);
     color: var(--flashy-yellow);
     font-size: 1.5em;
   }

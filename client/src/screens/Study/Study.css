@@ -1,0 +1,13 @@
+
+.study-container {
+  /* position: relative; */
+  /* width: 100vw; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.flipcard-container {
+  width: 100vw;
+}
