@@ -1,7 +1,5 @@
 
 .study-container {
-  /* position: relative; */
-  /* width: 100vw; */
   display: flex;
   flex-direction: row;
   justify-content: center;

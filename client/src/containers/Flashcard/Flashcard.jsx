@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { useHistory } from "react-router";
 import Decks from "../../screens/Decks/Decks";
 import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import Study from "../../screens/Study/Study";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
 import {
+  deleteDeck,
   postDeck,
   putDeck,
   readAllDecks
@@ -19,7 +19,6 @@ import {
 } from "../../services/entries";
 
 export default function Flashcard(props) {
-  const history = useHistory();
   const [userDecks, setUserDecks] = useState([]);
   const [userEntries, setUserEntries] = useState([]);
   const { currentUser } = props;
@@ -58,6 +57,12 @@ export default function Flashcard(props) {
         return deck.id === Number(id) ? updatedDeck : deck;
     }))
   }
+
+  const removeDeck = async (id) => {
+    await deleteDeck(id);
+    setUserDecks((prevState) => prevState.filter((deck) => deck.id !== id));
+    setUserEntries((prevState) => prevState.filter((entry) => entry.deck_id !== id))
+  };
 
   const fetchEntries = async () => {
     const entries = await readAllEntries();
@@ -113,7 +118,6 @@ export default function Flashcard(props) {
           </Route>
           <Route path="/:deck_id/study">
             <Study
-              currentUser={currentUser}
               decks={userDecks}
               entries={userEntries}
               getOneDeck={getOneDeck}
@@ -124,7 +128,12 @@ export default function Flashcard(props) {
             <DeckForm currentUser={currentUser} createDeck={createDeck} />
           </Route>
           <Route path="/edit-deck/:deck_id">
-            <DeckForm currentUser={currentUser} updateDeck={updateDeck} decks={userDecks}/>
+            <DeckForm
+              currentUser={currentUser}
+              updateDeck={updateDeck}
+              removeDeck={removeDeck}
+              decks={userDecks}
+            />
           </Route>
           <Route exact path="/">
             <Decks currentUser={currentUser} decks={userDecks} />

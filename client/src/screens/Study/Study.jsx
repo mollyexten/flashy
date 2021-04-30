@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 
-export default function EntryDetail(props) {
+export default function Study(props) {
   const { deck_id } = useParams();
   const history = useHistory();
-  const { currentUser, decks, entries, getOneDeck, getDeckEntries } = props;
+  const { decks, entries, getOneDeck, getDeckEntries } = props;
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
   const [current, setCurrent] = useState(0);
@@ -17,14 +17,15 @@ export default function EntryDetail(props) {
       const oneDeck = getOneDeck(decks, deck_id);
       setDeck(oneDeck);
     }
-  }, [decks, deck_id]);
+  }, [decks, deck_id, getOneDeck]);
 
   useEffect(() => {
     if (entries.length) {
       const foundEntries = getDeckEntries(entries, deck_id);
       setDeckEntries(foundEntries);
     }
-  }, [entries, deck_id]);
+  }, [entries, deck_id, getDeckEntries]);
+  
   const nextSlide = () => {
     setCurrent(current === deckEntries.length - 1 ? 0 : current + 1)
     console.log(current)
@@ -44,11 +45,10 @@ export default function EntryDetail(props) {
     />
   ));
 
-
-
   const redirect = () => {
     history.push(`/${deck_id}/entries`);
   };
+
   return (
     <>
       <h2>{deck?.title}</h2>

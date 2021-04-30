@@ -21,10 +21,6 @@ export default function EntryForm(props) {
       setFormData({ term, details, deck_id });
     };
     if (entry_id && entries.length) {
-      console.log("The entry_id variable is a:");
-      console.log(typeof entry_id);
-      console.log("Using the parseInt function, entry_id becomes a:");
-      console.log(typeof parseInt(entry_id));
       prefillFormData();
     }
   }, [entry_id, entries]);
