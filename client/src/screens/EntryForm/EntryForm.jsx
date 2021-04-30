@@ -74,7 +74,7 @@ export default function EntryForm(props) {
             history.push(`/${deck_id}/entries`);
           }
         }}
-        className="entry-form-container"
+        className="entry-form-container flashcard-form"
       >
         <input
           required
@@ -98,7 +98,7 @@ export default function EntryForm(props) {
           <>
             <button
               type="submit"
-              className="save-entry button-one"
+              className="save-entry"
               value="save"
             >
               UPDATE
@@ -108,23 +108,24 @@ export default function EntryForm(props) {
           <>
             <button
               type="submit"
-              className="add-card entry-form-add button-one"
+              className="save-changes button-one"
+              value="save"
+            >
+                SAVE
+            </button>
+              <button
+              type="submit"
+              className="add-card entry-form-add button-two"
               value="add"
             >
               + ADD CARD
             </button>
-            <button
-              type="submit"
-              className="save-entry button-two"
-              value="save"
-            >
-              SAVE
-            </button>
+
           </>
         )}
       </form>
       {entry_id && (
-        <button className="entry-delete-button" onClick={handleDelete}>
+        <button className="entry-delete-button delete-button" onClick={handleDelete}>
           DELETE
         </button>
       )}

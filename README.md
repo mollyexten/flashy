@@ -182,7 +182,7 @@ src
 | Flip effect         |     L    |     2 hrs      |     1 hr      |    TBD      |
 | Deck sharing        |     L    |     2 hrs      |               |    TBD      |
 | AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
-| Linting             |     L    |     2 hrs      |               |    TBD      |
+| Linting             |     L    |     2 hrs      |   1.5 hrs     |    TBD      |
 | TOTAL               |          |    46 hrs      |    31 hrs     |    TBD      |
   
   
@@ -199,6 +199,8 @@ src
 
 - Full CRUD for the decks table
 - Tablet media queries
+Redirect create deck to create entry of same deck (perhaps with a "loading" screen in between)
+- Create invalid username and password messages
 - Deck sharing - Enable users to make decks public and search/share/save other users' decks
 - Flip effect - Animate entry detail screen so that the card "flips" between the term and its details
 - AWL Deck Generator - Include a textbox for pasting articles that will scan and produce a list of article words that are in the Academic Word List (AWL) and create a deck from these words

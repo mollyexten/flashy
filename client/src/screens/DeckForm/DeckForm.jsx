@@ -1,6 +1,7 @@
 import "./DeckForm.css";
 import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
+
 
 export default function DeckForm(props) {
   const { deck_id } = useParams();
@@ -46,6 +47,22 @@ export default function DeckForm(props) {
 
   return (
     <>
+      {deck_id ? (
+        <Link
+        to={`/${deck_id}/entries`}
+        className="gray-link"
+      >
+        {`<<BACK TO DECK`}
+      </Link>
+      ) : (
+        <Link
+        to={`/`}
+        className="gray-link"
+      >
+        {`<<BACK TO DECKS`}
+      </Link>
+      )}
+      
       <h2>
         {deck_id ? "edit deck" : "create deck"}
       </h2>
@@ -58,7 +75,7 @@ export default function DeckForm(props) {
           updateDeck(deck_id, formData);
           history.push(`/${deck_id}/entries`);
         }
-      }} className="deck-form-container">
+      }} className="deck-form-container flashcard-form">
         <input
           required
           type="text"
@@ -70,14 +87,14 @@ export default function DeckForm(props) {
         />
         <button
           type="submit"
-          className="deck-submit"
+          className="save-changes deck-save"
         >
           {deck_id ? "UPDATE" : "CREATE"}
         </button>
       </form>
       {deck_id && (
         <button
-          className="deck-delete-button"
+          className="deck-delete-button delete-button"
           onClick={handleDelete}
         >
           DELETE
