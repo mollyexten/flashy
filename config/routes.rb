@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resources :entries, only: [:index]
   
-  resources :decks, only: [:index, :show, :create] do
+  resources :decks, only: [:index, :create, :update] do
     resources :entries, only: [:create]
   end
   
-  resources :entries, only: [:show, :update, :destroy]
+  resources :entries, only: [:update, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   before_action :authorize_request
-  # before_action :set_user, only: [:index, :create]
+  before_action :set_deck, only: [:update]
   def index
     @decks = @current_user.decks
     render json: @decks
@@ -21,11 +21,22 @@ class DecksController < ApplicationController
     end
   end
 
+  def update
+    if @deck.update(deck_params)
+      render json: @deck
+    else
+      render json: @deck.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # def set_user
   #   @user = User.find(params[:user_id])
   # end
+  def set_deck
+    @deck = Deck.find(params[:id])  
+  end
 
   def deck_params
     params.require(:deck).permit(:title, :user_id)
