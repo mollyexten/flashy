@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :entries, only: [:index]
   
-  resources :decks, only: [:index, :create, :update] do
+  resources :decks, only: [:index, :create, :update, :destroy] do
     resources :entries, only: [:create]
   end
   

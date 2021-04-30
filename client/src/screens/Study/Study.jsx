@@ -25,14 +25,12 @@ export default function Study(props) {
       setDeckEntries(foundEntries);
     }
   }, [entries, deck_id, getDeckEntries]);
-  
+
   const nextSlide = () => {
     setCurrent(current === deckEntries.length - 1 ? 0 : current + 1)
-    console.log(current)
   }
   const prevSlide = () => {
     setCurrent(current === 0 ? deckEntries.length - 1 : current - 1)
-    console.log(current)
   }
   const flipCardJSX = deckEntries.map((entry, index) => (
     <FlipCard

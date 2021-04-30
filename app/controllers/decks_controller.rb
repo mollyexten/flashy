@@ -1,13 +1,12 @@
 class DecksController < ApplicationController
   before_action :authorize_request
-  before_action :set_deck, only: [:update]
+  before_action :set_deck, only: [:show, :update, :destroy]
   def index
     @decks = @current_user.decks
     render json: @decks
   end
   
   def show
-    @deck = Deck.find(params[:id])
     render json: @deck
   end
   
@@ -29,11 +28,18 @@ class DecksController < ApplicationController
     end
   end
 
+  # Rails Guides helped me out a lot with this one:
+  # https://guides.rubyonrails.org/association_basics.html
+  def destroy
+    @entries = Entry.where(deck_id: @deck.id)
+    @entries.each do |entry|
+      entry.destroy
+    end
+    @deck.destroy
+  end
+
   private
 
-  # def set_user
-  #   @user = User.find(params[:user_id])
-  # end
   def set_deck
     @deck = Deck.find(params[:id])  
   end

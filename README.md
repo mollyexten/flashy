@@ -183,7 +183,7 @@ src
 | Deck sharing        |     L    |     2 hrs      |               |    TBD      |
 | AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
 | Linting             |     L    |     2 hrs      |               |    TBD      |
-| TOTAL               |          |    46 hrs      |    31 hrs     |     TBD     |
+| TOTAL               |          |    46 hrs      |    31 hrs     |    TBD      |
   
   
 ### Server (Back End)
