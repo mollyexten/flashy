@@ -7,3 +7,10 @@
 .edit-link {
   font-size: .5em;
 }
+
+.entry-div-details {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  font-size: .5em;
+  font-weight: 300;
+}

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 
 export default function AuthOptions(props) {
-  const { handleClick, handleLogout } = props
+  const { handleClick, handleLogout, setHamburger, setVisible } = props
   const signOutAction = () => {
     handleLogout();
-    handleClick();
+    setHamburger(curr => !curr)
+    setVisible(curr => !curr)
   }
   return (
     <>

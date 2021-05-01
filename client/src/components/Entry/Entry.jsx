@@ -3,7 +3,12 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 
 export default function Entry(props) {
-  const { id, term, deck_id } = props
+  const {
+    id,
+    details,
+    term,
+    deck_id
+  } = props
   const [front, setFront] = useState(true)
 
   const handleClick = () => {
@@ -21,7 +26,7 @@ export default function Entry(props) {
           <Link to={`/${deck_id}/edit-entry/${id}`} className="edit-link">edit</Link>
           </>
       ): (
-          <p>POOP</p>
+          <p className="entry-div-details">{details}</p>
       )}  
   </div>
   )

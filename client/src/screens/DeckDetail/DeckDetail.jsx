@@ -9,7 +9,13 @@ export default function DeckDetail(props) {
   const [deckEntries, setDeckEntries] = useState([]);
   const history = useHistory();
   const { deck_id } = useParams();
-  const { currentUser, decks, entries, getOneDeck, getDeckEntries } = props;
+  const {
+    currentUser,
+    decks,
+    entries,
+    getOneDeck,
+    getDeckEntries
+  } = props;
 
   useEffect(() => {
     if (decks.length) {
@@ -29,6 +35,7 @@ export default function DeckDetail(props) {
     <Entry
       id={entry.id}
       term={entry.term}
+      details={entry.details}
       username={currentUser.username}
       key={index}
       deck_id={deck_id}

@@ -52,6 +52,8 @@ export default function Navbar(props) {
               <AuthOptions
                 currentUser={currentUser}
                 handleLogout={handleLogout}
+                setHamburger={setHamburger}
+                setVisible={setVisible}
                 handleClick={handleClick}
               />
             ) : (
