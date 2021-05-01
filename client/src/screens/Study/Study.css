@@ -1,11 +1,31 @@
-
-.study-container {
+.study-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.arrow-card-arrow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  overflow: hidden;
+  width: 90%;
 }
-.flipcard-container {
-  width: 100vw;
+
+.arrow {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--flashy-blue);
+  font-size: 2em;
+}
+
+@media (max-width: 400px) {
+  .arrow {
+    font-size: 1.25em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .arrow-card-arrow {
+    width: 900px;
+  }
 }

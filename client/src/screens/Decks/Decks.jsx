@@ -3,13 +3,20 @@ import Deck from "../../components/Deck/Deck";
 import { Link } from "react-router-dom"
 
 export default function Decks(props) {
-  const { currentUser, decks } = props;
+  const {
+    currentUser,
+    decks,
+    entries,
+    getDeckEntries
+  } = props;
   const decksJSX = decks.map((deck, index) => (
     <Deck
       id={deck.id}
       title={deck.title}
       username={currentUser.username}
       key={index}
+      entries={entries}
+      getDeckEntries={getDeckEntries}
     />
   ));
 

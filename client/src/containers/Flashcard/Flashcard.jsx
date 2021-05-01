@@ -125,7 +125,10 @@ export default function Flashcard(props) {
             />
           </Route>
           <Route path="/create-deck">
-            <DeckForm currentUser={currentUser} createDeck={createDeck} />
+            <DeckForm
+              currentUser={currentUser}
+              createDeck={createDeck}
+            />
           </Route>
           <Route path="/edit-deck/:deck_id">
             <DeckForm
@@ -136,7 +139,12 @@ export default function Flashcard(props) {
             />
           </Route>
           <Route exact path="/">
-            <Decks currentUser={currentUser} decks={userDecks} />
+            <Decks
+              currentUser={currentUser}
+              decks={userDecks}
+              entries={userEntries}
+              getDeckEntries={getDeckEntries}
+            />
           </Route>
         </Switch>
       </>

@@ -13,6 +13,8 @@ export default function DeckDetail(props) {
 
   useEffect(() => {
     if (decks.length) {
+      console.log(decks)
+      console.log(deck_id)
       const oneDeck = getOneDeck(decks, deck_id);
       setDeck(oneDeck);
     }
@@ -41,10 +43,7 @@ export default function DeckDetail(props) {
 
   return (
     <>
-      <h2>{deck?.title}</h2>
-      <Link to={`/edit-deck/${deck_id}`} className="edit-link">
-        Edit Deck
-      </Link>
+      <h1 className="deck-header">{deck?.title}</h1>
       {deckEntries.length > 0 && (
         <button onClick={studyDeck} className="study-button">
           STUDY DECK
@@ -58,6 +57,10 @@ export default function DeckDetail(props) {
           </Link>
         </div>
       </section>
+      {deck_id && (
+        <Link to={`/edit-deck/${deck_id}`} className="gray-link">
+          RENAME/DELETE DECK
+        </Link>)}
     </>
   );
 }

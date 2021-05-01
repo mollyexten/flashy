@@ -6,6 +6,7 @@
 .deck-div-title {
   font-size: 1.25em;
   font-weight: 800;
+  word-wrap: break-word;
 }
 
 .deck-div>a, .deck-div>a:visited {

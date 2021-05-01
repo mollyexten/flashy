@@ -3,13 +3,14 @@ import { useState } from "react";
 
 export default function FlipCard(props) {
   const [front, setFront] = useState(true);
-  const { term, details, current, index } = props;
+  const { term, details, current, index, deck } = props;
 
   const handleClick = () => {
     setFront(!front);
   };
 
   return (
+    <>
     <div
       className="flipcard-div"
       onClick={handleClick}
@@ -20,6 +21,8 @@ export default function FlipCard(props) {
         ) : (
           <p className="details-side">{details}</p>
         )}
+        <p className="flipcard-count">{`${index+1}/${deck.length}`}</p>
       </div>
+      </>
   );
 }

@@ -79,6 +79,7 @@ export default function EntryForm(props) {
         <input
           required
           type="text"
+          maxLength="60"
           placeholder="term"
           name="term"
           value={formData.term}
@@ -88,6 +89,7 @@ export default function EntryForm(props) {
         <textarea
           required
           type="text"
+          maxLength="200"
           placeholder="details"
           name="details"
           value={formData.details}
@@ -98,7 +100,7 @@ export default function EntryForm(props) {
           <>
             <button
               type="submit"
-              className="save-entry"
+              className="entry-update"
               value="save"
             >
               UPDATE
@@ -108,14 +110,14 @@ export default function EntryForm(props) {
           <>
             <button
               type="submit"
-              className="save-changes button-one"
+              className="entry-save"
               value="save"
             >
                 SAVE
             </button>
               <button
               type="submit"
-              className="add-card entry-form-add button-two"
+              className="add-card entry-add"
               value="add"
             >
               + ADD CARD
@@ -125,7 +127,7 @@ export default function EntryForm(props) {
         )}
       </form>
       {entry_id && (
-        <button className="entry-delete-button delete-button" onClick={handleDelete}>
+        <button className="entry-delete delete-button" onClick={handleDelete}>
           DELETE
         </button>
       )}

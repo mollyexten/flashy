@@ -21,9 +21,12 @@ export default function DeckForm(props) {
 
   useEffect(() => {
     const prefillFormData = () => {
+      console.log(deck_id)
+      console.log(decks)
       const oneDeck = decks.find((deck) => {
         return deck.id === Number(deck_id);
       });
+      console.log(oneDeck)
       const { title, user_id } = oneDeck;
       setFormData({ title, user_id });
     };
@@ -64,7 +67,7 @@ export default function DeckForm(props) {
       )}
       
       <h2>
-        {deck_id ? "edit deck" : "create deck"}
+        {deck_id ? "rename deck" : "create deck"}
       </h2>
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -79,6 +82,7 @@ export default function DeckForm(props) {
         <input
           required
           type="text"
+          maxLength="50"
           placeholder="deck title"
           name="title"
           value={title}

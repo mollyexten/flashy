@@ -1,16 +1,16 @@
 import "./Study.css";
 import FlipCard from "../../components/FlipCard/FlipCard";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function Study(props) {
   const { deck_id } = useParams();
-  const history = useHistory();
   const { decks, entries, getOneDeck, getDeckEntries } = props;
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
+  // current is for the slideshow
   const [current, setCurrent] = useState(0);
+  // I used this video to figure out the slider: https://www.youtube.com/watch?v=l1MYfu5YWHc
 
   useEffect(() => {
     if (decks.length) {
@@ -39,26 +39,25 @@ export default function Study(props) {
       key={index}
       index={index}
       current={current}
+      deck={deckEntries}
     />
   ));
 
-  const redirect = () => {
-    history.push(`/${deck_id}/entries`);
-  };
-
   return (
-    <>
+    <div className="study-div">
       <h2>{deck?.title}</h2>
-      <section className="study-container">
-      <button className="left-arrow arrow" onClick={prevSlide}>←</button>
+      <section className="arrow-card-arrow">
+        {/* <button className="left-arrow arrow" onClick={prevSlide}>←</button> */}
+        <button className="left-arrow arrow" onClick={prevSlide}>{`<<`}</button>
         <div className="flipcard-container">
           {flipCardJSX}
         </div>
-        <button className="right-arrow arrow" onClick={nextSlide}>→</button>
-        <button onClick={redirect}>
-          BACK TO DECK
-        </button>
+        {/* <button className="right-arrow arrow" onClick={nextSlide}>→</button> */}
+        <button className="right-arrow arrow" onClick={nextSlide}>{`>>`}</button>
       </section>
-    </>
+      <Link to={`/${deck_id}/entries`} className="gray-link">
+        {`<<BACK TO DECK`}
+      </Link>
+    </div>
   );
 }
