@@ -88,6 +88,7 @@ export default function DeckForm(props) {
           value={title}
           onChange={handleChange}
           className="title-input"
+          autocomplete="off"
         />
         <button
           type="submit"

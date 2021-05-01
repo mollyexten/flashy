@@ -52,9 +52,12 @@ export default function Navbar(props) {
               <AuthOptions
                 currentUser={currentUser}
                 handleLogout={handleLogout}
+                handleClick={handleClick}
               />
             ) : (
-              <UnAuthOptions />
+                <UnAuthOptions
+                  handleClick={handleClick}
+                />
             )}
           </div>
         </header>

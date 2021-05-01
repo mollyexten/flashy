@@ -1,6 +1,7 @@
 .entry-div {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .edit-link {

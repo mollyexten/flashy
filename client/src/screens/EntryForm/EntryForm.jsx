@@ -85,6 +85,7 @@ export default function EntryForm(props) {
           value={formData.term}
           onChange={handleChange}
           className="term-input"
+          autocomplete="off"
         />
         <textarea
           required
@@ -95,6 +96,7 @@ export default function EntryForm(props) {
           value={formData.details}
           onChange={handleChange}
           className="details-input"
+          autocomplete="off"
         />
         {entry_id ? (
           <>

@@ -169,16 +169,16 @@ src
 | SignOut             |     H    |     2 hrs      |    .5 hrs     |    TBD      |
 | Nav - w/ auth       |     H    |     1 hr       |     2 hrs     |    TBD      |
 | Decks               |     H    |     1 hr       |     1 hr      |    TBD      |
-| Deck                |     H    |     1 hr       |    .5 hrs     |    TBD      |
+| Deck                |     H    |     1 hr       |     1 hrs     |    TBD      |
 | DeckDetail          |     H    |     2 hrs      |    .5 hrs     |    TBD      |
 | Entry               |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| EntryDetail         |     H    |     2 hrs      |   2.5 hrs     |    TBD      |
-| DeckForm            |     H    |     2 hrs      |     1 hr      |    TBD      |
+| EntryDetail         |     H    |     2 hrs      |     3 hrs     |    TBD      |
+| DeckForm            |     H    |     2 hrs      |     2 hrs     |    TBD      |
 | EntryForm           |     H    |     2 hrs      |     2 hrs     |    TBD      |
 | Global styles (CSS) |     M    |     2 hrs      |     2 hrs     |    TBD      |
-| Grid (forms)        |     M    |     2 hrs      |               |    TBD      |
-| Flex (decks/entries)|     M    |     2 hrs      |               |    TBD      |
-| Media queries       |     M    |     2 hrs      |     1 hr      |    TBD      |
+| Grid (forms)        |     M    |     2 hrs      |     3 hrs     |    TBD      |
+| Flex (decks/entries)|     M    |     2 hrs      |     2 hrs     |    TBD      |
+| Media queries       |     M    |     2 hrs      |     2 hrs     |    TBD      |
 | Flip effect         |     L    |     2 hrs      |     1 hr      |    TBD      |
 | Deck sharing        |     L    |     2 hrs      |               |    TBD      |
 | AWL deck generator  |     L    |     2 hrs      |               |    TBD      |

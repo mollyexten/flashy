@@ -13,8 +13,6 @@ export default function DeckDetail(props) {
 
   useEffect(() => {
     if (decks.length) {
-      console.log(decks)
-      console.log(deck_id)
       const oneDeck = getOneDeck(decks, deck_id);
       setDeck(oneDeck);
     }

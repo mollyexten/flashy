@@ -8,7 +8,6 @@ export const loginUser = async (loginData) => {
 }
 
 export const registerUser = async (registerData) => {
-  console.log({ user: registerData })
   const resp = await api.post('/users', { user: registerData })
   localStorage.setItem('authToken', resp.data.token);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
@@ -16,7 +15,6 @@ export const registerUser = async (registerData) => {
 }
 
 export const verifyUser = async () => {
-  console.log()
   const token = localStorage.getItem('authToken');
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`

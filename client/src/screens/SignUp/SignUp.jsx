@@ -38,6 +38,7 @@ export default function SignUp(props) {
           value={username}
           placeholder="username"
           onChange={handleChange}
+          autocomplete="off"
         />
         <input
           required
@@ -47,6 +48,7 @@ export default function SignUp(props) {
           value={email}
           placeholder="email"
           onChange={handleChange}
+          autocomplete="off"
         />
         <input
           required
@@ -56,6 +58,7 @@ export default function SignUp(props) {
           className="signup-password signup-input"
           placeholder="password"
           onChange={handleChange}
+          autocomplete="off"
         />
         <button className="signup-submit">SIGN UP</button>
       </form>
