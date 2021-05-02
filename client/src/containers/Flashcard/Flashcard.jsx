@@ -110,8 +110,6 @@ export default function Flashcard(props) {
           <Route path="/:deck_id/create-entry">
             <EntryForm
               createEntry={createEntry}
-              decks={userDecks}
-              getOneDeck={getOneDeck}
             />
           </Route>
           

@@ -38,7 +38,7 @@ export default function SignUp(props) {
           value={username}
           placeholder="username"
           onChange={handleChange}
-          autocomplete="off"
+          autoComplete="off"
         />
         <input
           required

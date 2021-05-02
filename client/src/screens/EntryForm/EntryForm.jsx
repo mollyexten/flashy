@@ -9,8 +9,6 @@ export default function EntryForm(props) {
   const { deck_id, entry_id } = useParams();
   const {
     createEntry,
-    decks,
-    getOneDeck,
     updateEntry,
     removeEntry,
     entries
