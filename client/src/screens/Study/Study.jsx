@@ -49,7 +49,7 @@ export default function Study(props) {
 
   return (
     <div className="study-div">
-      <h2>{deck?.title}</h2>
+      <Link to={`/${deck_id}/entries`}><h2 className="study-title">{deck?.title}</h2></Link>
       <section className="arrow-card-arrow">
         <button className="left-arrow arrow" onClick={prevSlide}>{`<<`}</button>
         <div className="flipcard-container">

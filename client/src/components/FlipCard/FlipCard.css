@@ -1,8 +1,14 @@
 /* ======== BASIC FLIPCARD STYLING =============================== */
+
+.flipcard-space {
+  display: flex;
+  flex-direction: column;
+}
+
 .flipcard-div {
   width: 300px;
   height: 250px;
-  margin: 20px 0px;
+  margin: 20px 0px 10px 0px;
   background-color: white;
   border: 1px solid var(--flashy-blue);
   display: flex;
@@ -26,11 +32,13 @@
 }
 
 .flipcard-count {
+  margin-top: 0px;
   font-size: .75em;
-  align-self: flex-end;
 }
 
+
 /* ========= MOBILE LAYOUT ==================================== */
+
 @media (max-width: 400px) {
   .flipcard-div {
     width: 240px;
@@ -47,6 +55,7 @@
 }
 
 /* ========= SMALL MOBILE LAYOUT ==================================== */
+
 @media (max-width: 330px) {
   .flipcard-div {
     width: 220px;
@@ -62,7 +71,9 @@
   }
 }
 
+
 /* ========= TABLET/DESKTOP LAYOUT ==================================== */
+
 @media (min-width: 641px) {
   .flipcard-div {
     width: 400px;

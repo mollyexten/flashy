@@ -73,7 +73,7 @@ export default function DeckForm(props) {
         e.preventDefault();
         if (!deck_id) {
           createDeck(formData);
-          history.push("/");
+          // history.push("/");
         } else {
           updateDeck(deck_id, formData);
           history.push(`/${deck_id}/entries`);

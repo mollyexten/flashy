@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Decks from "../../screens/Decks/Decks";
 import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import Study from "../../screens/Study/Study";
@@ -22,6 +22,7 @@ export default function Flashcard(props) {
   const [userDecks, setUserDecks] = useState([]);
   const [userEntries, setUserEntries] = useState([]);
   const { currentUser } = props;
+  const history = useHistory();
 
   // Once a user logs in, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
@@ -58,6 +59,7 @@ export default function Flashcard(props) {
   const createDeck = async (deckData) => {
     const newDeck = await postDeck(deckData);
     setUserDecks((prevState) => [...prevState, newDeck]);
+    history.push(`/${newDeck.id}/create-entry`)
   };
 
   const updateDeck = async (id, data) => {
@@ -108,6 +110,8 @@ export default function Flashcard(props) {
           <Route path="/:deck_id/create-entry">
             <EntryForm
               createEntry={createEntry}
+              decks={userDecks}
+              getOneDeck={getOneDeck}
             />
           </Route>
           

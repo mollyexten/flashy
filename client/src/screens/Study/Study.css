@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.study-title {
+  color: var(--flashy-blue);
+}
+
 .arrow-card-arrow {
   display: flex;
   flex-direction: row;

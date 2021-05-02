@@ -10,19 +10,21 @@ export default function FlipCard(props) {
   };
 
   return (
-    <>
     <div
-      className="flipcard-div"
-      onClick={handleClick}
+      className="flipcard-space"
       style={{ display: current === index ? "flex" : "none"}}
+    >
+    <div
+        className="flipcard-div"
+        onClick={handleClick}        
     >
         {front ? (
           <h3 className="term-side">{term}</h3>
         ) : (
           <p className="details-side">{details}</p>
-        )}
-        <p className="flipcard-count">{`${index+1}/${deck.length}`}</p>
+        )} 
       </div>
-      </>
+      <p className="flipcard-count">{`${index+1}/${deck.length}`}</p>
+    </div>
   );
 }

@@ -9,6 +9,8 @@ export default function EntryForm(props) {
   const { deck_id, entry_id } = useParams();
   const {
     createEntry,
+    decks,
+    getOneDeck,
     updateEntry,
     removeEntry,
     entries
@@ -18,12 +20,23 @@ export default function EntryForm(props) {
     details: "",
     deck_id: deck_id,
   });
+  const [deckTitle, setDeckTitle] = useState("")
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
   const togglePopup = () => {
     setIsOpen(!isOpen)
   }
+
+  useEffect(() => {
+    const getDeckTitle = () => {
+      const currentDeck = getOneDeck(decks, deck_id)
+      setDeckTitle(currentDeck.title)
+    }
+    if (decks.length) {
+      getDeckTitle()
+    }
+  }, [deck_id, decks, getOneDeck])
 
   useEffect(() => {
     const prefillFormData = () => {
@@ -60,6 +73,7 @@ export default function EntryForm(props) {
         to={`/${deck_id}/entries`}
         className="gray-link"
       >{`<<BACK TO DECK`}</Link>
+      <p>{deckTitle}</p>
       <h2>{entry_id ? "edit entry" : "create entry"}</h2>
       <form
         onSubmit={(e) => {
