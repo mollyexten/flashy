@@ -1,9 +1,10 @@
 import "./SignUp.css";
 import { useState } from "react";
-import { Link, useLocation, Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
+// import { useLocation } from "react-router-dom"
 
 export default function SignUp(props) {
-  const location = useLocation()
+  // const location = useLocation()
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -21,10 +22,9 @@ export default function SignUp(props) {
     }));
   }
 
-  // console.log(location.state.from)
-
   return (
     <>
+      {/* Originally, I used the below, but that made signing up impossible :-( */}
       {/* {currentUser && <Redirect to={location.state.from} />} */}
       {currentUser && <Redirect to="/" />}
       <p>welcome to flashy, a flashcard app!</p>
