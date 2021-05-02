@@ -21,9 +21,12 @@ export default function SignUp(props) {
     }));
   }
 
+  // console.log(location.state.from)
+
   return (
     <>
-      {currentUser && <Redirect to={ location.state.from}/>}
+      {/* {currentUser && <Redirect to={location.state.from} />} */}
+      {currentUser && <Redirect to="/" />}
       <p>welcome to flashy, a flashcard app!</p>
       <h2>SIGN UP</h2>
       <form className="signup-form auth-form" onSubmit={(e) => {

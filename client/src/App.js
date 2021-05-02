@@ -36,7 +36,7 @@ function App() {
   const handleRegister = async (formData) => {
     const currentUser = await registerUser(formData);
     setCurrentUser(currentUser);
-    history.push("/flashcards");
+    history.push("/");
   };
 
   const handleLogout = () => {

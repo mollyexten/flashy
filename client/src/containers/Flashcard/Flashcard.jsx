@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Decks from "../../screens/Decks/Decks";
 import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import Study from "../../screens/Study/Study";
@@ -23,6 +23,7 @@ export default function Flashcard(props) {
   const [userEntries, setUserEntries] = useState([]);
   const { currentUser } = props;
   const history = useHistory();
+  const location = useLocation();
 
   // Once a user logs in, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
@@ -102,6 +103,8 @@ export default function Flashcard(props) {
     await deleteEntry(id);
     setUserEntries((prevState) => prevState.filter((entry) => entry.id !== id));
   };
+
+  console.log(`This is what location.state says: ${location.state}`)
 
     return (
       <>
