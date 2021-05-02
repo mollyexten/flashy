@@ -21,7 +21,7 @@
 /* ===== MOBILE LAYOUT =========================================== */
 @media (max-width: 500px) {
   .deck-form-container {
-    grid-template-columns: 5px 30% 120px 30% 5px;
+    grid-template-columns: 5px 1fr 120px 1fr 5px;
     grid-template-rows: repeat(2, 60px);
   }
   

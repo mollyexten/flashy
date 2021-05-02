@@ -1,7 +1,7 @@
 export default function Hamburger(props) {
   return (
     <svg
-      viewBox="0 -50 100 400"
+      viewBox="00 -65 100 400"
       width="60"
       height="70"
       onClick={props.handleClick}
