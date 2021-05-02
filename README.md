@@ -1,5 +1,5 @@
 # flashy
-A flashcard app
+A flashcard app: https://flashy-app.netlify.app/
 
 - [Overview](#overview)
 - [MVP](#mvp)
@@ -27,7 +27,7 @@ A flashcard app
 
 ## MVP
 
-The **flashy** MVP is a well-organized "React on Rails" RESTful web app. Backend endpoints and frontend API calls will follow standard naming conventions. **flashy** will include a container component to reduce the number of API calls. The user interface will facilitate full CRUD on the entry table and present a uniform, responsive style.
+The **flashy** MVP is a well-organized "React on Rails" RESTful web app. The backend is deployed on Heroku, and the frontend is deployed on Netlify. Backend endpoints and frontend API calls follow standard naming conventions. **flashy** includes a container component to reduce the number of API calls. The user interface facilitates full CRUD on the deck and entry tables and presents a uniform, responsive style.
 
 <br>
 
@@ -154,36 +154,36 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Backend tables      |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| Controllers & Models|     H    |     1 hr       |     3 hrs     |    TBD      |
-| Seed data           |     H    |     1 hr       |   1.5 hrs     |    TBD      |
-| API calls           |     H    |     2 hrs      |   2.5 hrs     |    TBD      |
-| App.js routing      |     H    |     1 hr       |    1 hrs      |    TBD      |
-| Containers setup    |     H    |     1 hr       |  2.5 hrs      |    TBD      |
-| Screens setup       |     H    |     1 hr       |    1 hr       |    TBD      |
-| Components, Layout  |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| Layout              |     H    |     1 hr       |               |    TBD      |
-| Nav - w/o auth      |     H    |     2 hrs      |     2 hrs     |    TBD      |
-| SignUp              |     H    |     2 hrs      |     2 hrs     |    TBD      |
-| SignIn              |     H    |     2 hrs      |     1 hr      |    TBD      |
-| SignOut             |     H    |     2 hrs      |    .5 hrs     |    TBD      |
-| Nav - w/ auth       |     H    |     1 hr       |     2 hrs     |    TBD      |
-| Decks               |     H    |     1 hr       |     1 hr      |    TBD      |
-| Deck                |     H    |     1 hr       |     1 hrs     |    TBD      |
-| DeckDetail          |     H    |     2 hrs      |    .5 hrs     |    TBD      |
-| Entry               |     H    |     1 hr       |    .5 hrs     |    TBD      |
-| EntryDetail         |     H    |     2 hrs      |     3 hrs     |    TBD      |
-| DeckForm            |     H    |     2 hrs      |     2 hrs     |    TBD      |
-| EntryForm           |     H    |     2 hrs      |     2 hrs     |    TBD      |
-| Global styles (CSS) |     M    |     2 hrs      |     2 hrs     |    TBD      |
-| Grid (forms)        |     M    |     2 hrs      |     3 hrs     |    TBD      |
-| Flex (decks/entries)|     M    |     2 hrs      |     2 hrs     |    TBD      |
-| Media queries       |     M    |     2 hrs      |     2 hrs     |    TBD      |
-| Flip effect         |     L    |     2 hrs      |     1 hr      |    TBD      |
-| Deck sharing        |     L    |     2 hrs      |               |    TBD      |
-| AWL deck generator  |     L    |     2 hrs      |               |    TBD      |
-| Linting             |     L    |     2 hrs      |   1.5 hrs     |    TBD      |
-| TOTAL               |          |    46 hrs      |    31 hrs     |    TBD      |
+| Backend tables      |     H    |     1 hr       |    .5 hrs     |     .5 hrs  |
+| Controllers & Models|     H    |     1 hr       |     3 hrs     |      3 hrs  |
+| Seed data           |     H    |     1 hr       |   1.5 hrs     |    1.5 hrs  |
+| API calls           |     H    |     2 hrs      |   2.5 hrs     |    2.5 hrs  |
+| App.js routing      |     H    |     1 hr       |    1 hr       |      1 hr   |
+| Containers setup    |     H    |     1 hr       |  2.5 hrs      |    2.5 hrs  |
+| Screens setup       |     H    |     1 hr       |    1 hr       |      1 hr   |
+| Components, Layout  |     H    |     1 hr       |    .5 hrs     |     .5 hrs  |
+| Layout              |     H    |     1 hr       |     0 hrs     |      0 hrs  |
+| Nav - w/o auth      |     H    |     2 hrs      |     2 hrs     |      2 hrs  |
+| SignUp              |     H    |     2 hrs      |     2 hrs     |      2 hrs  |
+| SignIn              |     H    |     2 hrs      |     1 hr      |      1 hr   |
+| SignOut             |     H    |     2 hrs      |    .5 hrs     |     .5 hrs  |
+| Nav - w/ auth       |     H    |     1 hr       |     2 hrs     |      2 hrs  |
+| Decks               |     H    |     1 hr       |     1 hr      |      1 hr   |
+| Deck                |     H    |     1 hr       |     1 hr      |      1 hr   |
+| DeckDetail          |     H    |     2 hrs      |    .5 hrs     |     .5 hrs  |
+| Entry               |     H    |     1 hr       |    .5 hrs     |     .5 hrs  |
+| Study               |     H    |     2 hrs      |     4 hrs     |      4 hrs  |
+| DeckForm            |     H    |     2 hrs      |     3 hrs     |      3 hrs  |
+| EntryForm           |     H    |     2 hrs      |     3 hrs     |      3 hrs  |
+| Global styles (CSS) |     M    |     2 hrs      |     2 hrs     |      2 hrs  |
+| Grid (forms)        |     M    |     2 hrs      |     3 hrs     |      3 hrs  |
+| Flex (decks/entries)|     M    |     2 hrs      |     2 hrs     |      2 hrs  |
+| Media queries       |     M    |     2 hrs      |     2 hrs     |      2 hrs  |
+| Flip effect         |     L    |     2 hrs      |     2 hrs     |      2 hrs  |
+| Deck sharing        |     L    |     2 hrs      |     0 hrs     |      0 hrs  |
+| AWL deck generator  |     L    |     2 hrs      |     0 hrs     |      0 hrs  |
+| Linting             |     L    |     2 hrs      |   1.5 hrs     |    1.5 hrs  |
+| TOTAL               |          |    46 hrs      |   45.5 hrs    |   45.5 hrs  |
   
   
 ### Server (Back End)
@@ -199,7 +199,7 @@ src
 
 - Full CRUD for the decks table
 - Tablet media queries
-Redirect create deck to create entry of same deck (perhaps with a "loading" screen in between)
+- Redirect create deck to create entry of same deck (perhaps with a "loading" screen in between)
 - Create invalid username and password messages
 - Deck sharing - Enable users to make decks public and search/share/save other users' decks
 - Flip effect - Animate entry detail screen so that the card "flips" between the term and its details
@@ -209,8 +209,60 @@ Redirect create deck to create entry of same deck (perhaps with a "loading" scre
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+I am proud of the conitional rendering that I did within the Flipcard component:
+```
+  return (
+    <div
+      className="flipcard-space"
+      style={{ display: current === index ? "flex" : "none"}}
+    >
+    <div
+        className="flipcard-div"
+        onClick={handleClick}        
+    >
+        {front ? (
+          <h3 className="term-side">{term}</h3>
+        ) : (
+          <p className="details-side">{details}</p>
+        )} 
+      </div>
+      <p className="flipcard-count">{`${index+1}/${deck.length}`}</p>
+    </div>
+  );
+```
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+- I got the ubiquitous "cannot read property ___ of null" error several times before learning how to set up useEffects properly: write the function first, then write a conditional ensuring the function only fires when the necessary variables actually exist. I had thought that the dependency array would automatically make sure no variables had null values, but that turned out not to be the case! Here is an example of a useEffect that uses this pattern:
+```  
+useEffect(() => {
+    if (currentUser) {
+      fetchDecks();
+    }
+  }, [currentUser]);
+```
+- My get request for entries turned out to be more difficult than I anticipated when I created the ERD. Since I wanted to get entries for just one user, the decks table had to serve as a through table. I modified the the user and entry models. For user:
+```
+has_many :entries, through: :decks
+```
+For entry:
+```
+has_one :user, through: :deck
+```
+And then, in the entries controller, I had this:
+```  def index
+    @entries = @current_user.entries
+    render json: @entries, status: :ok
+  end
+```
+In the above snippet, @current_user comes from the verify method in the authentication controller.
+- The main route of my app - "/" - required authorization, so visitors to my sign would actually need to type in the url plus "/sign-up" to get started.  In my App.js file, I placed this line before the main authorized route ("/"):
+```
+{!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
+```
+Then in "/sign-up", I added this to the top of the JSX portion:
+```
+{currentUser && <Redirect to={ location.state.from}/>}
+```
+For "location", I imported useLocation from react-router-dom. It helps keep track of the user's route path. This was important because if a currentUser refreshes the page while logged in, the currentUser props could take too long to load, and then the user would be sent to the "/sign-up" page even though they're logged in. "location" keeps track of their past location. If a user is redirected to the "/sign-up" page but the currentUser prop has since returned, the user will be redirected back to the page that they were on.
+- The last issue I encountered was a typo in my apiConfig.js file. Instead of writing "process.env.NODE_ENV", I had accidentally written "process.env.NODE_END". This made it so that my deployed front end only hoooked up to the local Rails server and could never hook up to the Heroku API. 
