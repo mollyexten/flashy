@@ -33,7 +33,7 @@ export default function EntryForm(props) {
       const currentDeck = getOneDeck(decks, deck_id)
       setDeckTitle(currentDeck.title)
     }
-    if (decks.length) {
+    if (!createEntry) {
       getDeckTitle()
     }
   }, [deck_id, decks, getOneDeck])
