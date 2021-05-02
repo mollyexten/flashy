@@ -1,4 +1,6 @@
 import "./EntryForm.css";
+import Popup from "../../components/Popup/Popup"
+
 import { useEffect, useState } from "react";
 import { useHistory, useParams, Link } from "react-router-dom";
 
@@ -16,6 +18,12 @@ export default function EntryForm(props) {
     details: "",
     deck_id: deck_id,
   });
+
+  // State and function for managing the popup component:
+  const [isOpen, setIsOpen] = useState(false)
+  const togglePopup = () => {
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     const prefillFormData = () => {
@@ -46,11 +54,6 @@ export default function EntryForm(props) {
     });
   };
 
-  function handleDelete() {
-    removeEntry(parseInt(entry_id));
-    history.push(`/${deck_id}/entries`);
-  }
-
   return (
     <>
       <Link
@@ -74,29 +77,29 @@ export default function EntryForm(props) {
             history.push(`/${deck_id}/entries`);
           }
         }}
-        className="entry-form-container flashcard-form"
+        className="entry-form-container"
       >
         <input
           required
           type="text"
-          maxLength="60"
+          maxLength="50"
           placeholder="term"
           name="term"
           value={formData.term}
           onChange={handleChange}
           className="term-input"
-          autocomplete="off"
+          autoComplete="off"
         />
         <textarea
           required
           type="text"
-          maxLength="200"
+          maxLength="180"
           placeholder="details"
           name="details"
           value={formData.details}
           onChange={handleChange}
           className="details-input"
-          autocomplete="off"
+          autoComplete="off"
         />
         {entry_id ? (
           <>
@@ -129,9 +132,18 @@ export default function EntryForm(props) {
         )}
       </form>
       {entry_id && (
-        <button className="entry-delete delete-button" onClick={handleDelete}>
+        <button className="entry-delete delete-button" onClick={togglePopup}>
           DELETE
         </button>
+      )}
+      {isOpen && (
+        <Popup
+          message={"Are you sure you want to delete this entry?"}
+          cancel={togglePopup}
+          removeEntry={removeEntry}
+          entry_id={parseInt(entry_id)}
+          deck_id={deck_id}
+        />
       )}
     </>
   );

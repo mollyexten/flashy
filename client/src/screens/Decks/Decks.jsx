@@ -9,6 +9,8 @@ export default function Decks(props) {
     entries,
     getDeckEntries
   } = props;
+ 
+//  Map out all decks, pass their info into Deck component, and use in JSX below
   const decksJSX = decks.map((deck, index) => (
     <Deck
       id={deck.id}

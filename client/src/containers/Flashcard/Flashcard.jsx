@@ -23,6 +23,9 @@ export default function Flashcard(props) {
   const [userEntries, setUserEntries] = useState([]);
   const { currentUser } = props;
 
+  // Once a user logs in, the app will get all decks and entries,
+  // find decks and entries belonging to the current user, and
+  // store them in state as userDecks and userEntries
   useEffect(() => {
     if (currentUser) {
       fetchDecks();
@@ -39,6 +42,13 @@ export default function Flashcard(props) {
     const decks = await readAllDecks();
     setUserDecks(decks);
   };
+
+  const fetchEntries = async () => {
+    const entries = await readAllEntries();
+    setUserEntries(entries);
+  };
+
+  // Full CRUD for the decks table
 
   const getOneDeck = (decks, deck_id) => {
     const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
@@ -64,10 +74,7 @@ export default function Flashcard(props) {
     setUserEntries((prevState) => prevState.filter((entry) => entry.deck_id !== id))
   };
 
-  const fetchEntries = async () => {
-    const entries = await readAllEntries();
-    setUserEntries(entries);
-  };
+  // Full CRUD for the entries table
 
   const getDeckEntries = (entries, deck_id) => {
     const deckEntries = entries.filter(
@@ -97,9 +104,13 @@ export default function Flashcard(props) {
     return (
       <>
         <Switch>
+          
           <Route path="/:deck_id/create-entry">
-            <EntryForm createEntry={createEntry} />
+            <EntryForm
+              createEntry={createEntry}
+            />
           </Route>
+          
           <Route path="/:deck_id/edit-entry/:entry_id">
             <EntryForm
               updateEntry={updateEntry}
@@ -107,6 +118,7 @@ export default function Flashcard(props) {
               removeEntry={removeEntry}
             />
           </Route>
+          
           <Route exact path="/:deck_id/entries">
             <DeckDetail
               currentUser={currentUser}
@@ -116,6 +128,7 @@ export default function Flashcard(props) {
               getDeckEntries={getDeckEntries}
             />
           </Route>
+          
           <Route path="/:deck_id/study">
             <Study
               decks={userDecks}
@@ -124,12 +137,14 @@ export default function Flashcard(props) {
               getDeckEntries={getDeckEntries}
             />
           </Route>
+          
           <Route path="/create-deck">
             <DeckForm
               currentUser={currentUser}
               createDeck={createDeck}
             />
           </Route>
+          
           <Route path="/edit-deck/:deck_id">
             <DeckForm
               currentUser={currentUser}
@@ -138,6 +153,7 @@ export default function Flashcard(props) {
               decks={userDecks}
             />
           </Route>
+          
           <Route exact path="/">
             <Decks
               currentUser={currentUser}
@@ -146,6 +162,7 @@ export default function Flashcard(props) {
               getDeckEntries={getDeckEntries}
             />
           </Route>
+        
         </Switch>
       </>
     );

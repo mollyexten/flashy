@@ -17,6 +17,8 @@ function App() {
   const history = useHistory();
   const location = useLocation();
 
+// Auth api calls are called here (verify, login, register, and signout)
+
   useEffect(() => {
     const handleVerify = async () => {
       const user = await verifyUser();
@@ -51,6 +53,7 @@ function App() {
         handleLogout={handleLogout}
       >
         <Switch>
+          {/* Two different methods of using route shown below for future reference */}
           <Route
             path="/sign-up"
             render={() => <SignUp
@@ -62,6 +65,8 @@ function App() {
             <SignIn setCurrentUser={setCurrentUser} handleLogin={handleLogin} />
           </Route>
           {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
+          
+          {/* Flashcard decks and entries will be stored within the Flashcard container component */}
           <Route
             path="/"
             render={() => <Flashcard currentUser={currentUser} />}

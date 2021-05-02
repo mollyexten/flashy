@@ -1,7 +1,8 @@
 import "./DeckForm.css";
+import Popup from "../../components/Popup/Popup"
+
 import { useState, useEffect } from "react";
 import { useHistory, useParams, Link } from "react-router-dom";
-
 
 export default function DeckForm(props) {
   const { deck_id } = useParams();
@@ -19,14 +20,18 @@ export default function DeckForm(props) {
   const { title } = formData;
   const history = useHistory();
 
+  // State and function for managing the popup component:
+  const [isOpen, setIsOpen] = useState(false)
+  const togglePopup = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // Get deck info if it will be edited
   useEffect(() => {
     const prefillFormData = () => {
-      console.log(deck_id)
-      console.log(decks)
       const oneDeck = decks.find((deck) => {
         return deck.id === Number(deck_id);
       });
-      console.log(oneDeck)
       const { title, user_id } = oneDeck;
       setFormData({ title, user_id });
     };
@@ -42,11 +47,6 @@ export default function DeckForm(props) {
       [name]: value,
     }));
   };
-
-  const handleDelete = () => {
-    removeDeck(parseInt(deck_id));
-    history.push("/");
-  }
 
   return (
     <>
@@ -88,7 +88,7 @@ export default function DeckForm(props) {
           value={title}
           onChange={handleChange}
           className="title-input"
-          autocomplete="off"
+          autoComplete="off"
         />
         <button
           type="submit"
@@ -100,10 +100,18 @@ export default function DeckForm(props) {
       {deck_id && (
         <button
           className="deck-delete-button delete-button"
-          onClick={handleDelete}
+          onClick={togglePopup}
         >
           DELETE
         </button>
+      )}
+      {isOpen && (
+        <Popup
+          message={"Are you sure you want to delete this deck?"}
+          cancel={togglePopup}
+          removeDeck={removeDeck}
+          deck_id={parseInt(deck_id)}
+        />
       )}
     </>
   );

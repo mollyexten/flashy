@@ -108,6 +108,10 @@ a>.nav-header {
     color: var(--flashy-yellow);
     font-size: 1.5em;
   }
+
+  .sign-out:active {
+    background-color: var(--flashy-blue);
+  }
 }
 
 @media (min-width: 900px) {

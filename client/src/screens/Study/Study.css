@@ -1,9 +1,11 @@
+/* ========= STUDY LAYOUT ==================================== */
 .study-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
+
 .arrow-card-arrow {
   display: flex;
   flex-direction: row;
@@ -18,12 +20,14 @@
   font-size: 2em;
 }
 
+/* ========= MOBILE LAYOUT ==================================== */
 @media (max-width: 400px) {
   .arrow {
     font-size: 1.25em;
   }
 }
 
+/* ========= DESKTOP LAYOUT ==================================== */
 @media (min-width: 1000px) {
   .arrow-card-arrow {
     width: 900px;

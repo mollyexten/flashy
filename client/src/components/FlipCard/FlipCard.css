@@ -1,3 +1,4 @@
+/* ======== BASIC FLIPCARD STYLING =============================== */
 .flipcard-div {
   width: 300px;
   height: 250px;
@@ -29,8 +30,7 @@
   align-self: flex-end;
 }
 
-
-
+/* ========= MOBILE LAYOUT ==================================== */
 @media (max-width: 400px) {
   .flipcard-div {
     width: 240px;
@@ -45,6 +45,8 @@
     font-size: .8em;
   }
 }
+
+/* ========= SMALL MOBILE LAYOUT ==================================== */
 @media (max-width: 330px) {
   .flipcard-div {
     width: 220px;
@@ -59,6 +61,8 @@
     font-size: .7em;
   }
 }
+
+/* ========= TABLET/DESKTOP LAYOUT ==================================== */
 @media (min-width: 641px) {
   .flipcard-div {
     width: 400px;

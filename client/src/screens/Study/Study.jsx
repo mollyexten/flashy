@@ -8,9 +8,10 @@ export default function Study(props) {
   const { decks, entries, getOneDeck, getDeckEntries } = props;
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
+  
+  // I used this video to figure out the slider: https://www.youtube.com/watch?v=l1MYfu5YWHc
   // current is for the slideshow
   const [current, setCurrent] = useState(0);
-  // I used this video to figure out the slider: https://www.youtube.com/watch?v=l1MYfu5YWHc
 
   useEffect(() => {
     if (decks.length) {
@@ -26,12 +27,15 @@ export default function Study(props) {
     }
   }, [entries, deck_id, getDeckEntries]);
 
+  // nextSlide and prevSlide make slideshow possible
   const nextSlide = () => {
     setCurrent(current === deckEntries.length - 1 ? 0 : current + 1)
   }
   const prevSlide = () => {
     setCurrent(current === 0 ? deckEntries.length - 1 : current - 1)
   }
+
+  // Each entry will be stored in a FlipCard
   const flipCardJSX = deckEntries.map((entry, index) => (
     <FlipCard
       term={entry.term}
@@ -47,12 +51,10 @@ export default function Study(props) {
     <div className="study-div">
       <h2>{deck?.title}</h2>
       <section className="arrow-card-arrow">
-        {/* <button className="left-arrow arrow" onClick={prevSlide}>←</button> */}
         <button className="left-arrow arrow" onClick={prevSlide}>{`<<`}</button>
         <div className="flipcard-container">
           {flipCardJSX}
         </div>
-        {/* <button className="right-arrow arrow" onClick={nextSlide}>→</button> */}
         <button className="right-arrow arrow" onClick={nextSlide}>{`>>`}</button>
       </section>
       <Link to={`/${deck_id}/entries`} className="gray-link">

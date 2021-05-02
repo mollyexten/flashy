@@ -1,3 +1,4 @@
+/* ===== DECK FORM BASIC LAYOUT =========================================== */
 .deck-form-container {
   display: grid;
   grid-template-columns: auto 30% 120px 30% auto;
@@ -12,10 +13,12 @@
 }
 
 .deck-save {
+  font-size: 1.5em;
   grid-column: 3 / 4;
   grid-row: 2 / 3;
 }
 
+/* ===== MOBILE LAYOUT =========================================== */
 @media (max-width: 500px) {
   .deck-form-container {
     grid-template-columns: 5px 30% 120px 30% 5px;
@@ -38,6 +41,7 @@
   }
 }
 
+/* ===== DESKTOP LAYOUT =========================================== */
 @media (min-width: 900px) {
   .deck-form-container {
     grid-template-columns: auto 300px 120px 300px auto;

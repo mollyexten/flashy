@@ -44,21 +44,20 @@ export default function Navbar(props) {
           <div
             className="hamburger-dropdown"
             style={{ display: hamburger && visible ? "flex" : "none" }}
+            onClick={handleClick}
           >
-            <p onClick={handleClick} className="hamburger-close">
+            <p
+              className="hamburger-close"
+            >
               ✕
             </p>
             {props.currentUser ? (
               <AuthOptions
                 currentUser={currentUser}
                 handleLogout={handleLogout}
-                setHamburger={setHamburger}
-                setVisible={setVisible}
-                handleClick={handleClick}
               />
             ) : (
                 <UnAuthOptions
-                  handleClick={handleClick}
                 />
             )}
           </div>

@@ -35,7 +35,7 @@ export default function SignIn({handleLogin}) {
           value={username}
           placeholder="username"
           onChange={handleChange}
-          autocomplete="off"
+          autoComplete="off"
         />
         <input
           required
@@ -45,7 +45,7 @@ export default function SignIn({handleLogin}) {
           className="signin-password signin-input"
           placeholder="password"
           onChange={handleChange}
-          autocomplete="off"
+          autoComplete="off"
         />
         <button
           type="submit"

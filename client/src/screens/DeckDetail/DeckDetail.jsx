@@ -17,6 +17,7 @@ export default function DeckDetail(props) {
     getDeckEntries
   } = props;
 
+  // Get specific info on the deck and its entries with useEffects
   useEffect(() => {
     if (decks.length) {
       const oneDeck = getOneDeck(decks, deck_id);
@@ -31,6 +32,7 @@ export default function DeckDetail(props) {
     }
   }, [entries, deck_id, getDeckEntries]);
 
+  // Map out all entries, pass them into Entry component, and store as variable entriesJSX to use in the JSX part 
   const entriesJSX = deckEntries.map((entry, index) => (
     <Entry
       id={entry.id}
