@@ -200,6 +200,7 @@ src
 - Full CRUD for the decks table
 - Tablet media queries
 - Redirect create deck to create entry of same deck (perhaps with a "loading" screen in between)
+- Add password requirements to front page (6 characters or more)
 - Create invalid username and password messages
 - Deck sharing - Enable users to make decks public and search/share/save other users' decks
 - Flip effect - Animate entry detail screen so that the card "flips" between the term and its details
