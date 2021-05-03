@@ -233,7 +233,7 @@ I am proud of the conitional rendering that I did within the Flipcard component:
 
 ## Code Issues & Resolutions
 
-- I got the ubiquitous "cannot read property ___ of null" error several times before learning how to set up useEffects properly: write the function first, then write a conditional ensuring the function only fires when the necessary variables actually exist. I had thought that the dependency array would automatically make sure no variables had null values, but that turned out not to be the case! Here is an example of a useEffect that uses this pattern:
+- To avoid getting too many "cannot read property ___ of null" errors, I learned to set up useEffects in this pattern: write the function first, then write a conditional ensuring the function only fires when the necessary variables actually exist. I had thought that the dependency array would automatically make sure no variables had null values, but that turned out not to be the case! Here is an example of a useEffect that uses this pattern:
 ```  
 useEffect(() => {
     if (currentUser) {
@@ -249,14 +249,14 @@ For entry:
 ```
 has_one :user, through: :deck
 ```
-And then, in the entries controller, I had this:
+And then, in the entries controller, I wrote this:
 ```  def index
     @entries = @current_user.entries
     render json: @entries, status: :ok
   end
 ```
-In the above snippet, @current_user comes from the verify method in the authentication controller.
-- The main route of my app - "/" - required authorization, so visitors to my sign would actually need to type in the url plus "/sign-up" to get started.  In my App.js file, I placed this line before the main authorized route ("/"):
+In the above snippet, ```@current_user comes``` from the verify method in the authentication controller.
+- The main route of my app - "/" - required authorization, so visitors would actually need to type in the url plus "/sign-up" to get started.  In my App.js file, I placed this line before the main authorized route ("/"):
 ```
 {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
 ```
@@ -264,14 +264,10 @@ Then in "/sign-up", I added this to the top of the JSX portion:
 ```
 {currentUser && <Redirect to={ location.state.from}/>}
 ```
-For "location", I imported useLocation from react-router-dom. It helps keep track of the user's route path. This was important because if a currentUser refreshes the page while logged in, the currentUser props could take too long to load, and then the user would be sent to the "/sign-up" page even though they're logged in. "location" keeps track of their past location. If a user is redirected to the "/sign-up" page but the currentUser prop has since returned, the user will be redirected back to the page that they were on.
-
-POST SCRIPT: When signing up, a user would immediately encounter errors because currentUser wasn't immediately catching, so they'd be redirected back to "/sign-up", but they wouldn't have anything stored in the location.state.from, so they couldn't redirect back to the home page. If you reloaded the website and logged in after this error, you wouldn't have problems.
-
-For this reason, I changed the redirect on the signup screen as follows: 
+The variable "location" is useLocation from react-router-dom. It helps keep track of the user's route path. This step was intended to keep users from just being redirected to the sign up screen if they refreshed their browser window. However, this made it impossible for new users to sign up and access the authorized content because "location" would be null in that case. As a quick fix, I changed the "/sign-up" portion to this:
 ```
 {currentUser && <Redirect to="/" />}
 ```
-This makes it possible for people to actually sign up and see the home screen. The one disadvantage to this method is that a logged in user, when refreshing their screen, will be redirected back to the decks screen.
+This makes it possible for people to actually sign up and see the home screen. The one disadvantage to this method is that a logged in user, when refreshing their screen, will be redirected back to the decks screen no matter what screen they were viewing beforehand.
 
 - The last issue I encountered was a typo in my apiConfig.js file. Instead of writing "process.env.NODE_ENV", I had accidentally written "process.env.NODE_END". This made it so that my deployed front end only hoooked up to the local Rails server and could never hook up to the Heroku API. 
