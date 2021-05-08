@@ -63,6 +63,7 @@ export default function SignUp(props) {
           onChange={handleChange}
           autoComplete="off"
         />
+        <p className="password-requirement">password must be at least 6 characters</p>
         <button className="signup-submit">SIGN UP</button>
       </form>
       <p>Already a member?</p>
