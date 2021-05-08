@@ -2,7 +2,7 @@
   grid-template-rows: repeat(3, 50px) 20px 50px;
 }
 
-.signup-input {
+.signup-input, .password-requirement {
   grid-column: 1 / 4;
 }
 
@@ -20,14 +20,9 @@
 
 .password-requirement {
   grid-row: 4 / 5;
-  grid-column: 2 / 5;
-  font-size: 0.9em;
+  font-size: 0.6em;
   margin: 0px;
 }
-
-/* * {
-  border: 1px solid black;
-} */
 
 .signup-submit {
   grid-column: 2 / 3;
@@ -35,8 +30,12 @@
 }
 
 @media (min-width: 460px) {
-  .signup-input {
+  .signup-input, .password-requirement {
     grid-column: 2 / 5;
+  }
+
+  .password-requirement {
+    font-size: 0.9em;
   }
 
   .signup-submit {
