@@ -21,8 +21,8 @@ export default function SignUp(props) {
     }));
   }
 
-  const handleKeyUp = (formData) => {
-    let empty = false;
+  const handleKeyUp = () => {
+    let empty = false
     const keys = Object.keys(formData)
     keys.forEach((key) => {
       if (formData[key] === "") {
