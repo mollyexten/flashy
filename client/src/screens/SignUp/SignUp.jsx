@@ -1,15 +1,14 @@
 import "./SignUp.css";
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom"
-// import { useLocation } from "react-router-dom"
 
 export default function SignUp(props) {
-  // const location = useLocation()
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
+  const [disabled, setDisabled] = useState(false)
 
   const { username, email, password } = formData
   const { handleRegister, currentUser } = props
@@ -20,6 +19,15 @@ export default function SignUp(props) {
       ...prevState,
       [name]: value
     }));
+  }
+
+  const handleKeyUp = () => {
+    let empty = false
+    const keys = Object.keys(formData)
+    keys.forEach((key) => {
+      !formData[key] && (empty = true);
+    })
+    empty ? setDisabled(true) : setDisabled(false)
   }
 
   return (
@@ -41,6 +49,7 @@ export default function SignUp(props) {
           value={username}
           placeholder="username"
           onChange={handleChange}
+          onKeyUp={handleKeyUp}
           autoComplete="off"
         />
         <input
@@ -51,6 +60,7 @@ export default function SignUp(props) {
           value={email}
           placeholder="email"
           onChange={handleChange}
+          onKeyUp={handleKeyUp}
           autoComplete="off"
         />
         <input
@@ -61,10 +71,11 @@ export default function SignUp(props) {
           className="signup-password signup-input"
           placeholder="password"
           onChange={handleChange}
+          onKeyUp={handleKeyUp}
           autoComplete="off"
         />
         <p className="password-requirement">password must be at least 6 characters</p>
-        <button className="signup-submit">SIGN UP</button>
+        <button className="signup-submit" disabled={disabled}>SIGN UP</button>
       </form>
       <p>Already a member?</p>
       <Link to="/sign-in" className="gray-link">SIGN IN</Link>
