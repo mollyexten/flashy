@@ -49,6 +49,10 @@ button:active {
   color: var(--flashy-blue);
 }
 
+button:disabled {
+  opacity: 0.5;
+}
+
 .delete-button {
   background-color: var(--flashy-light-blue);
   color: var(--flashy-gray);
