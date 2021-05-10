@@ -1,10 +1,8 @@
 import "./SignUp.css";
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom"
-// import { useLocation } from "react-router-dom"
 
 export default function SignUp(props) {
-  // const location = useLocation()
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -23,7 +21,7 @@ export default function SignUp(props) {
     }));
   }
 
-  const handleKeyUp = () => {
+  const handleKeyUp = (formData) => {
     let empty = false;
     const keys = Object.keys(formData)
     keys.forEach((key) => {
