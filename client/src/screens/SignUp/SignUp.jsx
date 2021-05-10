@@ -25,15 +25,9 @@ export default function SignUp(props) {
     let empty = false
     const keys = Object.keys(formData)
     keys.forEach((key) => {
-      if (formData[key] === "") {
-        empty = true;
-      }
+      !formData[key] && (empty = true);
     })
-    if (empty) {
-      setDisabled(true)
-    } else {
-      setDisabled(false)
-    }
+    empty ? setDisabled(true) : setDisabled(false)
   }
 
   return (

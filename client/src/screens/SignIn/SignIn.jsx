@@ -8,6 +8,7 @@ export default function SignIn({handleLogin}) {
     password: "",
   });
   const { username, password } = formData;
+  const [disabled, setDisabled] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -16,6 +17,15 @@ export default function SignIn({handleLogin}) {
       [name]: value,
     }));
   };
+
+  const handleKeyUp = () => {
+    let empty = false
+    const keys = Object.keys(formData)
+    keys.forEach((key) => {
+      !formData[key] && (empty = true);
+    })
+    empty ? setDisabled(true) : setDisabled(false)
+  }
 
   return (
     <>
@@ -35,6 +45,7 @@ export default function SignIn({handleLogin}) {
           value={username}
           placeholder="username"
           onChange={handleChange}
+          onKeyUp={handleKeyUp}
           autoComplete="off"
         />
         <input
@@ -45,11 +56,13 @@ export default function SignIn({handleLogin}) {
           className="signin-password signin-input"
           placeholder="password"
           onChange={handleChange}
+          onKeyUp={handleKeyUp}
           autoComplete="off"
         />
         <button
           type="submit"
           className="signin-submit"
+          disabled={disabled}
         >
           sign in
         </button>
