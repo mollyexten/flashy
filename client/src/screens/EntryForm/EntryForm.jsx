@@ -18,6 +18,7 @@ export default function EntryForm(props) {
     details: "",
     deck_id: deck_id,
   });
+  const [disabled, setDisabled] = useState(true)
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
@@ -45,6 +46,15 @@ export default function EntryForm(props) {
       [name]: value,
     }));
   };
+
+  const handleKeyUp = () => {
+    let empty = false
+    const keys = Object.keys(formData)
+    keys.forEach((key) => {
+      !formData[key] && (empty = true);
+    })
+    empty ? setDisabled(true) : setDisabled(false)
+  }
 
   const handleReset = () => {
     setFormData({
@@ -89,6 +99,7 @@ export default function EntryForm(props) {
           onChange={handleChange}
           className="term-input"
           autoComplete="off"
+          onKeyUp={handleKeyUp}
         />
         <textarea
           required
@@ -100,6 +111,7 @@ export default function EntryForm(props) {
           onChange={handleChange}
           className="details-input"
           autoComplete="off"
+          onKeyUp={handleKeyUp}
         />
         {entry_id ? (
           <>
@@ -107,6 +119,7 @@ export default function EntryForm(props) {
               type="submit"
               className="entry-update"
               value="save"
+              disabled={disabled}
             >
               UPDATE
             </button>
@@ -114,16 +127,18 @@ export default function EntryForm(props) {
         ) : (
           <>
             <button
-              type="submit"
-              className="entry-save"
-              value="save"
+                type="submit"
+                className="entry-save"
+                value="save"
+                disabled={disabled}
             >
                 SAVE
             </button>
               <button
-              type="submit"
-              className="add-card entry-add"
-              value="add"
+                type="submit"
+                className="add-card entry-add"
+                value="add"
+                disabled={disabled}
             >
               + ADD CARD
             </button>
