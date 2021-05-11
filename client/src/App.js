@@ -62,7 +62,10 @@ function App() {
             />}
           />
           <Route path="/sign-in">
-            <SignIn setCurrentUser={setCurrentUser} handleLogin={handleLogin} />
+            <SignIn
+              setCurrentUser={setCurrentUser}
+              handleLogin={handleLogin}
+            />
           </Route>
           {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
           
