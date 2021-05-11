@@ -7,11 +7,12 @@ export default function SignUp(props) {
     username: "",
     email: "",
     password: "",
+    confirmation: "",
   });
   const [disabled, setDisabled] = useState(true)
 
-  const { username, email, password } = formData
-  const { handleRegister, currentUser } = props
+  const { username, email, password, confirmation } = formData
+  const { handleRegister, currentUser, authMessage } = props
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -75,10 +76,22 @@ export default function SignUp(props) {
           autoComplete="off"
         />
         <p className="password-requirement">password must be at least 6 characters</p>
+        <input
+          required
+          name="confirmation"
+          value={confirmation}
+          type="confirmation"
+          className="signup-confirmation signup-input"
+          placeholder="password confirmation"
+          onChange={handleChange}
+          onKeyUp={handleKeyUp}
+          autoComplete="off"
+        />
         <button className="signup-submit" disabled={disabled}>SIGN UP</button>
       </form>
       <p>Already a member?</p>
       <Link to="/sign-in" className="gray-link">SIGN IN</Link>
+      <p>{authMessage}</p>
     </>
   );
 }

@@ -14,6 +14,7 @@ import Layout from "./components/shared/Layout/Layout";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [authMessage, setAuthMessage] = useState("")
   const history = useHistory();
   const location = useLocation();
 
@@ -34,9 +35,14 @@ function App() {
   };
 
   const handleRegister = async (formData) => {
-    const currentUser = await registerUser(formData);
-    setCurrentUser(currentUser);
-    history.push("/");
+    if (formData.password !== formData.confirmation) {
+      setAuthMessage("Passwords do not match!")
+    }
+    delete formData.confirmation
+    console.log(formData)
+    // const currentUser = await registerUser(formData);
+    // setCurrentUser(currentUser);
+    // history.push("/");
   };
 
   const handleLogout = () => {
@@ -59,6 +65,7 @@ function App() {
             render={() => <SignUp
               handleRegister={handleRegister}
               currentUser={currentUser}
+              authMessage={authMessage}
             />}
           />
           <Route path="/sign-in">
