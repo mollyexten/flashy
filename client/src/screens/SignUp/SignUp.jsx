@@ -7,11 +7,12 @@ export default function SignUp(props) {
     username: "",
     email: "",
     password: "",
+    confirmation: "",
   });
   const [disabled, setDisabled] = useState(true)
 
-  const { username, email, password } = formData
-  const { handleRegister, currentUser } = props
+  const { username, email, password, confirmation } = formData
+  const { handleRegister, currentUser, authMessage } = props
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -44,7 +45,7 @@ export default function SignUp(props) {
         <input
           required
           type="text"
-          className="signup-username signup-input"
+          className="signup-username signup-input auth-input"
           name="username"
           value={username}
           placeholder="username"
@@ -55,7 +56,7 @@ export default function SignUp(props) {
         <input
           required
           type="email"
-          className="signup-email signup-input"
+          className="signup-email signup-input auth-input"
           name="email"
           value={email}
           placeholder="email"
@@ -68,17 +69,36 @@ export default function SignUp(props) {
           name="password"
           value={password}
           type="password"
-          className="signup-password signup-input"
+          className="signup-password signup-input auth-input"
           placeholder="password"
           onChange={handleChange}
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
-        <p className="password-requirement">password must be at least 6 characters</p>
+        <input
+          required
+          name="confirmation"
+          value={confirmation}
+          type="password"
+          className="signup-confirmation signup-input auth-input"
+          placeholder="confirm password"
+          onChange={handleChange}
+          onKeyUp={handleKeyUp}
+          autoComplete="off"
+        />
+        {authMessage !== "password must be at least 6 characters" ? (
+          <p className="password-message password-alert">{authMessage}</p>
+        ) : (
+          <p className="password-message">
+            password must be at least 6 characters
+          </p>    
+        )}
         <button className="signup-submit" disabled={disabled}>SIGN UP</button>
       </form>
+
       <p>Already a member?</p>
       <Link to="/sign-in" className="gray-link">SIGN IN</Link>
+      {/* <p>{authMessage}</p> */}
     </>
   );
 }

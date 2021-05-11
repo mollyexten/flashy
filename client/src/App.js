@@ -14,6 +14,7 @@ import Layout from "./components/shared/Layout/Layout";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [authMessage, setAuthMessage] = useState("password must be at least 6 characters")
   const history = useHistory();
   const location = useLocation();
 
@@ -34,9 +35,22 @@ function App() {
   };
 
   const handleRegister = async (formData) => {
-    const currentUser = await registerUser(formData);
-    setCurrentUser(currentUser);
-    history.push("/");
+    if (formData.password !== formData.confirmation) {
+      setAuthMessage("Passwords do not match!")
+    } else if ((formData.password).length < 6) {
+      setAuthMessage("Make a longer password!")
+    } else {
+      const { username, email, password } = formData
+      const credentials = {
+        username,
+        email,
+        password
+      }
+      const currentUser = await registerUser(credentials);     
+      setCurrentUser(currentUser);
+      setAuthMessage("password must be at least 6 characters")
+      history.push("/");
+    }
   };
 
   const handleLogout = () => {
@@ -59,6 +73,7 @@ function App() {
             render={() => <SignUp
               handleRegister={handleRegister}
               currentUser={currentUser}
+              authMessage={authMessage}
             />}
           />
           <Route path="/sign-in">
