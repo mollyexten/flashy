@@ -1,6 +1,12 @@
 class DecksController < ApplicationController
-  before_action :authorize_request
+  before_action :authorize_request, except: [:public]
   before_action :set_deck, only: [:show, :update, :destroy]
+  
+  def public
+    @decks = Deck.where(public: true)
+    render json: @decks
+  end
+  
   def index
     @decks = @current_user.decks
     render json: @decks
