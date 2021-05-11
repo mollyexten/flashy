@@ -19,6 +19,7 @@ export default function DeckForm(props) {
   });
   const { title } = formData;
   const history = useHistory();
+  const [disabled, setDisabled] = useState(true)
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
@@ -47,6 +48,15 @@ export default function DeckForm(props) {
       [name]: value,
     }));
   };
+
+  const handleKeyUp = () => {
+    let empty = false
+    const keys = Object.keys(formData)
+    keys.forEach((key) => {
+      !formData[key] && (empty = true);
+    })
+    empty ? setDisabled(true) : setDisabled(false)
+  }
 
   return (
     <>
@@ -89,10 +99,12 @@ export default function DeckForm(props) {
           onChange={handleChange}
           className="title-input"
           autoComplete="off"
+          onKeyUp={handleKeyUp}
         />
         <button
           type="submit"
           className="save-changes deck-save"
+          disabled={disabled}
         >
           {deck_id ? "UPDATE" : "CREATE"}
         </button>
