@@ -1,8 +1,8 @@
 .signin-form {
-  grid-template-rows: repeat(3, 50px);
+  grid-template-rows: repeat(2, 50px) 20px 50px;
 }
 
-.signin-input {
+.signin-input, .signin-loading {
   grid-column: 1 / 4;
 }
 
@@ -14,14 +14,24 @@
   grid-row: 2 / 3;
 }
 
+.signin-loading {
+  grid-row: 3 / 4;  
+  font-size: 0.6em;
+  margin: 0px;
+}
+
 .signin-submit {
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
 }
 
 @media (min-width: 460px) {
-  .signin-input {
+  .signin-input, .signin-loading {
     grid-column: 2 / 5;
+  }
+
+  .signin-loading {
+    font-size: 0.9em;
   }
 
   .signin-submit {

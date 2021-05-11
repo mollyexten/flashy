@@ -2,11 +2,12 @@ import "./SignIn.css";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
-export default function SignIn({handleLogin}) {
+export default function SignIn(props) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const { handleLogin, authMessage } = props
   const { username, password } = formData;
   const [disabled, setDisabled] = useState(true)
 
@@ -59,6 +60,11 @@ export default function SignIn({handleLogin}) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
+        {authMessage === "Loading..." &&
+          <p className="signin-loading">
+            {authMessage}
+          </p>
+        }
         <button
           type="submit"
           className="signin-submit"

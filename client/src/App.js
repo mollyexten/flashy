@@ -30,9 +30,11 @@ function App() {
   }, []);
 
   const handleLogin = async (formData) => {
+    setAuthMessage("Loading...")
     const user = await loginUser(formData);
     setCurrentUser(user);
     history.push("/");
+    setAuthMessage("Passwords must be at least 6 characters")
   };
 
   const handleRegister = async (formData) => {
@@ -44,7 +46,7 @@ function App() {
       setAuthMessage("Make a longer password!")
     } else {
       setAuthAlert(false)
-      setAuthMessage("Loading..")
+      setAuthMessage("Loading...")
       const { username, email, password } = formData
       const credentials = {
         username,
@@ -86,6 +88,7 @@ function App() {
             <SignIn
               setCurrentUser={setCurrentUser}
               handleLogin={handleLogin}
+              authMessage={authMessage}
             />
           </Route>
           {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
