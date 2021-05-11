@@ -111,6 +111,11 @@ input {
   font-size: 1.5em;
 }
 
+
+.auth-input {
+  font-size: .9em;
+}
+
 /* =========== MEDIA QUERIES ================================================ */
 @media (min-width: 460px) {
   .auth-form {

@@ -45,7 +45,7 @@ export default function SignUp(props) {
         <input
           required
           type="text"
-          className="signup-username signup-input"
+          className="signup-username signup-input auth-input"
           name="username"
           value={username}
           placeholder="username"
@@ -56,7 +56,7 @@ export default function SignUp(props) {
         <input
           required
           type="email"
-          className="signup-email signup-input"
+          className="signup-email signup-input auth-input"
           name="email"
           value={email}
           placeholder="email"
@@ -69,7 +69,7 @@ export default function SignUp(props) {
           name="password"
           value={password}
           type="password"
-          className="signup-password signup-input"
+          className="signup-password signup-input auth-input"
           placeholder="password"
           onChange={handleChange}
           onKeyUp={handleKeyUp}
@@ -79,9 +79,9 @@ export default function SignUp(props) {
           required
           name="confirmation"
           value={confirmation}
-          type="confirmation"
-          className="signup-confirmation signup-input"
-          placeholder="password confirmation"
+          type="password"
+          className="signup-confirmation signup-input auth-input"
+          placeholder="confirm password"
           onChange={handleChange}
           onKeyUp={handleKeyUp}
           autoComplete="off"
