@@ -75,7 +75,6 @@ export default function SignUp(props) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
-        <p className="password-requirement">password must be at least 6 characters</p>
         <input
           required
           name="confirmation"
@@ -87,11 +86,19 @@ export default function SignUp(props) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
+        {authMessage !== "password must be at least 6 characters" ? (
+          <p className="password-message password-alert">{authMessage}</p>
+        ) : (
+          <p className="password-message">
+            password must be at least 6 characters
+          </p>    
+        )}
         <button className="signup-submit" disabled={disabled}>SIGN UP</button>
       </form>
+
       <p>Already a member?</p>
       <Link to="/sign-in" className="gray-link">SIGN IN</Link>
-      <p>{authMessage}</p>
+      {/* <p>{authMessage}</p> */}
     </>
   );
 }
