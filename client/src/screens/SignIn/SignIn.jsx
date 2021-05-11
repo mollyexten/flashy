@@ -8,7 +8,7 @@ export default function SignIn({handleLogin}) {
     password: "",
   });
   const { username, password } = formData;
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
 
   const handleChange = (e) => {
     const { name, value } = e.target

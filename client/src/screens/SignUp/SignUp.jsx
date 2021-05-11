@@ -8,7 +8,7 @@ export default function SignUp(props) {
     email: "",
     password: "",
   });
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
 
   const { username, email, password } = formData
   const { handleRegister, currentUser } = props
