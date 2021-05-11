@@ -1,8 +1,15 @@
 class EntriesController < ApplicationController
   before_action :set_deck, only: [:create]
   before_action :set_entry, only: [:show, :update, :destroy]
-  before_action :authorize_request
+  before_action :authorize_request, except: [:public]
 
+  def public
+    @decks = Deck.where(public: true)
+    @public_decks = @decks.pluck(:id)
+    @public_entries = Entry.where(deck_id: @public_decks)
+    render json: @public_entries, status: :ok
+  end
+  
   def index
     @entries = @current_user.entries
     render json: @entries, status: :ok
