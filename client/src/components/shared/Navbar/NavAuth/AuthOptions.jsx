@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
-export default function AuthOptions({ handleLogout }) {
-
+export default function AuthOptions(props) {
+  const { currentUser, handleLogout } = props
   return (
     <>
       <Link
@@ -11,7 +11,7 @@ export default function AuthOptions({ handleLogout }) {
         home
       </Link>
       <Link
-        to="/my-decks"
+        to={`/${currentUser.username}`}
         className="nav-link"
       >
         my decks
