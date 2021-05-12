@@ -4,8 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function Decks(props) {
   const { currentUser, decks, entries, getDeckEntries } = props;
-  const params = useParams()
-  console.log(params)
+  const { username } = useParams()
 
   //  Map out all decks, pass their info into Deck component, and use in JSX below
   const decksJSX = decks.map((deck, index) => (
@@ -28,11 +27,14 @@ export default function Decks(props) {
       )}
       <section className="card-div">
         {decks.length > 0 && decksJSX}
-          <div className="card">
-          <Link to="/create-deck" className="add-link">
-            + ADD DECK
-          </Link>
-        </div>
+        {
+          username && (
+            <div className="card">
+              <Link to="/create-deck" className="add-link">
+                + ADD DECK
+              </Link>
+            </div>
+        )}  
       </section>
     </>
   );

@@ -156,7 +156,7 @@ export default function Flashcard(props) {
             />
           </Route>
           
-          <Route exact path="/:username">
+          <Route exact path="/my-decks/:username">
             <Decks
               currentUser={currentUser}
               decks={userDecks}

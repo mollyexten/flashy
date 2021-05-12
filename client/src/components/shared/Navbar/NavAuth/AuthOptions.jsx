@@ -11,7 +11,7 @@ export default function AuthOptions(props) {
         home
       </Link>
       <Link
-        to={`/${currentUser.username}`}
+        to={`/my-decks/${currentUser.username}`}
         className="nav-link"
       >
         my decks
