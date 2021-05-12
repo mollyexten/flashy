@@ -96,7 +96,7 @@ function App() {
             exact path="/"
             render={() => <Public currentUser={currentUser} />}
           /> */}
-          {!currentUser && <Redirect to={{pathname: "/", state: {from: location}}} />}
+          {/* {!currentUser && <Redirect to={{pathname: "/", state: {from: location}}} />} */}
           
           {/* Flashcard decks and entries will be stored within the Flashcard container component */}
           <Route
