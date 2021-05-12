@@ -10,6 +10,7 @@ import {
 import SignUp from "./screens/SignUp/SignUp";
 import SignIn from "./screens/SignIn/SignIn";
 import Flashcard from "./containers/Flashcard/Flashcard";
+import Public from "./containers/Public/Public"
 import Layout from "./components/shared/Layout/Layout";
 
 function App() {
@@ -91,11 +92,15 @@ function App() {
               authMessage={authMessage}
             />
           </Route>
-          {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
+          <Route
+            exact path="/"
+            render={() => <Public currentUser={currentUser} />}
+          />
+          {!currentUser && <Redirect to={{pathname: "/", state: {from: location}}} />}
           
           {/* Flashcard decks and entries will be stored within the Flashcard container component */}
           <Route
-            path="/"
+            path="/my-decks"
             render={() => <Flashcard currentUser={currentUser} />}
           />
         </Switch>

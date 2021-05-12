@@ -11,6 +11,12 @@ export default function AuthOptions({ handleLogout }) {
         home
       </Link>
       <Link
+        to="/my-decks"
+        className="nav-link"
+      >
+        my decks
+      </Link>
+      <Link
         to="/create-deck"
         className="nav-link"
       >

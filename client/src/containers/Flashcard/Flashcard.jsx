@@ -9,13 +9,13 @@ import {
   deleteDeck,
   postDeck,
   putDeck,
-  readAllDecks
+  readUserDecks
 } from "../../services/decks";
 import {
   deleteEntry,
   postEntry,
   putEntry,
-  readAllEntries,
+  readUserEntries,
 } from "../../services/entries";
 
 export default function Flashcard(props) {
@@ -40,12 +40,12 @@ export default function Flashcard(props) {
   }, [currentUser]);
 
   const fetchDecks = async () => {
-    const decks = await readAllDecks();
+    const decks = await readUserDecks();
     setUserDecks(decks);
   };
 
   const fetchEntries = async () => {
-    const entries = await readAllEntries();
+    const entries = await readUserEntries();
     setUserEntries(entries);
   };
 
@@ -156,7 +156,7 @@ export default function Flashcard(props) {
             />
           </Route>
           
-          <Route exact path="/">
+          <Route exact path="/my-decks">
             <Decks
               currentUser={currentUser}
               decks={userDecks}

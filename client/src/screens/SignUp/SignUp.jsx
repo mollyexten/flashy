@@ -35,7 +35,7 @@ export default function SignUp(props) {
     <>
       {/* Originally, I used the below, but that made signing up impossible :-( */}
       {/* {currentUser && <Redirect to={location.state.from} />} */}
-      {currentUser && <Redirect to="/" />}
+      {currentUser && <Redirect to="/my-decks" />}
       <p>welcome to flashy, a flashcard app!</p>
       <h2>SIGN UP</h2>
       <form className="signup-form auth-form" onSubmit={(e) => {

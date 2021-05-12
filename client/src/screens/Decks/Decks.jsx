@@ -10,7 +10,7 @@ export default function Decks(props) {
     <Deck
       id={deck.id}
       title={deck.title}
-      username={currentUser.username}
+      // username={currentUser.username}
       key={index}
       entries={entries}
       getDeckEntries={getDeckEntries}
@@ -19,7 +19,11 @@ export default function Decks(props) {
 
   return (
     <>
-      <h2>{`welcome, ${currentUser?.username}`}!</h2>
+      {currentUser ? (
+        <h2>{`welcome, ${currentUser?.username}`}!</h2>
+      ) : (
+        <h2>"welcome to flashy, the flashcard app!"</h2>
+      )}
       <section className="card-div">
         {decks.length > 0 && decksJSX}
         <div className="card">
