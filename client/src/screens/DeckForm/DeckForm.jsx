@@ -16,8 +16,9 @@ export default function DeckForm(props) {
   const [formData, setFormData] = useState({
     title: "",
     user_id: currentUser.id,
+    publicDeck: false
   });
-  const { title } = formData;
+  const { title, publicDeck } = formData;
   const history = useHistory();
   const [disabled, setDisabled] = useState(true)
 
@@ -33,8 +34,9 @@ export default function DeckForm(props) {
       const oneDeck = decks.find((deck) => {
         return deck.id === Number(deck_id);
       });
-      const { title, user_id } = oneDeck;
-      setFormData({ title, user_id });
+      console.log(oneDeck.publicDeck)
+      const { title, user_id, publicDeck } = oneDeck;
+      setFormData({ title, user_id, publicDeck });
     };
     if (deck_id && decks.length) {
       prefillFormData();
@@ -47,6 +49,7 @@ export default function DeckForm(props) {
       ...prevState,
       [name]: value,
     }));
+    console.log(formData)
   };
 
   const handleKeyUp = () => {
@@ -56,6 +59,10 @@ export default function DeckForm(props) {
       !formData[key] && (empty = true);
     })
     empty ? setDisabled(true) : setDisabled(false)
+  }
+
+  const handleClick = () => {
+    publicDeck = Boolean(!publicDeck)
   }
 
   return (
@@ -101,6 +108,24 @@ export default function DeckForm(props) {
           autoComplete="off"
           onKeyUp={handleKeyUp}
         />
+        <div className="checkbox-section">
+          <label
+            htmlFor="publicDeck"
+            className="public-input"
+          >
+            Make deck public?
+          </label>
+          <input
+            type="checkbox"
+            id="publicDeck"
+            name="publicDeck"
+            checked={Boolean(publicDeck)}
+            value={Boolean(publicDeck)}
+            // onChange={handleChange}
+            onClick={handleClick}
+            className="public-input"
+          />
+        </div>
         <button
           type="submit"
           className="save-changes deck-save"

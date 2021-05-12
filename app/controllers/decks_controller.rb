@@ -3,7 +3,7 @@ class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :update, :destroy]
   
   def public
-    @decks = Deck.where(public: true)
+    @decks = Deck.where(publicDeck: true)
     render json: @decks
   end
   
