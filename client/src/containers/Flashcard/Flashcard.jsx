@@ -9,45 +9,64 @@ import {
   deleteDeck,
   postDeck,
   putDeck,
-  readUserDecks
+  readUserDecks,
+  readPublicDecks
 } from "../../services/decks";
 import {
   deleteEntry,
   postEntry,
   putEntry,
   readUserEntries,
+  readPublicEntries
 } from "../../services/entries";
 
 export default function Flashcard(props) {
   const [userDecks, setUserDecks] = useState([]);
   const [userEntries, setUserEntries] = useState([]);
+  const [publicDecks, setPublicDecks] = useState([]);
+  const [publicEntries, setPublicEntries] = useState([]);
   const { currentUser } = props;
   const history = useHistory();
 
   // Once a user logs in, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
   // store them in state as userDecks and userEntries
-  useEffect(() => {
-    if (currentUser) {
-      fetchDecks();
-    }
-  }, [currentUser]);
-
-  useEffect(() => {
-    if (currentUser) {
-      fetchEntries();
-    }
-  }, [currentUser]);
-
-  const fetchDecks = async () => {
+  const fetchMyDecks = async () => {
     const decks = await readUserDecks();
     setUserDecks(decks);
   };
 
-  const fetchEntries = async () => {
+  const fetchMyEntries = async () => {
     const entries = await readUserEntries();
     setUserEntries(entries);
   };
+  
+  useEffect(() => {
+    if (currentUser) {
+      fetchMyDecks();
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchMyEntries();
+    }
+  }, [currentUser]);
+
+  const fetchPublicDecks = async () => {
+    const decks = await readPublicDecks();
+    setPublicDecks(decks);
+  };
+
+  const fetchPublicEntries = async () => {
+    const entries = await readPublicEntries();
+    setPublicEntries(entries);
+  };
+
+  useEffect(() => {
+    fetchPublicDecks();
+    fetchPublicEntries();
+  }, []);
 
   // Full CRUD for the decks table
 
@@ -106,7 +125,6 @@ export default function Flashcard(props) {
     return (
       <>
         <Switch>
-          
           <Route path="/:deck_id/create-entry">
             <EntryForm
               createEntry={createEntry}
@@ -156,12 +174,20 @@ export default function Flashcard(props) {
             />
           </Route>
           
-          <Route exact path="/my-decks/:username">
+          <Route path="/:username">
             <Decks
               currentUser={currentUser}
               decks={userDecks}
               entries={userEntries}
               getDeckEntries={getDeckEntries}
+            />
+          </Route>
+          
+          <Route exact path="/">
+            <Decks
+              getDeckEntries={getDeckEntries}
+              decks={publicDecks}
+              entries={publicEntries}
             />
           </Route>
         

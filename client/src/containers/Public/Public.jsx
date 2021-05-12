@@ -44,6 +44,16 @@ export default function Public(props) {
   };
 
   return (
+    <Switch>
+      <Route exact path="/:deck_id/entries">
+        <DeckDetail
+          // currentUser={currentUser}
+          decks={publicDecks}
+          entries={publicEntries}
+          getOneDeck={getOneDeck}
+          getDeckEntries={getDeckEntries}
+        />
+    </Route>
     <Route exact path="/">
       <Decks
         currentUser={currentUser}
@@ -51,7 +61,9 @@ export default function Public(props) {
         entries={publicEntries}
         getDeckEntries={getDeckEntries}
       />
-  </Route>
+    </Route>
+    </Switch>
+
   )
 
 }

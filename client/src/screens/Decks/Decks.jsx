@@ -6,6 +6,8 @@ export default function Decks(props) {
   const { currentUser, decks, entries, getDeckEntries } = props;
   const { username } = useParams()
 
+  console.log(props)
+
   //  Map out all decks, pass their info into Deck component, and use in JSX below
   const decksJSX = decks.map((deck, index) => (
     <Deck
