@@ -6,14 +6,11 @@ export default function Deck(props) {
   const {
     id,
     title,
-    // username,
     entries,
-    currentUser,
-    getDeckEntries
+    getDeckEntries,
+    publicDeck
   } = props
   const [deckSize, setDeckSize] = useState("")
-
-  console.log(props)
 
   useEffect(() => {
     if (entries.length) {
@@ -24,19 +21,17 @@ export default function Deck(props) {
 
   return (
     <div className="deck-div">
-      {currentUser ? (
-        <Link to={`/${id}/entries`}>
-        <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
-        <p className="deck-div-size">{deckSize} words</p>
-        {/* <p className="deck-div-username">{username}</p> */}
-      </Link>
+      {publicDeck ? (
+        <Link to={`/public/${id}/entries`}>
+          <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
+          <p className="deck-div-size">{deckSize} words</p>
+        </Link>
       ) : (
-          <Link to={`/${id}/overview`}>
-            <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
-            <p className="deck-div-size">{deckSize} words</p>
-          </Link>
+        <Link to={`/${id}/entries`}>
+          <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
+          <p className="deck-div-size">{deckSize} words</p>
+        </Link>
       )}
-      
     </div>
   );
 }

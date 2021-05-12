@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory, Redirect, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import {
   loginUser,
   registerUser,
@@ -17,7 +17,6 @@ function App() {
   const [authMessage, setAuthMessage] = useState("Password must be at least 6 characters")
   const [authAlert, setAuthAlert] = useState(false)
   const history = useHistory();
-  const location = useLocation();
 
 // Auth api calls are called here (verify, login, register, and signout)
 

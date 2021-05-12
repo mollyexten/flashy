@@ -3,7 +3,7 @@ import Deck from "../../components/Deck/Deck";
 import { Link, useParams } from "react-router-dom";
 
 export default function Decks(props) {
-  const { currentUser, decks, entries, getDeckEntries } = props;
+  const { currentUser, decks, entries, getDeckEntries, publicDeck } = props;
   const { username } = useParams()
 
   console.log(props)
@@ -15,6 +15,7 @@ export default function Decks(props) {
       title={deck.title}
       currentUser={currentUser}
       // username={currentUser.username}
+      publicDeck={publicDeck}
       key={index}
       entries={entries}
       getDeckEntries={getDeckEntries}

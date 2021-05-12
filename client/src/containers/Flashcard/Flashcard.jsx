@@ -141,9 +141,16 @@ export default function Flashcard(props) {
           
           <Route exact path="/:deck_id/entries">
             <DeckDetail
-              currentUser={currentUser}
               decks={userDecks}
               entries={userEntries}
+              getOneDeck={getOneDeck}
+              getDeckEntries={getDeckEntries}
+            />
+          </Route>
+          <Route exact path="/public/:deck_id/entries">
+            <DeckDetail
+              decks={publicDecks}
+              entries={publicEntries}
               getOneDeck={getOneDeck}
               getDeckEntries={getDeckEntries}
             />
@@ -182,19 +189,11 @@ export default function Flashcard(props) {
               getDeckEntries={getDeckEntries}
             />
           </Route>
-
-          <Route path="/:deck_id/overview">
-            <DeckDetail
-              currentUser={currentUser}
-              decks={userDecks}
-              entries={userEntries}
-              getOneDeck={getOneDeck}
-              getDeckEntries={getDeckEntries}
-            />
-          </Route>
           
           <Route exact path="/">
             <Decks
+              currentUser={currentUser}
+              publicDeck={"publicDeck"}
               getDeckEntries={getDeckEntries}
               decks={publicDecks}
               entries={publicEntries}

@@ -38,7 +38,7 @@ export default function DeckDetail(props) {
       id={entry.id}
       term={entry.term}
       details={entry.details}
-      username={currentUser.username}
+      // username={currentUser.username}
       key={index}
       deck_id={deck_id}
     />
