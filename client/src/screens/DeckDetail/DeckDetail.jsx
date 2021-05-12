@@ -42,6 +42,7 @@ export default function DeckDetail(props) {
       // username={currentUser.username}
       key={index}
       deck_id={deck_id}
+      publicDeck={publicDeck}
     />
   ));
 
@@ -66,10 +67,8 @@ export default function DeckDetail(props) {
           </Link>
         </div>
       )}
-      
-
       </section>
-      {deck_id && (
+      {!publicDeck && (
         <Link to={`/edit-deck/${deck_id}`} className="gray-link">
           RENAME/DELETE DECK
         </Link>)}
