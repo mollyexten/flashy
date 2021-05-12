@@ -13,6 +13,7 @@ export default function Decks(props) {
     <Deck
       id={deck.id}
       title={deck.title}
+      currentUser={currentUser}
       // username={currentUser.username}
       key={index}
       entries={entries}
