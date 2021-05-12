@@ -47,7 +47,7 @@ export default function DeckDetail(props) {
   ));
 
   const studyDeck = () => {
-    history.push(`/${deck_id}/study`);
+    publicDeck ? history.push(`/public/${deck_id}/study`) : history.push(`/${deck_id}/study`);
   };
 
   return (

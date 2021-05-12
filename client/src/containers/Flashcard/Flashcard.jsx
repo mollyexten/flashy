@@ -165,6 +165,15 @@ export default function Flashcard(props) {
               getDeckEntries={getDeckEntries}
             />
           </Route>
+            
+          <Route path="/public/:deck_id/study">
+            <Study
+              decks={publicDecks}
+              entries={publicEntries}
+              getOneDeck={getOneDeck}
+              getDeckEntries={getDeckEntries}
+            />
+          </Route>
           
           <Route path="/create-deck">
             <DeckForm
