@@ -151,6 +151,7 @@ export default function Flashcard(props) {
             <DeckDetail
               decks={publicDecks}
               entries={publicEntries}
+              publicDeck={"publicDeck"}
               getOneDeck={getOneDeck}
               getDeckEntries={getDeckEntries}
             />

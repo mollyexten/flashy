@@ -14,7 +14,8 @@ export default function DeckDetail(props) {
     decks,
     entries,
     getOneDeck,
-    getDeckEntries
+    getDeckEntries,
+    publicDeck
   } = props;
 
   // Get specific info on the deck and its entries with useEffects
@@ -58,11 +59,15 @@ export default function DeckDetail(props) {
       )}
       <section className="card-div">
         {deckEntries.length > 0 && entriesJSX}
-        <div className="card">
+      {!publicDeck && (
+                <div className="card">
           <Link to={`/${deck_id}/create-entry`} className="add-link">
             + ADD CARD
           </Link>
         </div>
+      )}
+      
+
       </section>
       {deck_id && (
         <Link to={`/edit-deck/${deck_id}`} className="gray-link">
