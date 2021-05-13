@@ -12,11 +12,11 @@ export default function FlipCard(props) {
   return (
     <div
       className="flipcard-space"
-      style={{ display: current === index ? "flex" : "none"}}
+      style={{ display: current === index ? "flex" : "none" }}
     >
     <div
         className="flipcard-div"
-        onClick={handleClick}        
+        onClick={handleClick}
     >
         {front ? (
           <h3 className="term-side">{term}</h3>

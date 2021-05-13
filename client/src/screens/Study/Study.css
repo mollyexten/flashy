@@ -24,6 +24,10 @@
   font-size: 2em;
 }
 
+.flipcard-container {
+  position: relative;
+}
+
 /* ========= MOBILE LAYOUT ==================================== */
 @media (max-width: 400px) {
   .arrow {
