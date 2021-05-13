@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   before_action :authorize_request, except: [:public]
 
   def public
-    @decks = Deck.where(public: true)
+    @decks = Deck.where(publicDeck: true)
     @public_decks = @decks.pluck(:id)
     @public_entries = Entry.where(deck_id: @public_decks)
     render json: @public_entries, status: :ok

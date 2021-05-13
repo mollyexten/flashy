@@ -51,7 +51,7 @@ class DecksController < ApplicationController
   end
 
   def deck_params
-    params.require(:deck).permit(:title, :user_id)
+    params.require(:deck).permit(:title, :user_id, :publicDeck)
   end
 
 end

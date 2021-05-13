@@ -20,7 +20,6 @@ export default function DeckForm(props) {
   });
   const { title, publicDeck } = formData;
   const history = useHistory();
-  const [disabled, setDisabled] = useState(true)
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
@@ -44,26 +43,16 @@ export default function DeckForm(props) {
   }, [deck_id, decks]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, type } = e.target;
+    console.log(`name: ${name}, type: ${type}`)
+    const value = type === 'checkbox' ? e.target.checked : e.target.value;
+    console.log(`value: ${value}`)
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
     console.log(formData)
   };
-
-  const handleKeyUp = () => {
-    let empty = false
-    const keys = Object.keys(formData)
-    keys.forEach((key) => {
-      !formData[key] && (empty = true);
-    })
-    empty ? setDisabled(true) : setDisabled(false)
-  }
-
-  const handleClick = () => {
-    publicDeck = Boolean(!publicDeck)
-  }
 
   return (
     <>
@@ -106,7 +95,6 @@ export default function DeckForm(props) {
           onChange={handleChange}
           className="title-input"
           autoComplete="off"
-          onKeyUp={handleKeyUp}
         />
         <div className="checkbox-section">
           <label
@@ -120,16 +108,14 @@ export default function DeckForm(props) {
             id="publicDeck"
             name="publicDeck"
             checked={Boolean(publicDeck)}
-            value={Boolean(publicDeck)}
-            // onChange={handleChange}
-            onClick={handleClick}
+            // value={Boolean(publicDeck)}
+            onChange={handleChange}
             className="public-input"
           />
         </div>
         <button
           type="submit"
           className="save-changes deck-save"
-          disabled={disabled}
         >
           {deck_id ? "UPDATE" : "CREATE"}
         </button>
