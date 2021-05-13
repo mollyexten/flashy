@@ -92,7 +92,9 @@ function App() {
           </Route>
           <Route
             path="/"
-            render={() => <Flashcard currentUser={currentUser} />}
+            render={() => <Flashcard
+              currentUser={currentUser}
+            />}
           />
         </Switch>
       </Layout>

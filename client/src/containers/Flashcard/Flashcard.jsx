@@ -5,7 +5,7 @@ import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import Study from "../../screens/Study/Study";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
-import { readPublicUsers } from "../../services/auth"
+import { readPublicUsers, verifyUser } from "../../services/auth"
 import {
   deleteDeck,
   postDeck,
@@ -58,10 +58,10 @@ export default function Flashcard(props) {
     fetchPublicUsers();
   }, []);
 
-  const idAuthor = (user_id, publicUsers) => {
-    const deckAuthor = publicUsers.find((user) => user[0] === user_id);
-    return deckAuthor;
-  }
+  // const idAuthor = (user_id, publicUsers) => {
+  //   const deckAuthor = publicUsers.find((user) => user[0] === user_id);
+  //   return deckAuthor;
+  // }
 
   // For logged in users, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and

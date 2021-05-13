@@ -36,7 +36,7 @@ export default function SignIn(props) {
         className="signin-form auth-form"
         onSubmit={(e) => {
         e.preventDefault();
-        handleLogin(formData);
+          handleLogin(formData)
       }}>
         <input
           required
