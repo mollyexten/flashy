@@ -3,18 +3,24 @@ import Deck from "../../components/Deck/Deck";
 import { Link, useParams } from "react-router-dom";
 
 export default function Decks(props) {
-  const { currentUser, decks, entries, getDeckEntries, publicDeck } = props;
+  const {
+    currentUser,
+    decks,
+    entries,
+    getDeckEntries,
+    publicDeck,
+    idAuthor,
+    publicUsers
+  } = props;
   const { username } = useParams()
-
-  console.log(props)
 
   //  Map out all decks, pass their info into Deck component, and use in JSX below
   const decksJSX = decks.map((deck, index) => (
     <Deck
+      deck={deck}
       id={deck.id}
       title={deck.title}
       currentUser={currentUser}
-      // username={currentUser.username}
       publicDeck={publicDeck}
       key={index}
       entries={entries}
@@ -27,8 +33,9 @@ export default function Decks(props) {
       {currentUser ? (
         <h2>{`welcome, ${currentUser?.username}`}!</h2>
       ) : (
-        <h2>"welcome to flashy, the flashcard app!"</h2>
+        <h2>welcome to flashy, the flashcard app!</h2>
       )}
+      <h3>Check out what people are studying:</h3>
       <section className="card-div">
         {decks.length > 0 && decksJSX}
         {

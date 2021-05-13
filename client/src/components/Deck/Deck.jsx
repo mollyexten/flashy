@@ -4,12 +4,16 @@ import { useEffect, useState } from "react"
 
 export default function Deck(props) {
   const {
+    deck,
     id,
     title,
     entries,
     getDeckEntries,
-    publicDeck
+    publicDeck,
+    idAuthor,
+    publicUsers
   } = props
+  const [author, setAuthor] = useState("")
   const [deckSize, setDeckSize] = useState("")
 
   useEffect(() => {
