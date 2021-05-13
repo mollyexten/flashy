@@ -27,8 +27,34 @@ export default function Flashcard(props) {
   const [publicEntries, setPublicEntries] = useState([]);
   const { currentUser } = props;
   const history = useHistory();
+  
+  // const removeDeck = async (id) => {
+  //   await deleteDeck(id);
+  //   setUserDecks((prevState) => prevState.filter((deck) => deck.id !== id));
+  //   setUserEntries((prevState) => prevState.filter((entry) => entry.deck_id !== id))
+  // };
 
-  // Once a user logs in, the app will get all decks and entries,
+  // All users can access the public decks
+  const fetchPublicDecks = async () => {
+    const decks = await readPublicDecks();
+    if (currentUser) {
+      setPublicDecks(decks.filter(deck => deck.user_id !== currentUser.id))
+    } else {
+      setPublicDecks(decks)
+    }
+  };
+
+  const fetchPublicEntries = async () => {
+    const entries = await readPublicEntries();
+    setPublicEntries(entries);
+  };
+
+  useEffect(() => {
+    fetchPublicDecks();
+    fetchPublicEntries();
+  }, []);
+
+  // For logged in users, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
   // store them in state as userDecks and userEntries
   const fetchMyDecks = async () => {
@@ -53,22 +79,7 @@ export default function Flashcard(props) {
     }
   }, [currentUser]);
 
-  const fetchPublicDecks = async () => {
-    const decks = await readPublicDecks();
-    setPublicDecks(decks);
-  };
-
-  const fetchPublicEntries = async () => {
-    const entries = await readPublicEntries();
-    setPublicEntries(entries);
-  };
-
-  useEffect(() => {
-    fetchPublicDecks();
-    fetchPublicEntries();
-  }, []);
-
-  // Full CRUD for the decks table
+  // Full CRUD for the decks table (logged in users only)
 
   const getOneDeck = (decks, deck_id) => {
     const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
