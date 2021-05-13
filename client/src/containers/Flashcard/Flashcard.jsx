@@ -5,51 +5,90 @@ import DeckDetail from "../../screens/DeckDetail/DeckDetail";
 import Study from "../../screens/Study/Study";
 import DeckForm from "../../screens/DeckForm/DeckForm";
 import EntryForm from "../../screens/EntryForm/EntryForm";
+import { readPublicUsers, verifyUser } from "../../services/auth"
 import {
   deleteDeck,
   postDeck,
   putDeck,
-  readAllDecks
+  readUserDecks,
+  readPublicDecks
 } from "../../services/decks";
 import {
   deleteEntry,
   postEntry,
   putEntry,
-  readAllEntries,
+  readUserEntries,
+  readPublicEntries
 } from "../../services/entries";
 
 export default function Flashcard(props) {
   const [userDecks, setUserDecks] = useState([]);
   const [userEntries, setUserEntries] = useState([]);
+  const [publicDecks, setPublicDecks] = useState([]);
+  const [publicEntries, setPublicEntries] = useState([]);
+  const [publicUsers, setPublicUsers] = useState([])
   const { currentUser } = props;
   const history = useHistory();
+  
 
-  // Once a user logs in, the app will get all decks and entries,
+  // All users can access the public decks
+  const fetchPublicDecks = async () => {
+    const decks = await readPublicDecks();
+    // A logged in user won't see their own decks in the public section
+    if (currentUser) {
+      setPublicDecks(decks.filter(deck => deck.user_id !== currentUser.id))
+    } else {
+      setPublicDecks(decks)
+    }
+  };
+
+  const fetchPublicEntries = async () => {
+    const entries = await readPublicEntries();
+    setPublicEntries(entries);
+  };
+
+  const fetchPublicUsers = async () => {
+    const users = await readPublicUsers();
+    setPublicUsers(users)
+  }
+
+  useEffect(() => {
+    fetchPublicDecks();
+    fetchPublicEntries();
+    fetchPublicUsers();
+  }, []);
+
+  // const idAuthor = (user_id, publicUsers) => {
+  //   const deckAuthor = publicUsers.find((user) => user[0] === user_id);
+  //   return deckAuthor;
+  // }
+
+  // For logged in users, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
   // store them in state as userDecks and userEntries
-  useEffect(() => {
-    if (currentUser) {
-      fetchDecks();
-    }
-  }, [currentUser]);
-
-  useEffect(() => {
-    if (currentUser) {
-      fetchEntries();
-    }
-  }, [currentUser]);
-
-  const fetchDecks = async () => {
-    const decks = await readAllDecks();
+  const fetchMyDecks = async () => {
+    const decks = await readUserDecks();
     setUserDecks(decks);
   };
 
-  const fetchEntries = async () => {
-    const entries = await readAllEntries();
+  const fetchMyEntries = async () => {
+    const entries = await readUserEntries();
     setUserEntries(entries);
   };
+  
+  useEffect(() => {
+    if (currentUser) {
+      fetchMyDecks();
+    }
+  }, [currentUser]);
 
-  // Full CRUD for the decks table
+  useEffect(() => {
+    if (currentUser) {
+      fetchMyEntries();
+    }
+  }, [currentUser]);
+
+  // Full CRUD for the decks table (logged in users only)
 
   const getOneDeck = (decks, deck_id) => {
     const oneDeck = decks.find((deck) => deck.id === Number(deck_id));
@@ -106,7 +145,6 @@ export default function Flashcard(props) {
     return (
       <>
         <Switch>
-          
           <Route path="/:deck_id/create-entry">
             <EntryForm
               createEntry={createEntry}
@@ -123,9 +161,17 @@ export default function Flashcard(props) {
           
           <Route exact path="/:deck_id/entries">
             <DeckDetail
-              currentUser={currentUser}
               decks={userDecks}
               entries={userEntries}
+              getOneDeck={getOneDeck}
+              getDeckEntries={getDeckEntries}
+            />
+          </Route>
+          <Route exact path="/public/:deck_id/entries">
+            <DeckDetail
+              decks={publicDecks}
+              entries={publicEntries}
+              publicDeck={"publicDeck"}
               getOneDeck={getOneDeck}
               getDeckEntries={getDeckEntries}
             />
@@ -135,6 +181,16 @@ export default function Flashcard(props) {
             <Study
               decks={userDecks}
               entries={userEntries}
+              getOneDeck={getOneDeck}
+              getDeckEntries={getDeckEntries}
+            />
+          </Route>
+            
+          <Route path="/public/:deck_id/study">
+            <Study
+              decks={publicDecks}
+              entries={publicEntries}
+              publicDeck="publicDeck"
               getOneDeck={getOneDeck}
               getDeckEntries={getDeckEntries}
             />
@@ -156,12 +212,22 @@ export default function Flashcard(props) {
             />
           </Route>
           
-          <Route exact path="/">
+          <Route path="/:username">
             <Decks
               currentUser={currentUser}
               decks={userDecks}
               entries={userEntries}
               getDeckEntries={getDeckEntries}
+            />
+          </Route>
+          
+          <Route exact path="/">
+            <Decks
+              currentUser={currentUser}
+              publicDeck={"publicDeck"}
+              getDeckEntries={getDeckEntries}
+              decks={publicDecks}
+              entries={publicEntries}
             />
           </Route>
         

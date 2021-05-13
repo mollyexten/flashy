@@ -16,10 +16,10 @@ export default function DeckForm(props) {
   const [formData, setFormData] = useState({
     title: "",
     user_id: currentUser.id,
+    publicDeck: false
   });
-  const { title } = formData;
+  const { title, publicDeck } = formData;
   const history = useHistory();
-  const [disabled, setDisabled] = useState(true)
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
@@ -33,8 +33,9 @@ export default function DeckForm(props) {
       const oneDeck = decks.find((deck) => {
         return deck.id === Number(deck_id);
       });
-      const { title, user_id } = oneDeck;
-      setFormData({ title, user_id });
+      console.log(oneDeck.publicDeck)
+      const { title, user_id, publicDeck } = oneDeck;
+      setFormData({ title, user_id, publicDeck });
     };
     if (deck_id && decks.length) {
       prefillFormData();
@@ -42,21 +43,16 @@ export default function DeckForm(props) {
   }, [deck_id, decks]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, type } = e.target;
+    console.log(`name: ${name}, type: ${type}`)
+    const value = type === 'checkbox' ? e.target.checked : e.target.value;
+    console.log(`value: ${value}`)
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+    console.log(formData)
   };
-
-  const handleKeyUp = () => {
-    let empty = false
-    const keys = Object.keys(formData)
-    keys.forEach((key) => {
-      !formData[key] && (empty = true);
-    })
-    empty ? setDisabled(true) : setDisabled(false)
-  }
 
   return (
     <>
@@ -99,12 +95,27 @@ export default function DeckForm(props) {
           onChange={handleChange}
           className="title-input"
           autoComplete="off"
-          onKeyUp={handleKeyUp}
         />
+        <div className="checkbox-section">
+          <label
+            htmlFor="publicDeck"
+            className="public-input"
+          >
+            Make deck public?
+          </label>
+          <input
+            type="checkbox"
+            id="publicDeck"
+            name="publicDeck"
+            checked={Boolean(publicDeck)}
+            // value={Boolean(publicDeck)}
+            onChange={handleChange}
+            className="public-input"
+          />
+        </div>
         <button
           type="submit"
           className="save-changes deck-save"
-          disabled={disabled}
         >
           {deck_id ? "UPDATE" : "CREATE"}
         </button>

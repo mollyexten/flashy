@@ -19,9 +19,9 @@ jon.save
 zoe = User.new({ :username => "Zoe", :email => "zoe@zoe.withers", :password => "zoewith1"})
 zoe.save
 
-molly_deck = Deck.create(title: "GRE Vocabulary 1", user: molly)
-jon_deck = Deck.create(title: "high falutin words", user: jon)
-zoe_deck = Deck.create(title: "smart words", user: zoe)
+molly_deck = Deck.create(title: "GRE Vocabulary 1", user: molly, public: true)
+jon_deck = Deck.create(title: "high falutin words", user: jon, public: false)
+zoe_deck = Deck.create(title: "smart words", user: zoe, public: false)
 
 gre_vocab = Entry.create(
   [

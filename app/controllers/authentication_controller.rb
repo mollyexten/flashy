@@ -12,7 +12,7 @@ class AuthenticationController < ApplicationController
       render json: {
         user: @user.attributes.except("password_digest"),
         token: token
-        }, status: :ok
+      }, status: :ok
     else
       render json: { errors: 'unauthorized' }, status: :unauthorized
     end

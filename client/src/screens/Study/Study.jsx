@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 
 export default function Study(props) {
   const { deck_id } = useParams();
-  const { decks, entries, getOneDeck, getDeckEntries } = props;
+  const { decks, entries, getOneDeck, getDeckEntries, publicDeck } = props;
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
   
@@ -57,9 +57,15 @@ export default function Study(props) {
         </div>
         <button className="right-arrow arrow" onClick={nextSlide}>{`>>`}</button>
       </section>
-      <Link to={`/${deck_id}/entries`} className="gray-link">
-        {`<<BACK TO DECK`}
-      </Link>
+      {publicDeck ? (
+        <Link to={`/public/${deck_id}/entries`} className="gray-link">
+          {`<<BACK TO DECK`}
+        </Link>  
+      ): (
+        <Link to={`/${deck_id}/entries`} className="gray-link">
+          {`<<BACK TO DECK`}
+        </Link>  
+      )}
     </div>
   );
 }

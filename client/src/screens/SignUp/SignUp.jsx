@@ -12,7 +12,7 @@ export default function SignUp(props) {
   const [disabled, setDisabled] = useState(true)
 
   const { username, email, password, confirmation } = formData
-  const { handleRegister, currentUser, authMessage } = props
+  const { handleRegister, currentUser, authMessage, authAlert } = props
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -35,7 +35,7 @@ export default function SignUp(props) {
     <>
       {/* Originally, I used the below, but that made signing up impossible :-( */}
       {/* {currentUser && <Redirect to={location.state.from} />} */}
-      {currentUser && <Redirect to="/" />}
+      {currentUser && <Redirect to="/my-decks" />}
       <p>welcome to flashy, a flashcard app!</p>
       <h2>SIGN UP</h2>
       <form className="signup-form auth-form" onSubmit={(e) => {
@@ -86,11 +86,12 @@ export default function SignUp(props) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
-        {authMessage !== "password must be at least 6 characters" ? (
+        {/* {authMessage !== "password must be at least 6 characters" || authMessage !== "firing up the server" ? ( */}
+          {authAlert ? (
           <p className="password-message password-alert">{authMessage}</p>
         ) : (
-          <p className="password-message">
-            password must be at least 6 characters
+            <p className="password-message">
+              {authMessage}
           </p>    
         )}
         <button className="signup-submit" disabled={disabled}>SIGN UP</button>

@@ -4,12 +4,16 @@ import { useEffect, useState } from "react"
 
 export default function Deck(props) {
   const {
+    deck,
     id,
     title,
-    username,
     entries,
-    getDeckEntries
+    getDeckEntries,
+    publicDeck,
+    idAuthor,
+    publicUsers
   } = props
+  const [author, setAuthor] = useState("")
   const [deckSize, setDeckSize] = useState("")
 
   useEffect(() => {
@@ -21,11 +25,17 @@ export default function Deck(props) {
 
   return (
     <div className="deck-div">
-      <Link to={`/${id}/entries`}>
-        <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
-        <p className="deck-div-size">{deckSize} words</p>
-        <p className="deck-div-username">{username}</p>
-      </Link>
+      {publicDeck ? (
+        <Link to={`/public/${id}/entries`}>
+          <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
+          <p className="deck-div-size">{deckSize} words</p>
+        </Link>
+      ) : (
+        <Link to={`/${id}/entries`}>
+          <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
+          <p className="deck-div-size">{deckSize} words</p>
+        </Link>
+      )}
     </div>
   );
 }

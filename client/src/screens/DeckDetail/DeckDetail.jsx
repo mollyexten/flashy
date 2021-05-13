@@ -7,14 +7,15 @@ import { useEffect, useState } from "react";
 export default function DeckDetail(props) {
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
+  const [author, setAuthor] = useState("")
   const history = useHistory();
   const { deck_id } = useParams();
   const {
-    currentUser,
     decks,
     entries,
     getOneDeck,
-    getDeckEntries
+    getDeckEntries,
+    publicDeck
   } = props;
 
   // Get specific info on the deck and its entries with useEffects
@@ -38,14 +39,14 @@ export default function DeckDetail(props) {
       id={entry.id}
       term={entry.term}
       details={entry.details}
-      username={currentUser.username}
       key={index}
       deck_id={deck_id}
+      publicDeck={publicDeck}
     />
   ));
 
   const studyDeck = () => {
-    history.push(`/${deck_id}/study`);
+    publicDeck ? history.push(`/public/${deck_id}/study`) : history.push(`/${deck_id}/study`);
   };
 
   return (
@@ -58,13 +59,15 @@ export default function DeckDetail(props) {
       )}
       <section className="card-div">
         {deckEntries.length > 0 && entriesJSX}
-        <div className="card">
+      {!publicDeck && (
+                <div className="card">
           <Link to={`/${deck_id}/create-entry`} className="add-link">
             + ADD CARD
           </Link>
         </div>
+      )}
       </section>
-      {deck_id && (
+      {!publicDeck && (
         <Link to={`/edit-deck/${deck_id}`} className="gray-link">
           RENAME/DELETE DECK
         </Link>)}

@@ -27,3 +27,8 @@ export const verifyUser = async () => {
 export const removeToken = () => {
   api.defaults.headers.common.authorization = null
 }
+
+export const readPublicUsers = async () => {
+  const resp = await api.get('/users')
+  return resp.data
+}

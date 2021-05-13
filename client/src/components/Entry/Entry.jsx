@@ -7,7 +7,8 @@ export default function Entry(props) {
     id,
     details,
     term,
-    deck_id
+    deck_id,
+    publicDeck
   } = props
   const [front, setFront] = useState(true)
 
@@ -23,7 +24,7 @@ export default function Entry(props) {
       {front ? (
         <>
         <p className="entry-div-term">{term.length >= 17 ? `${term.substring(0, 14)}...` : term}</p>
-          <Link to={`/${deck_id}/edit-entry/${id}`} className="edit-link">edit</Link>
+          {!publicDeck && (<Link to={`/${deck_id}/edit-entry/${id}`} className="edit-link">edit</Link>)}
           </>
       ): (
           <p className="entry-div-details">{details}</p>

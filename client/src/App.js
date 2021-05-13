@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Switch, useHistory, Redirect, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import {
   loginUser,
   registerUser,
@@ -14,9 +14,9 @@ import Layout from "./components/shared/Layout/Layout";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [authMessage, setAuthMessage] = useState("password must be at least 6 characters")
+  const [authMessage, setAuthMessage] = useState("Password must be at least 6 characters")
+  const [authAlert, setAuthAlert] = useState(false)
   const history = useHistory();
-  const location = useLocation();
 
 // Auth api calls are called here (verify, login, register, and signout)
 
@@ -29,17 +29,23 @@ function App() {
   }, []);
 
   const handleLogin = async (formData) => {
+    setAuthMessage("Loading...")
     const user = await loginUser(formData);
     setCurrentUser(user);
     history.push("/");
+    setAuthMessage("Passwords must be at least 6 characters")
   };
 
   const handleRegister = async (formData) => {
     if (formData.password !== formData.confirmation) {
+      setAuthAlert(true)
       setAuthMessage("Passwords do not match!")
     } else if ((formData.password).length < 6) {
+      setAuthAlert(true)
       setAuthMessage("Make a longer password!")
     } else {
+      setAuthAlert(false)
+      setAuthMessage("Loading...")
       const { username, email, password } = formData
       const credentials = {
         username,
@@ -48,7 +54,7 @@ function App() {
       }
       const currentUser = await registerUser(credentials);     
       setCurrentUser(currentUser);
-      setAuthMessage("password must be at least 6 characters")
+      setAuthMessage("Password must be at least 6 characters")
       history.push("/");
     }
   };
@@ -74,20 +80,21 @@ function App() {
               handleRegister={handleRegister}
               currentUser={currentUser}
               authMessage={authMessage}
+              authAlert={authAlert}
             />}
           />
           <Route path="/sign-in">
             <SignIn
               setCurrentUser={setCurrentUser}
               handleLogin={handleLogin}
+              authMessage={authMessage}
             />
           </Route>
-          {!currentUser && <Redirect to={{pathname: "/sign-up", state: {from: location}}} />}
-          
-          {/* Flashcard decks and entries will be stored within the Flashcard container component */}
           <Route
             path="/"
-            render={() => <Flashcard currentUser={currentUser} />}
+            render={() => <Flashcard
+              currentUser={currentUser}
+            />}
           />
         </Switch>
       </Layout>

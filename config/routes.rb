@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :decks, only: [:index, :create, :update, :destroy] do
     resources :entries, only: [:create]
   end
+
+  get "/public-decks", to: "decks#public"
+  get "/public-entries", to: "entries#public"
+  
   
   resources :entries, only: [:update, :destroy]
 

@@ -4,6 +4,12 @@ export default function UnAuthOptions() {
   return (
   <>
       <Link
+        to="/"
+        className="nav-link" 
+      >
+        home
+      </Link>
+      <Link
         to="/sign-in"
         className="nav-link"
       >
