@@ -8,6 +8,7 @@ export default function Study(props) {
   const { decks, entries, getOneDeck, getDeckEntries, publicDeck } = props;
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
+  const [front, setFront] = useState(true);
   
   // I used this video to figure out the slider: https://www.youtube.com/watch?v=l1MYfu5YWHc
   // current is for the slideshow
@@ -30,9 +31,11 @@ export default function Study(props) {
   // nextSlide and prevSlide make slideshow possible
   const nextSlide = () => {
     setCurrent(current === deckEntries.length - 1 ? 0 : current + 1)
+    setFront(true)
   }
   const prevSlide = () => {
     setCurrent(current === 0 ? deckEntries.length - 1 : current - 1)
+    setFront(true)
   }
 
   // Each entry will be stored in a FlipCard
@@ -44,6 +47,8 @@ export default function Study(props) {
       index={index}
       current={current}
       deck={deckEntries}
+      setFront={setFront}
+      front={front}
     />
   ));
 
