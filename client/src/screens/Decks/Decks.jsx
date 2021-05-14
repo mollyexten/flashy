@@ -12,12 +12,14 @@ export default function Decks(props) {
   } = props;
   const { username } = useParams()
 
+  console.log(decks)
+
   //  Map out all decks, pass their info into Deck component, and use in JSX below
   const decksJSX = decks.map((deck, index) => (
     <Deck
-      deck={deck}
       id={deck.id}
       title={deck.title}
+      author={deck.author}
       currentUser={currentUser}
       publicDeck={publicDeck}
       key={index}
