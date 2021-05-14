@@ -1,5 +1,5 @@
 import "./SignUp.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom"
 
 export default function SignUp(props) {
@@ -12,7 +12,19 @@ export default function SignUp(props) {
   const [disabled, setDisabled] = useState(true)
 
   const { username, email, password, confirmation } = formData
-  const { handleRegister, currentUser, authMessage, authAlert } = props
+  const {
+    handleRegister,
+    currentUser,
+    setAuthMessage,
+    authMessage,
+    setAuthAlert,
+    authAlert
+  } = props
+
+  useEffect(() => {
+    setAuthAlert(false)
+    setAuthMessage("Password must be at least 6 characters")
+  }, [setAuthAlert, setAuthMessage])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -86,7 +98,6 @@ export default function SignUp(props) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
-        {/* {authMessage !== "password must be at least 6 characters" || authMessage !== "firing up the server" ? ( */}
           {authAlert ? (
           <p className="password-message password-alert">{authMessage}</p>
         ) : (
@@ -99,7 +110,6 @@ export default function SignUp(props) {
 
       <p>Already a member?</p>
       <Link to="/sign-in" className="gray-link">SIGN IN</Link>
-      {/* <p>{authMessage}</p> */}
     </>
   );
 }

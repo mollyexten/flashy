@@ -9,8 +9,6 @@ export default function Decks(props) {
     entries,
     getDeckEntries,
     publicDeck,
-    idAuthor,
-    publicUsers
   } = props;
   const { username } = useParams()
 

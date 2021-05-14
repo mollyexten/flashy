@@ -1,5 +1,5 @@
 import "./SignIn.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 
 export default function SignIn(props) {
@@ -7,9 +7,20 @@ export default function SignIn(props) {
     username: "",
     password: "",
   });
-  const { handleLogin, authMessage } = props
+  const {
+    handleLogin,
+    setAuthMessage,
+    authMessage,
+    setAuthAlert,
+    authAlert
+  } = props
   const { username, password } = formData;
   const [disabled, setDisabled] = useState(true)
+
+  useEffect(() => {
+    setAuthAlert(false)
+    setAuthMessage("")
+  }, [setAuthAlert, setAuthMessage])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -60,11 +71,15 @@ export default function SignIn(props) {
           onKeyUp={handleKeyUp}
           autoComplete="off"
         />
-        {authMessage === "Loading..." &&
-          <p className="signin-loading">
+        {authAlert ? (
+          <p className="signin-loading signin-invalid">
             {authMessage}
           </p>
-        }
+        ): (
+                      <p className="signin-loading">
+            {authMessage}
+          </p>
+        )}
         <button
           type="submit"
           className="signin-submit"

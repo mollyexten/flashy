@@ -30,10 +30,14 @@ function App() {
 
   const handleLogin = async (formData) => {
     setAuthMessage("Loading...")
-    const user = await loginUser(formData);
-    setCurrentUser(user);
-    history.push("/");
-    setAuthMessage("Passwords must be at least 6 characters")
+    await loginUser(formData)
+      .then(user => { setCurrentUser(user) })
+      .then(() => history.push("/"))
+      .catch(error => {
+        console.error(error)
+        setAuthAlert(true)
+        setAuthMessage("Invalid credentials")
+      })
   };
 
   const handleRegister = async (formData) => {
@@ -79,7 +83,9 @@ function App() {
             render={() => <SignUp
               handleRegister={handleRegister}
               currentUser={currentUser}
+              setAuthMessage={setAuthMessage}
               authMessage={authMessage}
+              setAuthAlert={setAuthAlert}
               authAlert={authAlert}
             />}
           />
@@ -87,7 +93,10 @@ function App() {
             <SignIn
               setCurrentUser={setCurrentUser}
               handleLogin={handleLogin}
+              setAuthMessage={setAuthMessage}
               authMessage={authMessage}
+              setAuthAlert={setAuthAlert}
+              authAlert={authAlert}
             />
           </Route>
           <Route
