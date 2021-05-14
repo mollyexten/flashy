@@ -2,8 +2,8 @@ import "./FlipCard.css";
 import { useState } from "react";
 
 export default function FlipCard(props) {
-  const [front, setFront] = useState(true);
-  const { term, details, current, index, deck } = props;
+  // const [front, setFront] = useState(true);
+  const { term, details, current, index, deck, setFront, front } = props;
 
   const handleClick = () => {
     setFront(!front);
