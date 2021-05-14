@@ -14,7 +14,7 @@ export default function DeckDetail(props) {
     entries,
     getOneDeck,
     getDeckEntries,
-    publicDeck
+    publicDeck,
   } = props;
 
   // Get specific info on the deck and its entries with useEffects

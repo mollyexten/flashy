@@ -19,6 +19,7 @@ export default function Deck(props) {
     }
   }, [entries, id, getDeckEntries]);
 
+
   return (
     <div className="deck-div">
       {publicDeck ? (
