@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function DeckDetail(props) {
   const [deck, setDeck] = useState(null);
   const [deckEntries, setDeckEntries] = useState([]);
-  const [author, setAuthor] = useState("")
   const history = useHistory();
   const { deck_id } = useParams();
   const {
