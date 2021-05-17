@@ -41,7 +41,7 @@ a>.nav-header {
 .hamburger-dropdown {
   position: fixed;
   right: 0;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -56,6 +56,10 @@ a>.nav-header {
   cursor: pointer;
 }
 
+.nav-link, .hamburger-close, .sign-out {
+  font-size: 0.75em;
+}
+
 .nav-link, .nav-link:visited {
   color: var(--flashy-blue);
   text-decoration: none;
@@ -65,7 +69,6 @@ a>.nav-header {
 .sign-out {
   background-color: var(--flashy-yellow);
   color: var(--flashy-blue);
-  font-size: 1em;
 }
 
 /* =============== DESKTOP NAVBAR STYLES =============== */
