@@ -84,7 +84,6 @@ export default function Flashcard(props) {
   };
 
   const createDeck = async (deckData) => {
-    console.log(`I created this deck${deckData.author}`)
     const newDeck = await postDeck(deckData);
     setUserDecks((prevState) => [...prevState, newDeck]);
     history.push(`/${newDeck.id}/create-entry`)

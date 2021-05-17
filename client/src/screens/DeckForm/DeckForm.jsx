@@ -28,8 +28,6 @@ export default function DeckForm(props) {
     setIsOpen(!isOpen)
   }
 
-  console.log(formData)
-
   // Get deck info if it will be edited
   useEffect(() => {
     const prefillFormData = () => {
@@ -77,7 +75,6 @@ export default function DeckForm(props) {
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!deck_id) {
-          console.log(formData)
           createDeck(formData);
         } else {
           updateDeck(deck_id, formData);
