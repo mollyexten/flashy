@@ -29,11 +29,16 @@ export default function Decks(props) {
   return (
     <>
       {currentUser ? (
-        <h2>{`welcome, ${currentUser?.username}`}!</h2>
+        <>
+          <h2>{`welcome, ${currentUser?.username}`}!</h2>
+          <h3>Check out what other users are studying:</h3>
+        </>
       ) : (
-        <h2>welcome to flashy, the flashcard app!</h2>
+        <>
+          <h2>welcome to flashy, the flashcard app!</h2>
+          <h3>Check out what people are studying:</h3>
+        </>
       )}
-      <h3>Check out what people are studying:</h3>
       <section className="card-div">
         {decks.length > 0 && decksJSX}
         {

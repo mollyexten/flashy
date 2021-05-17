@@ -11,13 +11,14 @@ export default function Popup(props) {
     removeDeck,
     deck_id,
     removeEntry,
-    entry_id
+    entry_id,
+    username
   } = props
 
   const confirm = () => {
     if (deck_id && removeDeck) {
       removeDeck(parseInt(deck_id));
-      history.push("/");
+      history.push(`/${username}`);
     }
     if (entry_id && removeEntry) {
       removeEntry(parseInt(entry_id))
