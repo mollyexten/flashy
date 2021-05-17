@@ -103,13 +103,13 @@ a>.nav-header {
 
   .nav-link, .nav-link:visited {
     color: var(--flashy-yellow);
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   .sign-out {
     background-color: var(--flashy-blue);
     color: var(--flashy-yellow);
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   .sign-out:active {
@@ -117,8 +117,14 @@ a>.nav-header {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   .desktop-nav {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-link, .sign-out {
+    font-size: 1.5em;
   }
 }
