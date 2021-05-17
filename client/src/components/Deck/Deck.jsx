@@ -6,6 +6,7 @@ export default function Deck(props) {
   const {
     id,
     title,
+    author,
     entries,
     getDeckEntries,
     publicDeck,
@@ -19,11 +20,13 @@ export default function Deck(props) {
     }
   }, [entries, id, getDeckEntries]);
 
+
   return (
     <div className="deck-div">
       {publicDeck ? (
         <Link to={`/public/${id}/entries`}>
           <p className="deck-div-title">{title.length >= 20 ? `${title.substring(0, 17)}...` : title}</p>
+          <p>{author}</p>
           <p className="deck-div-size">{deckSize} words</p>
         </Link>
       ) : (

@@ -14,7 +14,7 @@ export default function DeckDetail(props) {
     entries,
     getOneDeck,
     getDeckEntries,
-    publicDeck
+    publicDeck,
   } = props;
 
   // Get specific info on the deck and its entries with useEffects
@@ -51,6 +51,9 @@ export default function DeckDetail(props) {
   return (
     <>
       <h1 className="deck-header">{deck?.title}</h1>
+      {publicDeck && (
+        <p>A deck by {deck?.author}</p>
+      )}
       {deckEntries.length > 0 && (
         <button onClick={studyDeck} className="study-button">
           STUDY DECK

@@ -46,7 +46,7 @@ export default function SignIn(props) {
       <form
         className="signin-form auth-form"
         onSubmit={(e) => {
-        e.preventDefault();
+          e.preventDefault();
           handleLogin(formData)
       }}>
         <input

@@ -29,16 +29,6 @@ export default function Flashcard(props) {
   const history = useHistory();
   
 
-  // All users can access the public decks
-  const fetchPublicDecks = async () => {
-    const decks = await readPublicDecks();
-    // A logged in user won't see their own decks in the public section
-    if (currentUser) {
-      setPublicDecks(decks.filter(deck => deck.user_id !== currentUser.id))
-    } else {
-      setPublicDecks(decks)
-    }
-  };
 
   const fetchPublicEntries = async () => {
     const entries = await readPublicEntries();
@@ -46,9 +36,20 @@ export default function Flashcard(props) {
   };
 
   useEffect(() => {
+    // All users can access the public decks
+    const fetchPublicDecks = async () => {
+      const decks = await readPublicDecks();
+      // A logged in user won't see their own decks in the public section
+      if (currentUser) {
+        setPublicDecks(decks.filter(deck => deck.user_id !== currentUser.id))
+      } else {
+        setPublicDecks(decks)
+      }
+    };
     fetchPublicDecks();
     fetchPublicEntries();
-  }, []);
+  }, [currentUser]);
+
 
   // For logged in users, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
@@ -83,6 +84,7 @@ export default function Flashcard(props) {
   };
 
   const createDeck = async (deckData) => {
+    console.log(`I created this deck${deckData.author}`)
     const newDeck = await postDeck(deckData);
     setUserDecks((prevState) => [...prevState, newDeck]);
     history.push(`/${newDeck.id}/create-entry`)
@@ -110,6 +112,11 @@ export default function Flashcard(props) {
     );
     return deckEntries;
   };
+
+  const idAuthor = (users, user_id) => {
+    const deckAuthor = users.find((user) => user[0] === user_id)
+    return deckAuthor
+  }
 
   const createEntry = async (deck_id, entryData) => {
     const newEntry = await postEntry(deck_id, entryData);
@@ -213,8 +220,11 @@ export default function Flashcard(props) {
               currentUser={currentUser}
               publicDeck={"publicDeck"}
               getDeckEntries={getDeckEntries}
+              setDecks={setPublicDecks}
               decks={publicDecks}
               entries={publicEntries}
+              // publicUsers={publicUsers}
+              idAuthor={idAuthor}
             />
           </Route>
         

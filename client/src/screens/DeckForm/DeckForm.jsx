@@ -16,7 +16,8 @@ export default function DeckForm(props) {
   const [formData, setFormData] = useState({
     title: "",
     user_id: currentUser.id,
-    publicDeck: false
+    publicDeck: false,
+    author: currentUser.username
   });
   const { title, publicDeck } = formData;
   const history = useHistory();
@@ -27,15 +28,16 @@ export default function DeckForm(props) {
     setIsOpen(!isOpen)
   }
 
+  console.log(formData)
+
   // Get deck info if it will be edited
   useEffect(() => {
     const prefillFormData = () => {
       const oneDeck = decks.find((deck) => {
         return deck.id === Number(deck_id);
       });
-      console.log(oneDeck.publicDeck)
-      const { title, user_id, publicDeck } = oneDeck;
-      setFormData({ title, user_id, publicDeck });
+      const { title, user_id, publicDeck, author } = oneDeck;
+      setFormData({ title, user_id, publicDeck, author });
     };
     if (deck_id && decks.length) {
       prefillFormData();
@@ -44,14 +46,11 @@ export default function DeckForm(props) {
 
   const handleChange = (e) => {
     const { name, type } = e.target;
-    console.log(`name: ${name}, type: ${type}`)
     const value = type === 'checkbox' ? e.target.checked : e.target.value;
-    console.log(`value: ${value}`)
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-    console.log(formData)
   };
 
   return (
@@ -78,8 +77,8 @@ export default function DeckForm(props) {
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!deck_id) {
+          console.log(formData)
           createDeck(formData);
-          // history.push("/");
         } else {
           updateDeck(deck_id, formData);
           history.push(`/${deck_id}/entries`);
@@ -108,7 +107,6 @@ export default function DeckForm(props) {
             id="publicDeck"
             name="publicDeck"
             checked={Boolean(publicDeck)}
-            // value={Boolean(publicDeck)}
             onChange={handleChange}
             className="public-input"
           />
