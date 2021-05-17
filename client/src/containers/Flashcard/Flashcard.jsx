@@ -50,6 +50,7 @@ export default function Flashcard(props) {
     fetchPublicEntries();
   }, [currentUser]);
 
+
   // For logged in users, the app will get all decks and entries,
   // find decks and entries belonging to the current user, and
   // store them in state as userDecks and userEntries
