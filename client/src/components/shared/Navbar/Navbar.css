@@ -117,7 +117,7 @@ a>.nav-header {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .desktop-nav {
     grid-template-columns: 1fr 1fr;
   }
