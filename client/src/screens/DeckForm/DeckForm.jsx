@@ -129,6 +129,7 @@ export default function DeckForm(props) {
           cancel={togglePopup}
           removeDeck={removeDeck}
           deck_id={parseInt(deck_id)}
+          username={currentUser.username}
         />
       )}
     </>
