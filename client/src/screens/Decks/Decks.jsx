@@ -39,17 +39,26 @@ export default function Decks(props) {
           <h3>Check out what people are studying:</h3>
         </>
       )}
-      <section className="card-div">
-        {decks.length > 0 && decksJSX}
-        {
-          username && (
-            <div className="card">
-              <Link to="/create-deck" className="add-link">
-                + ADD DECK
-              </Link>
-            </div>
-        )}  
-      </section>
+      {decks.length ? (
+        <section className="card-div">
+          {decks.length > 0 && decksJSX}
+            {
+              username && (
+                <div className="card">
+                  <Link to="/create-deck" className="add-link">
+                    + ADD DECK
+                  </Link>
+                </div>
+            )
+          }
+        </section>
+      ) : (
+          <section>
+            Loading decks...
+        </section>
+      )
+      }
+
     </>
   );
 }
