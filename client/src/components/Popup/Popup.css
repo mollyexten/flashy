@@ -15,14 +15,10 @@
   width: 70%;
   margin: 150px auto;
   height: auto;
-  background-color: var(--flashy-light-blue);
+  background-color: var(--flashy-beige);
   border-radius: 8px;
   padding: 20px;
   overflow: auto;
-}
-
-.popup-message {
-  color: var(--flashy-blue);
 }
 
 .popup-buttons {
@@ -33,6 +29,8 @@
 
 .popup-cancel, .popup-confirm {
   padding: 5px 10px;
+  background-color: var(--flashy-yellow);
+  color: black;
 }
 
 @media (min-width: 641px) {

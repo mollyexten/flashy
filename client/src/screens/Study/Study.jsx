@@ -64,12 +64,14 @@ export default function Study(props) {
       </section>
       {publicDeck ? (
         <Link to={`/public/${deck_id}/entries`} className="gray-link">
-          {`<<BACK TO DECK`}
+          {`<<back to deck`}
         </Link>  
-      ): (
-        <Link to={`/${deck_id}/entries`} className="gray-link">
-          {`<<BACK TO DECK`}
-        </Link>  
+      ) : (
+          <button className="back-study">
+            <Link to={`/${deck_id}/entries`} className="gray-link">
+              {`<<back to deck`}
+            </Link> 
+          </button>
       )}
     </div>
   );

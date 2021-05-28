@@ -7,7 +7,7 @@
 }
 
 .study-title {
-  color: var(--flashy-blue);
+  color: black;
 }
 
 .arrow-card-arrow {
@@ -20,12 +20,16 @@
 
 .arrow {
   background-color: rgba(0, 0, 0, 0);
-  color: var(--flashy-blue);
+  color: black;
   font-size: 2em;
 }
 
 .flipcard-container {
   position: relative;
+}
+
+.back-study {
+  margin-top: 20px;
 }
 
 /* ========= MOBILE LAYOUT ==================================== */

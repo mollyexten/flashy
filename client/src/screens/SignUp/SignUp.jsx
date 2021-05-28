@@ -48,8 +48,8 @@ export default function SignUp(props) {
       {/* Originally, I used the below, but that made signing up impossible :-( */}
       {/* {currentUser && <Redirect to={location.state.from} />} */}
       {currentUser && <Redirect to="/my-decks" />}
-      <p>welcome to flashy, a flashcard app!</p>
-      <h2>SIGN UP</h2>
+      <p className="auth-welcome">welcome to flashy, a flashcard app!</p>
+      <h2>Sign Up</h2>
       <form className="signup-form auth-form" onSubmit={(e) => {
         e.preventDefault();
         handleRegister(formData);
@@ -109,7 +109,7 @@ export default function SignUp(props) {
       </form>
 
       <p>Already a member?</p>
-      <Link to="/sign-in" className="gray-link">SIGN IN</Link>
+      <Link to="/sign-in" className="auth-switch">SIGN IN</Link>
     </>
   );
 }

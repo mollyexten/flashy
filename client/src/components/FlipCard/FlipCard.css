@@ -10,7 +10,7 @@
   height: 250px;
   margin: 20px 0px 10px 0px;
   background-color: white;
-  border: 1px solid var(--flashy-blue);
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +43,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.details-size {
+  width: 90%;
 }
 
 .flipcard-count {

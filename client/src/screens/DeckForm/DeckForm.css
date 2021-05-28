@@ -1,4 +1,9 @@
 /* ===== DECK FORM BASIC LAYOUT =========================================== */
+.back-deck, .back-deck:visited {
+  margin-top: 50px;
+  color: black;
+}
+
 .deck-form-container {
   display: grid;
   grid-template-columns: auto 30% 120px 30% auto;

@@ -50,15 +50,18 @@ export default function DeckDetail(props) {
 
   return (
     <>
-      <h1 className="deck-header">{deck?.title}</h1>
-      {publicDeck && (
-        <p>A deck by {deck?.author}</p>
-      )}
-      {deckEntries.length > 0 && (
+      <div className="deck-study">
+        <h1 className="deck-header">{deck?.title}</h1>
+          {publicDeck && (
+            <p>A deck by {deck?.author}</p>
+        )}
+        {deckEntries.length > 0 && (
         <button onClick={studyDeck} className="study-button">
           STUDY DECK
         </button>
       )}
+      </div>
+
       <section className="card-div">
         {deckEntries.length > 0 && entriesJSX}
       {!publicDeck && (
@@ -71,7 +74,7 @@ export default function DeckDetail(props) {
       </section>
       {!publicDeck && (
         <Link to={`/edit-deck/${deck_id}`} className="gray-link">
-          RENAME/DELETE DECK
+          rename/delete deck
         </Link>)}
     </>
   );

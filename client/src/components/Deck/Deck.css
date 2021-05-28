@@ -1,23 +1,35 @@
 .deck-div {
-  background-color: var(--flashy-teal);
-  border-radius: 8px;
+  background-color: white;
+  border: 2px solid black;
+  text-align: left;
+}
+
+.deck-div-title, .deck-div-author, .deck-div-size {
+  margin: 0.5em;
 }
 
 .deck-div-title {
   font-size: 1.25em;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   word-wrap: break-word;
+  color: black;
+}
+
+.deck-div-size {
+  font-size: 0.9em;
+}
+
+.deck-div-author {
+  font-weight: 600;
 }
 
 .deck-div>a, .deck-div>a:visited {
   color: white;
   text-decoration: none;
+  color: black;
 }
 
-.deck-div:active {
-  background-color: var(--flashy-yellow);
-}
-
-.deck-div>a:active {
-  color: var(--flashy-blue);
+.deck-div:hover, .deck-div:active {
+  box-shadow: 5px 10px;
 }

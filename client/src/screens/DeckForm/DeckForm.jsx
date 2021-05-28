@@ -56,16 +56,16 @@ export default function DeckForm(props) {
       {deck_id ? (
         <Link
         to={`/${deck_id}/entries`}
-        className="gray-link"
+        className="back-deck"
       >
-        {`<<BACK TO DECK`}
+        {`<<back to deck`}
       </Link>
       ) : (
         <Link
         to={`/`}
-        className="gray-link"
+        className="back-deck"
       >
-        {`<<BACK TO DECKS`}
+        {`<<back to decks`}
       </Link>
       )}
       
@@ -112,7 +112,7 @@ export default function DeckForm(props) {
           type="submit"
           className="save-changes deck-save"
         >
-          {deck_id ? "UPDATE" : "CREATE"}
+          {deck_id ? "update" : "create"}
         </button>
       </form>
       {deck_id && (
@@ -120,7 +120,7 @@ export default function DeckForm(props) {
           className="deck-delete-button delete-button"
           onClick={togglePopup}
         >
-          DELETE
+          delete
         </button>
       )}
       {isOpen && (

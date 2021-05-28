@@ -1,0 +1,45 @@
+.welcome-banner {
+  background-color: var(--flashy-yellow);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 10px 0px 0px 20px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.welcome-header {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.5vw;
+  grid-column: 2 / 3;
+}
+
+.triangle-circle {
+  object-fit: cover;
+  width: 100%;
+  grid-column: 1 / 2;
+}
+
+.black-dots {
+  object-fit: cover;
+  width: 100%;
+  grid-column: 3 / 4;
+}
+
+.deck-list-header {
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+}
+
+.add-deck:hover {
+  box-shadow: 5px 10px;
+}
+
+@media (min-width: 1000px) {
+  .welcome-banner {
+    width: 940px;
+  }
+
+  .welcome-header {
+    font-size: 2.5em;
+  }
+}

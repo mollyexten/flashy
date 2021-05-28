@@ -41,8 +41,8 @@ export default function SignIn(props) {
 
   return (
     <>
-      <p>welcome to flashy, a flashcard app!</p>
-      <h2>SIGN IN</h2>
+      <p className="auth-welcome">welcome to flashy, a flashcard app!</p>
+      <h2>Sign in</h2>
       <form
         className="signin-form auth-form"
         onSubmit={(e) => {
@@ -89,7 +89,7 @@ export default function SignIn(props) {
         </button>
       </form>
       <p>Not a member?</p>
-      <Link to="/sign-up" className="gray-link">SIGN UP</Link>
+      <Link to="/sign-up" className="auth-switch">SIGN UP</Link>
     </>
   );
 }

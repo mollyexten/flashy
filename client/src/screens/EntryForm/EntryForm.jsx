@@ -132,7 +132,7 @@ export default function EntryForm(props) {
                 value="save"
                 disabled={disabled}
             >
-                SAVE
+                save
             </button>
               <button
                 type="submit"
@@ -140,7 +140,7 @@ export default function EntryForm(props) {
                 value="add"
                 disabled={disabled}
             >
-              + ADD CARD
+              + add card
             </button>
 
           </>

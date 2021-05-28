@@ -12,9 +12,9 @@ a>.nav-header {
 }
 
 .nav-header {
-  font-family: "Rokkitt", serif;
-  color: var(--flashy-red);
-  font-size: 5rem;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-size: 4rem;
 }
 
 .sign-out {
@@ -45,14 +45,25 @@ a>.nav-header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--flashy-yellow);
+  background-color: #bc94f3;
   font-size: 2em;
+  padding-bottom: 0.25em;
+  animation-name: slide-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes slide-in {
+  from {
+    right: -600px;
+  } to {
+    right: 0px;
+  }
 }
 
 .hamburger-close {
   text-align: left;
   font-weight: 1000;
-  margin: 20px 0px 0px 20px;
+  margin: 20px 0px -20px 20px;
   cursor: pointer;
 }
 
@@ -61,14 +72,14 @@ a>.nav-header {
 }
 
 .nav-link, .nav-link:visited {
-  color: var(--flashy-blue);
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
 .sign-out {
-  background-color: var(--flashy-yellow);
-  color: var(--flashy-blue);
+  background-color: #bc94f3;;
+  color: black;
 }
 
 /* =============== DESKTOP NAVBAR STYLES =============== */
@@ -102,18 +113,16 @@ a>.nav-header {
   }
 
   .nav-link, .nav-link:visited {
-    color: var(--flashy-yellow);
+    color: black;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
   }
 
   .sign-out {
     background-color: var(--flashy-blue);
-    color: var(--flashy-yellow);
+    color: black;
     font-size: 1.5em;
-  }
-
-  .sign-out:active {
-    background-color: var(--flashy-blue);
   }
 }
 

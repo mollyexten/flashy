@@ -11,19 +11,19 @@ export default function Hamburger(props) {
       cx="50"
             cy="50"
             r="35"
-            fill="#FAFF81"
+            fill="black"
     />
     <circle
       cx="50"
             cy="175"
             r="35"
-            fill="#FAFF81"
+            fill="black"
     />
     <circle
       cx="50"
       cy="300"
       r="35"
-      fill="#FAFF81"
+      fill="black"
     />
   </svg>
   )
