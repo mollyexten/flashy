@@ -28,6 +28,7 @@ export default function Decks(props) {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="welcome-banner">
         <img src="flashy-1.svg" alt="triangle-circle" className="triangle-circle"/>
         {currentUser ? (
@@ -51,6 +52,39 @@ export default function Decks(props) {
             </div>
         )}  
       </section>
+=======
+      {currentUser ? (
+        <>
+          <h2>{`welcome, ${currentUser?.username}`}!</h2>
+          <h3>Check out what other users are studying:</h3>
+        </>
+      ) : (
+        <>
+          <h2>welcome to flashy, the flashcard app!</h2>
+          <h3>Check out what people are studying:</h3>
+        </>
+      )}
+      {decks.length ? (
+        <section className="card-div">
+          {decks.length > 0 && decksJSX}
+            {
+              username && (
+                <div className="card">
+                  <Link to="/create-deck" className="add-link">
+                    + ADD DECK
+                  </Link>
+                </div>
+            )
+          }
+        </section>
+      ) : (
+          <section>
+            Loading decks...
+        </section>
+      )
+      }
+
+>>>>>>> f3328f12d7cc2163d2c1b16f63d85c4d08b6bbfb
     </>
   );
 }
