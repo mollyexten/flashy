@@ -42,7 +42,7 @@ export default function SignIn(props) {
   return (
     <>
       <p className="auth-welcome">welcome to flashy, a flashcard app!</p>
-      <h2>Sign in</h2>
+      <h2>Sign In</h2>
       <form
         className="signin-form auth-form"
         onSubmit={(e) => {
