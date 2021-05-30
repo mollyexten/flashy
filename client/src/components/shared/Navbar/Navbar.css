@@ -17,6 +17,10 @@ a>.nav-header {
   font-size: 4rem;
 }
 
+.nav-header:hover, .desktop-console>a:hover {
+  color: var(--flashy-purple);
+}
+
 .sign-out {
   font-weight: normal;
   text-transform: lowercase;
