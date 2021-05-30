@@ -53,7 +53,7 @@ export default function Decks(props) {
           }
         </section>
       ) : (
-          <section>
+          <section className="loading">
             Loading decks...
         </section>
       )

@@ -34,6 +34,23 @@
   box-shadow: 5px 10px;
 }
 
+.loading {
+  background: white;
+  border: 5px dashed black;
+  font-size: 4.5vw;
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px 0px;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (min-width: 641px) {
+  .loading {
+    width: 600px;
+    font-size: 2.5em;
+  }
+}
+
 @media (min-width: 1000px) {
   .welcome-banner {
     width: 940px;
@@ -43,3 +60,6 @@
     font-size: 2.5em;
   }
 }
+
+
+
