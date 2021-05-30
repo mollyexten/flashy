@@ -105,7 +105,7 @@ export default function SignUp(props) {
               {authMessage}
           </p>    
         )}
-        <button className="signup-submit" disabled={disabled}>SIGN UP</button>
+        <button className="signup-submit" disabled={disabled}>sign up</button>
       </form>
 
       <p>Already a member?</p>

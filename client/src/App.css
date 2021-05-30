@@ -17,10 +17,8 @@ body {
 
 .App {
   text-align: center;
-  /* font-family: 'Miriam Libre', sans-serif; */
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
-  /* color: var(--flashy-blue); */
   color: black;
 }
 
@@ -118,9 +116,12 @@ input {
   font-size: 1.5em;
 }
 
-
 .auth-input {
   font-size: .9em;
+}
+
+.auth-switch {
+  padding-bottom: 20px;
 }
 
 /* =========== MEDIA QUERIES ================================================ */

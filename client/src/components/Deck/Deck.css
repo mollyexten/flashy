@@ -28,8 +28,11 @@
   color: white;
   text-decoration: none;
   color: black;
+  transition-property: transform;
+  transition-duration: 2s;
 }
 
-.deck-div:hover, .deck-div:active {
+.deck-div:hover {
   box-shadow: 5px 10px;
+  transform: translate(-10px, -5px)
 }

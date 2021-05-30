@@ -52,7 +52,7 @@ export default function SignIn(props) {
         <input
           required
           type="text"
-          className="signin-username signin-input"
+          className="signin-username signin-input auth-input"
           name="username"
           value={username}
           placeholder="username"
@@ -65,7 +65,7 @@ export default function SignIn(props) {
           name="password"
           value={password}
           type="password"
-          className="signin-password signin-input"
+          className="signin-password signin-input auth-input"
           placeholder="password"
           onChange={handleChange}
           onKeyUp={handleKeyUp}
