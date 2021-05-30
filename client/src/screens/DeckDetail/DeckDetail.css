@@ -5,4 +5,11 @@
   width: 200px;
   height: 80px;
   font-size: 1.5em;
+  transition-property: transform;
+  transition-duration: 0.1s;
+}
+
+.study-button:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 10px;
 }
