@@ -3,16 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500&display=swap');
 /* =========== COLOR PALETTE ================================================ */
 :root {
-  --flashy-blue: #63c3fb;
-  --flashy-yellow: #fbd304;
-  --flashy-purple: #6304e3;
-  --flashy-beige: #fbf3e4;
-  --flashy-gray: #686868;
+  --header: #63c3fb;
+  --alternative-button: #fbd304;
+  --main-button: #6304e3;
+  --background: #fbf3e4;
+  --link: #686868;
 }
 
 /* =========== GLOBAL STYLES ================================================ */
 body {
-  background-color: var(--flashy-beige);
+  background-color: var(--background);
 }
 
 .App {
@@ -35,7 +35,7 @@ input, textarea, button {
 /* =========== GLOBAL BUTTON STYLES ================================================ */
 button {
   color: white;
-  background-color: var(--flashy-purple);
+  background-color: var(--main-button);
   border: none;
   border-radius: 5px;
   font-weight: 800;
@@ -48,8 +48,8 @@ button:disabled {
 }
 
 .delete-button {
-  background-color: var(--flashy-beige);
-  color: var(--flashy-gray);
+  background-color: var(--background);
+  color: var(--link);
   font-size: 1.5em;
   cursor: pointer;
   padding:  20px;
@@ -62,12 +62,12 @@ a {
 }
 
 .add-link, .add-link:visited {
-  color: var(--flashy-gray);
+  color: var(--link);
   text-decoration: none;
 }
 
 .gray-link, .gray-link:visited {
-  background: var(--flashy-purple);
+  background: var(--main-button);
   color: white;
   font-family: "Poppins", sans-serif;
   border-radius: 8px;
@@ -78,7 +78,7 @@ a {
 /* =========== FLASHCARD STYLES ================================================ */
 .card, .add-card {
   background-color: white;
-  color: var(--flashy-gray);
+  color: var(--link);
   display: flex;
   align-items: center;
   justify-content: center;

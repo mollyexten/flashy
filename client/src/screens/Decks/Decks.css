@@ -1,5 +1,5 @@
 .welcome-banner {
-  background-color: var(--flashy-yellow);
+  background-color: var(--alternative-button);
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   padding: 10px 0px 0px 20px;

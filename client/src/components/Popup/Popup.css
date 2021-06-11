@@ -15,7 +15,7 @@
   width: 70%;
   margin: 150px auto;
   height: auto;
-  background-color: var(--flashy-beige);
+  background-color: var(--background);
   border-radius: 8px;
   padding: 20px;
   overflow: auto;
@@ -29,7 +29,7 @@
 
 .popup-cancel, .popup-confirm {
   padding: 5px 10px;
-  background-color: var(--flashy-yellow);
+  background-color: var(--alternative-button);
   color: black;
 }
 

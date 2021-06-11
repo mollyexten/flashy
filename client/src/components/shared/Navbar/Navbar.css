@@ -1,6 +1,6 @@
 /* =============== GLOBAL NAVBAR STYLES =============== */
 nav {
-  background-color: var(--flashy-blue);
+  background-color: var(--header);
   position: fixed;
   width: 100%;
   top: 0;
@@ -19,7 +19,7 @@ a>.nav-header {
 }
 
 .nav-header:hover, .desktop-console>a:hover {
-  color: var(--flashy-purple);
+  color: var(--main-button);
 }
 
 .sign-out {
@@ -95,7 +95,7 @@ a>.nav-header {
 
 .desktop-nav > a,
 .desktop-nav > a:visited {
-  color: var(--flashy-yellow);
+  color: var(--alternative-button);
   text-decoration: none;
   font-size: 1.5em;
 }
@@ -125,7 +125,7 @@ a>.nav-header {
   }
 
   .sign-out {
-    background-color: var(--flashy-blue);
+    background-color: var(--header);
     color: black;
     font-size: 1.5em;
   }
